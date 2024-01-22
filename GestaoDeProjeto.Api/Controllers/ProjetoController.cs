@@ -1,4 +1,6 @@
-﻿using MediatR;
+﻿using GestaoDeProjeto.Aplicacao.Negocio;
+using GestaoDeProjeto.Dominio.Util;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GestaoDeProjeto.Api.Controllers
@@ -18,6 +20,16 @@ namespace GestaoDeProjeto.Api.Controllers
         {
             return "Ok";
         }
+
+        [HttpPost("Inserir"), ActionName("Inserir")]
+ 
+        public async Task<ResultadoOperacao<ProjetoIncluirResponse>> Inserir([FromBody] ProjetoIncluirRequest dadosEntrada)
+        {
+            var response = await _mediator.Send(dadosEntrada);
+            return response;
+        }
+
+
 
     }
 }

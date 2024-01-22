@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace GestaoDeProjeto.Aplicacao.Profile.Configuracao
+namespace GestaoDeProjeto.Aplicacao
 {
     public static class DependenciasProfile
     {

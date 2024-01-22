@@ -1,9 +1,9 @@
 using GestaoDeProjeto.Api.Configuracao;
-using Microsoft.Extensions.DependencyInjection;
-using MediatR;
+using GestaoDeProjeto.Aplicacao;
 using GestaoDeProjeto.Infra.Repositorio.Configuracao;
 using Microsoft.AspNetCore.Hosting;
-using GestaoDeProjeto.Aplicacao.Profile.Configuracao;
+using Microsoft.Extensions.DependencyInjection;
+using MediatR;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -26,8 +26,7 @@ builder.Services.AddHttpContextAccessor();
 builder.Services.AddControllers();
 //builder.Services.AddEndpointsApiExplorer(); //import ção do Swagge es e ações definidos na API.
 builder.Services.AddCors(); //permitir um domínio acessem recursos em outro domínio
-//builder.Services.AddMediatR(AppDomain.CurrentDomain.GetAssemblies()); //AppDomain.CurrentDomain.GetAssemblies()); //são responsáveis por processar comandos e consultas
-
+builder.Services.AddMediatR(AppDomain.CurrentDomain.GetAssemblies()); //são responsáveis por processar comandos e consultas 
 
 
 var app = builder.Build();
