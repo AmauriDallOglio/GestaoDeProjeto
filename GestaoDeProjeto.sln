@@ -3,18 +3,20 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34024.191
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestaoDeProjeto.Api", "GestaoDeProjeto.Api\GestaoDeProjeto.Api.csproj", "{074A5591-C3E3-452F-A871-0FC78EDDE6C6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GestaoDeProjeto.Api", "GestaoDeProjeto.Api\GestaoDeProjeto.Api.csproj", "{074A5591-C3E3-452F-A871-0FC78EDDE6C6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Camadas", "Camadas", "{9DF73E35-B8FE-4B28-B60C-C031029AE2B3}"
 	ProjectSection(SolutionItems) = preProject
 		Anotacao.cs = Anotacao.cs
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestaoDeProjeto.Aplicacao", "GestaoDeProjeto.Aplicacao\GestaoDeProjeto.Aplicacao.csproj", "{4121B599-9FD4-4ADD-B46E-7F926457BED7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GestaoDeProjeto.Aplicacao", "GestaoDeProjeto.Aplicacao\GestaoDeProjeto.Aplicacao.csproj", "{4121B599-9FD4-4ADD-B46E-7F926457BED7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestaoDeProjeto.Dominio", "GestaoDeProjeto.Dominio\GestaoDeProjeto.Dominio.csproj", "{62BE1D70-6BE6-4922-AF46-03A7830B5CB5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GestaoDeProjeto.Dominio", "GestaoDeProjeto.Dominio\GestaoDeProjeto.Dominio.csproj", "{62BE1D70-6BE6-4922-AF46-03A7830B5CB5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestaoDeProjeto.Infra", "GestaoDeProjeto.Infra\GestaoDeProjeto.Infra.csproj", "{2555971F-0F04-4230-A8D5-BF1810545B74}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GestaoDeProjeto.Infra", "GestaoDeProjeto.Infra\GestaoDeProjeto.Infra.csproj", "{2555971F-0F04-4230-A8D5-BF1810545B74}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestaoDeProjeto.Web", "GestaoDeProjeto.Web\GestaoDeProjeto.Web.csproj", "{71A036C6-CFC6-495A-8400-D9729BC1FE2C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -38,6 +40,10 @@ Global
 		{2555971F-0F04-4230-A8D5-BF1810545B74}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2555971F-0F04-4230-A8D5-BF1810545B74}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2555971F-0F04-4230-A8D5-BF1810545B74}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71A036C6-CFC6-495A-8400-D9729BC1FE2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71A036C6-CFC6-495A-8400-D9729BC1FE2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71A036C6-CFC6-495A-8400-D9729BC1FE2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71A036C6-CFC6-495A-8400-D9729BC1FE2C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

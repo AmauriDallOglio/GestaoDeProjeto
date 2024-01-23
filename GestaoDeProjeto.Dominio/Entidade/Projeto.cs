@@ -3,8 +3,8 @@
     public class Projeto
     {
         public int Id { get; set; }
-        public string NomeProjeto { get; set; }
-        public string Descricao { get; set; }
+        public string NomeProjeto { get; set; } = String.Empty;
+        public string Descricao { get; set; } = String.Empty;
         public DateTime DataInicio { get; set; }
         public DateTime? DataFim { get; set; }
         public short Status { get; set; }
