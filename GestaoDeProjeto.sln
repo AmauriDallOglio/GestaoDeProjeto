@@ -16,11 +16,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GestaoDeProjeto.Dominio", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GestaoDeProjeto.Infra", "GestaoDeProjeto.Infra\GestaoDeProjeto.Infra.csproj", "{2555971F-0F04-4230-A8D5-BF1810545B74}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestaoDeProjeto.Web.Server", "GestaoDeProjeto.Web\Server\GestaoDeProjeto.Web.Server.csproj", "{AF82292E-CB84-4B36-9264-15C56E95416A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GestaoDeProjeto.Web.Server", "GestaoDeProjeto.Web\Server\GestaoDeProjeto.Web.Server.csproj", "{AF82292E-CB84-4B36-9264-15C56E95416A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestaoDeProjeto.Web.Client", "GestaoDeProjeto.Web\Client\GestaoDeProjeto.Web.Client.csproj", "{FF15522A-BA95-4E62-A833-768C1CEAC34C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GestaoDeProjeto.Web.Client", "GestaoDeProjeto.Web\Client\GestaoDeProjeto.Web.Client.csproj", "{FF15522A-BA95-4E62-A833-768C1CEAC34C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestaoDeProjeto.Web.Shared", "GestaoDeProjeto.Web\Shared\GestaoDeProjeto.Web.Shared.csproj", "{4D0DEA5E-0F61-4C12-9618-789F05A12123}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GestaoDeProjeto.Web.Shared", "GestaoDeProjeto.Web\Shared\GestaoDeProjeto.Web.Shared.csproj", "{4D0DEA5E-0F61-4C12-9618-789F05A12123}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GestaoDeProjeto.Web", "GestaoDeProjeto.Web", "{6B184F41-EA98-4348-9BDF-33049D970B35}"
 EndProject

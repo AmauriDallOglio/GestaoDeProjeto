@@ -5,9 +5,10 @@ private static class Class1
 	static Class1()
 	{
 
-        //21/01/2023
+
 
         /*
+         *     //21/01/2023
             Criação do projeto "GestaoDeProjeto"
             Criação do projeto "GestaoDeProjeto.Api"
             Criação da camada "GestaoDeProjeto.Dominio"
@@ -31,12 +32,15 @@ private static class Class1
                     Criação da classe controller
 
 
-
+        //25/01/2023
+        Criação do projeto web aplicatico blazor webassembly
 
 
 
 
         */
+
+
 
     }
 }

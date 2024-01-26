@@ -22,13 +22,22 @@ namespace GestaoDeProjeto.Api.Controllers
         }
 
         [HttpPost("Inserir"), ActionName("Inserir")]
- 
         public async Task<ResultadoOperacao<ProjetoIncluirResponse>> Inserir([FromBody] ProjetoIncluirRequest dadosEntrada)
         {
             var response = await _mediator.Send(dadosEntrada);
             return response;
         }
 
+        [HttpGet("ObterTodos"), ActionName("ObterTodos")]
+        public async Task<ActionResult<IEnumerable<ProjetoObterTodosResponse>>> ObterTodos([FromQuery] ProjetoObterTodosRequest dadosEntrada)
+        {
+            RetornoPaginadoGenerico<ProjetoObterTodosResponse> resultado = await _mediator.Send(dadosEntrada);
+            var lista = resultado.Modelos.ToList();
+            return Ok(lista);
+        }
+
+
+ 
 
 
     }

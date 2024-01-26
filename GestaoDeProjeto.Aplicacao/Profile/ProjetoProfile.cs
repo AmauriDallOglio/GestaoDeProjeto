@@ -10,6 +10,11 @@ namespace GestaoDeProjeto.Aplicacao
         {
             CreateMap<Projeto, ProjetoIncluirRequest>().ReverseMap();
             CreateMap<Projeto, ProjetoIncluirResponse>().ReverseMap();
+
+            CreateMap<Projeto, ProjetoObterTodosRequest>().ReverseMap();
+            CreateMap<Projeto, ProjetoObterTodosResponse>().ReverseMap();
+
+
         }
     }
 }
