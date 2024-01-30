@@ -28,6 +28,17 @@ namespace GestaoDeProjeto.Api.Controllers
             return response;
         }
 
+
+        [HttpPost("Alterar"), ActionName("Alterar")]
+        public async Task<ResultadoOperacao<ProjetoAlterarResponse>> Alterar([FromBody] ProjetoAlterarRequest dadosEntrada)
+        {
+            var response = await _mediator.Send(dadosEntrada);
+            return response;
+        }
+
+
+
+
         [HttpGet("ObterTodos"), ActionName("ObterTodos")]
         public async Task<ActionResult<IEnumerable<ProjetoObterTodosResponse>>> ObterTodos([FromQuery] ProjetoObterTodosRequest dadosEntrada)
         {

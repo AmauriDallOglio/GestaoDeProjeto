@@ -1,12 +1,28 @@
-﻿namespace GestaoDeProjeto.Dominio.Entidade
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
+
+namespace GestaoDeProjeto.Dominio.Entidade
 {
     public class Projeto
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public string NomeProjeto { get; set; } = String.Empty;
-        public string Descricao { get; set; } = String.Empty;
+
+        [Required]
+        [MaxLength(100)]
+        public string NomeProjeto { get; set; } = string.Empty;
+
+        [Required]
+        [MaxLength]
+        public string Descricao { get; set; } = string.Empty;
+
+        [Required]
         public DateTime DataInicio { get; set; }
+
         public DateTime? DataFim { get; set; }
+
+        [Required]
         public short Status { get; set; }
     }
 

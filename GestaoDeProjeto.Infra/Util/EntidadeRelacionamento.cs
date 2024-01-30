@@ -1,21 +1,17 @@
-﻿namespace GestaoDeProjeto.Infra.Modelo
+﻿using System.Security.Principal;
+
+namespace GestaoDeProjeto.Infra.Modelo
 {
     internal static class EntidadeRelacionamento
     {
-
-        //Projetos:
-        //A tabela Projetos tem uma chave primária ProjetoID.
-        //Relacionamento: Um projeto pode ter várias tarefas (Tarefas).
         //CREATE TABLE Projeto(
-            //Id INT PRIMARY KEY NOT NULL,
-            //NomeProjeto VARCHAR(100) NOT NULL,
-            //Descricao VARCHAR(max) NOT NULL,
-            //DataInicio DATE NOT NULL,
-            //DataFim DATE NULL,
-            //Status smallint NOT NULL
-        //)
-        //CREATE UNIQUE INDEX IDX_Projeto_UQ  ON Projeto(Id)
-
+        //    Id INT PRIMARY KEY IDENTITY(1,1),
+        //    NomeProjeto VARCHAR(100) NOT NULL,
+        //    Descricao VARCHAR(max) NOT NULL,
+        //    DataInicio DATE NOT NULL,
+        //    DataFim DATE NULL,
+        //    Status SMALLINT NOT NULL
+        //);
 
 
 
