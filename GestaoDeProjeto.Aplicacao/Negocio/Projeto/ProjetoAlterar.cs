@@ -1,13 +1,7 @@
 ﻿using AutoMapper;
-using GestaoDeProjeto.Dominio.Entidade;
 using GestaoDeProjeto.Dominio.InterfaceRepositorio;
 using GestaoDeProjeto.Dominio.Util;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GestaoDeProjeto.Aplicacao.Negocio
 {
@@ -21,7 +15,7 @@ namespace GestaoDeProjeto.Aplicacao.Negocio
 
     }
 
-    public class ProjetoAlterarResponse : Projeto
+    public class ProjetoAlterarResponse
     {
         public int Id { get; set; }
     }

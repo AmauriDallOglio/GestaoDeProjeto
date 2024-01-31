@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using GestaoDeProjeto.Dominio.Entidade;
 using GestaoDeProjeto.Dominio.InterfaceRepositorio;
 using GestaoDeProjeto.Dominio.Util;
 using MediatR;
@@ -17,7 +16,7 @@ namespace GestaoDeProjeto.Aplicacao.Negocio
 
     }
 
-    public class ProjetoIncluirResponse : Projeto
+    public class ProjetoIncluirResponse
     {
         public int Id { get; set; }
     }

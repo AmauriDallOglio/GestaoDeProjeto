@@ -37,6 +37,12 @@ namespace GestaoDeProjeto.Api.Controllers
         }
 
 
+        [HttpPost("Excluir"), ActionName("Excluir")]
+        public async Task<ResultadoOperacao<ProjetoExcluirResponse>> Excluir([FromBody] ProjetoExcluirRequest dadosEntrada)
+        {
+            var response = await _mediator.Send(dadosEntrada);
+            return response;
+        }
 
 
         [HttpGet("ObterTodos"), ActionName("ObterTodos")]
