@@ -1,23 +1,25 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using GestaoDeProjeto.Dominio.Util;
 
 namespace GestaoDeProjeto.Dominio.Entidade
 {
-    public class Projeto
+    public class Projeto : AuditableEntity<Guid>, ITenantObrigatorio
     {
-        [Key]
+        public Guid Id_Tenant { get; set; }
+        //[Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
-        [Required]
-        [MaxLength(100)]
+        //[Required]
+        //[MaxLength(100)]
         public string NomeProjeto { get; set; } = string.Empty;
 
-        [Required]
-        [MaxLength]
+        //[Required]
+        //[MaxLength]
         public string Descricao { get; set; } = string.Empty;
 
-        [Required]
+        //[Required]
         public DateTime DataInicio { get; set; }
 
         public DateTime? DataFim { get; set; }

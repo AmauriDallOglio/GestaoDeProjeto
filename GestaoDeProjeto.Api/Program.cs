@@ -1,8 +1,6 @@
 using GestaoDeProjeto.Api.Configuracao;
 using GestaoDeProjeto.Aplicacao;
 using GestaoDeProjeto.Infra.Repositorio.Configuracao;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.DependencyInjection;
 using MediatR;
 
 var builder = WebApplication.CreateBuilder(args);

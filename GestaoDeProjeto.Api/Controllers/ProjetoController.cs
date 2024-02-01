@@ -29,7 +29,7 @@ namespace GestaoDeProjeto.Api.Controllers
         }
 
 
-        [HttpPost("Alterar"), ActionName("Alterar")]
+        [HttpPut("Alterar"), ActionName("Alterar")]
         public async Task<ResultadoOperacao<ProjetoAlterarResponse>> Alterar([FromBody] ProjetoAlterarRequest dadosEntrada)
         {
             var response = await _mediator.Send(dadosEntrada);
@@ -37,7 +37,7 @@ namespace GestaoDeProjeto.Api.Controllers
         }
 
 
-        [HttpPost("Excluir"), ActionName("Excluir")]
+        [HttpDelete("Excluir"), ActionName("Excluir")]
         public async Task<ResultadoOperacao<ProjetoExcluirResponse>> Excluir([FromBody] ProjetoExcluirRequest dadosEntrada)
         {
             var response = await _mediator.Send(dadosEntrada);
