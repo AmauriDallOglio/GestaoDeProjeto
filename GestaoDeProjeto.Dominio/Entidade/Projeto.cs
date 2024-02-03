@@ -4,9 +4,9 @@ using GestaoDeProjeto.Dominio.Util;
 
 namespace GestaoDeProjeto.Dominio.Entidade
 {
-    public class Projeto : AuditableEntity<Guid>, ITenantObrigatorio
+    public class Projeto //: AuditableEntity<Guid>, ITenantObrigatorio
     {
-        public Guid Id_Tenant { get; set; }
+        //public Guid Id_Tenant { get; set; }
         //[Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
@@ -24,7 +24,7 @@ namespace GestaoDeProjeto.Dominio.Entidade
 
         public DateTime? DataFim { get; set; }
 
-        [Required]
+        //[Required]
         public short Status { get; set; }
     }
 

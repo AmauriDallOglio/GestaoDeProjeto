@@ -50,7 +50,7 @@ namespace GestaoDeProjeto.Api.Controllers
         {
             RetornoPaginadoGenerico<ProjetoObterTodosResponse> resultado = await _mediator.Send(dadosEntrada);
             var lista = resultado.Modelos.ToList();
-            return Ok(lista);
+            return Ok(resultado);
         }
 
 

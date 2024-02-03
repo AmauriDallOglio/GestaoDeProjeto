@@ -1,8 +1,8 @@
 ﻿using System.Security.Principal;
 
-namespace GestaoDeProjeto.Infra.Modelo
+namespace GestaoDeProjeto.Infra.Contexto
 {
-    internal static class EntidadeRelacionamento
+    internal static class script
     {
         //CREATE TABLE Projeto(
         //    Id INT PRIMARY KEY IDENTITY(1,1),

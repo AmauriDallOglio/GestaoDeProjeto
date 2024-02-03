@@ -37,13 +37,15 @@ namespace GestaoDeProjeto.Aplicacao.Negocio
         public async Task<RetornoPaginadoGenerico<ProjetoObterTodosResponse>> Handle(ProjetoObterTodosRequest request, CancellationToken cancellationToken)
         {
 
-            var filtro = new ProjetoListarTodosFiltro(request);
-            var criterioWhere = filtro.CriterioWhere;
-            var criterioOrderBy = filtro.CriterioOrderBy;
-            var criterioInclude = filtro.Includes;
+            //var filtro = new ProjetoListarTodosFiltro(request);
+            //var criterioWhere = filtro.CriterioWhere;
+            //var criterioOrderBy = filtro.CriterioOrderBy;
+            //var criterioInclude = filtro.Includes;
 
 
-            var lista = _iProjetoRepositorio.ObterTodos();
+            //List<Projeto> lista = _iProjetoRepositorio.ObterTodos().ToList();
+
+            List<Projeto> lista = _iProjetoRepositorio.BuscarTodosPorDescricao(request.Descricao);
             var listaDto = _mapper.Map<List<ProjetoObterTodosResponse>>(lista);
             RetornoPaginadoGenerico<ProjetoObterTodosResponse> retornoPaginado = new RetornoPaginadoGenerico<ProjetoObterTodosResponse>
             {

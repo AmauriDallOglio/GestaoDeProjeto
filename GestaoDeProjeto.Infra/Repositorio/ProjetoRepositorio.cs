@@ -12,18 +12,18 @@ namespace GestaoDeProjeto.Infra.Repositorio
             _contexto = dbContext;
         }
 
-        //public List<Projeto> BuscarTodosPorDescricao(string descricao)
-        //{
-        //    var resultado = new List<Projeto>();
-        //    if (string.IsNullOrEmpty(descricao))
-        //    {
-        //        resultado = _contexto.Projeto.ToList();
-        //    }
-        //    else
-        //    {
-        //        resultado = _contexto.Projeto.Where(b => b.Descricao.Contains(descricao)).ToList();
-        //    }
-        //    return resultado;
-        //}
+        public List<Projeto> BuscarTodosPorDescricao(string descricao)
+        {
+            var resultado = new List<Projeto>();
+            if (string.IsNullOrEmpty(descricao))
+            {
+                resultado = _contexto.Projeto.ToList();
+            }
+            else
+            {
+                resultado = _contexto.Projeto.Where(b => b.Descricao.Contains(descricao)).ToList();
+            }
+            return resultado;
+        }
     }
 }

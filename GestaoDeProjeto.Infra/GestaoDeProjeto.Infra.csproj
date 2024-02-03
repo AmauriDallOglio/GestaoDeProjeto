@@ -14,4 +14,8 @@
     <ProjectReference Include="..\GestaoDeProjeto.Dominio\GestaoDeProjeto.Dominio.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Util\" />
+  </ItemGroup>
+
 </Project>
