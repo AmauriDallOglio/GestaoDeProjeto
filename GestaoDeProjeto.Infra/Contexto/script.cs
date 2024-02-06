@@ -4,6 +4,14 @@ namespace GestaoDeProjeto.Infra.Contexto
 {
     internal static class script
     {
+
+        //CREATE TABLE Empresa(
+        //    Id INT PRIMARY KEY IDENTITY(1,1),
+        //    Descricao VARCHAR(100) NOT NULL,
+        //    Status SMALLINT NOT NULL
+        //);
+
+
         //CREATE TABLE Projeto(
         //    Id INT PRIMARY KEY IDENTITY(1,1),
         //    NomeProjeto VARCHAR(100) NOT NULL,
