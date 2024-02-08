@@ -3,7 +3,7 @@ using GestaoDeProjeto.Dominio.InterfaceRepositorio;
 using GestaoDeProjeto.Dominio.Util;
 using MediatR;
 
-namespace GestaoDeProjeto.Aplicacao.Negocio
+namespace GestaoDeProjeto.Aplicacao.Command
 {
     public class ProjetoExcluirRequest : IRequest<ResultadoOperacao<ProjetoExcluirResponse>>
     {

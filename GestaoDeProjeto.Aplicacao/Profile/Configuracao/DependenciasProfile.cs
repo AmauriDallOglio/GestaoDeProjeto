@@ -17,8 +17,8 @@ namespace GestaoDeProjeto.Aplicacao
 
         public static void Injetar(IMapperConfigurationExpression cfg)
         {
+            cfg.AddProfile<EmpresaProfile>();
             cfg.AddProfile<ProjetoProfile>();
-
         }
     }
 }

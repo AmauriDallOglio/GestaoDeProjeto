@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using GestaoDeProjeto.Dominio.Entidade;
 using GestaoDeProjeto.Dominio.InterfaceRepositorio;
 using GestaoDeProjeto.Dominio.Util;
 using MediatR;
@@ -8,14 +9,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GestaoDeProjeto.Aplicacao.Negocio
+namespace GestaoDeProjeto.Aplicacao.Command
 {
     public class EmpresaIncluirRequest : IRequest<ResultadoOperacao<EmpresaIncluirResponse>>
     {
-        public string NomeProjeto { get; set; }
         public string Descricao { get; set; }
-        public DateTime DataInicio { get; set; }
-        public DateTime? DataFim { get; set; }
         public short Status { get; set; }
 
     }
@@ -28,13 +26,13 @@ namespace GestaoDeProjeto.Aplicacao.Negocio
 
     public class EmpresaIncluirHandler : IRequestHandler<EmpresaIncluirRequest, ResultadoOperacao<EmpresaIncluirResponse>>
     {
-        private readonly IProjetoRepositorio _iProjetoRepositorio;
+        private readonly IEmpresaRepositorio _iEmpresaRepositorio;
         private readonly IMapper _mapper;
         private readonly IMediator _mediator;
 
-        public EmpresaIncluirHandler(IMediator mediator, IMapper mapper, IProjetoRepositorio repository)
+        public EmpresaIncluirHandler(IMediator mediator, IMapper mapper, IEmpresaRepositorio repository)
         {
-            _iProjetoRepositorio = repository;
+            _iEmpresaRepositorio = repository;
             _mapper = mapper;
             _mediator = mediator;
         }
@@ -42,9 +40,9 @@ namespace GestaoDeProjeto.Aplicacao.Negocio
         public Task<ResultadoOperacao<EmpresaIncluirResponse>> Handle(EmpresaIncluirRequest request, CancellationToken cancellationToken)
         {
 
-            var entidade = _mapper.Map<Dominio.Entidade.Empresa>(request);
+            Empresa entidade = _mapper.Map<Empresa>(request);
 
-            var entidadeBD = _iProjetoRepositorio.Inserir(entidade, true);
+            var entidadeBD = _iEmpresaRepositorio.Inserir(entidade, true);
             var dto = _mapper.Map<EmpresaIncluirResponse>(entidadeBD);
 
             var respostas = new EmpresaIncluirResponse

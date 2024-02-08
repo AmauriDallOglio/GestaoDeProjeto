@@ -12,7 +12,7 @@ namespace GestaoDeProjeto.Infra.Repositorio.Configuracao
 
         public static IServiceCollection AddInterfaceRepositorio(this IServiceCollection services)
         {
-
+            services.AddTransient<IEmpresaRepositorio, EmpresaRepositorio>();
             services.AddTransient<IProjetoRepositorio, ProjetoRepositorio>();
             services.AddScoped<IProjetoRepositorio, ProjetoRepositorio>();
  

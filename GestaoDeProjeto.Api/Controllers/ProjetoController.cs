@@ -1,4 +1,4 @@
-﻿using GestaoDeProjeto.Aplicacao.Negocio;
+﻿using GestaoDeProjeto.Aplicacao.Command;
 using GestaoDeProjeto.Dominio.Util;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -22,33 +22,33 @@ namespace GestaoDeProjeto.Api.Controllers
         }
 
         [HttpPost("Inserir"), ActionName("Inserir")]
-        public async Task<ResultadoOperacao<ProjetoIncluirResponse>> Inserir([FromBody] ProjetoIncluirRequest dadosEntrada)
+        public async Task<ResultadoOperacao<ProjetoIncluirResponse>> Inserir([FromBody] ProjetoIncluirRequest request)
         {
-            var response = await _mediator.Send(dadosEntrada);
+            var response = await _mediator.Send(request);
             return response;
         }
 
 
         [HttpPut("Alterar"), ActionName("Alterar")]
-        public async Task<ResultadoOperacao<ProjetoAlterarResponse>> Alterar([FromBody] ProjetoAlterarRequest dadosEntrada)
+        public async Task<ResultadoOperacao<ProjetoAlterarResponse>> Alterar([FromBody] ProjetoAlterarRequest request)
         {
-            var response = await _mediator.Send(dadosEntrada);
+            var response = await _mediator.Send(request);
             return response;
         }
 
 
         [HttpDelete("Excluir"), ActionName("Excluir")]
-        public async Task<ResultadoOperacao<ProjetoExcluirResponse>> Excluir([FromBody] ProjetoExcluirRequest dadosEntrada)
+        public async Task<ResultadoOperacao<ProjetoExcluirResponse>> Excluir([FromBody] ProjetoExcluirRequest request)
         {
-            var response = await _mediator.Send(dadosEntrada);
+            var response = await _mediator.Send(request);
             return response;
         }
 
 
         [HttpGet("ObterTodos"), ActionName("ObterTodos")]
-        public async Task<ActionResult<IEnumerable<ProjetoObterTodosResponse>>> ObterTodos([FromQuery] ProjetoObterTodosRequest dadosEntrada)
+        public async Task<ActionResult<IEnumerable<ProjetoObterTodosResponse>>> ObterTodos([FromQuery] ProjetoObterTodosRequest request)
         {
-            RetornoPaginadoGenerico<ProjetoObterTodosResponse> resultado = await _mediator.Send(dadosEntrada);
+            RetornoPaginadoGenerico<ProjetoObterTodosResponse> resultado = await _mediator.Send(request);
             var lista = resultado.Modelos.ToList();
             return Ok(resultado);
         }

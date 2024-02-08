@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using GestaoDeProjeto.Aplicacao.Negocio;
+using GestaoDeProjeto.Aplicacao.Command;
 using GestaoDeProjeto.Dominio.Entidade;
 
 namespace GestaoDeProjeto.Aplicacao

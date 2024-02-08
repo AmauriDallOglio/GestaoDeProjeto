@@ -5,7 +5,7 @@ using GestaoDeProjeto.Dominio.Util;
 using MediatR;
 using System.ComponentModel.DataAnnotations;
 
-namespace GestaoDeProjeto.Aplicacao.Negocio
+namespace GestaoDeProjeto.Aplicacao.Command
 {
     public class ProjetoObterTodosRequest : IRequest<RetornoPaginadoGenerico<ProjetoObterTodosResponse>>
     {

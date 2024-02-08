@@ -3,10 +3,11 @@ using GestaoDeProjeto.Dominio.InterfaceRepositorio;
 using GestaoDeProjeto.Dominio.Util;
 using MediatR;
 
-namespace GestaoDeProjeto.Aplicacao.Negocio
+namespace GestaoDeProjeto.Aplicacao.Command
 {
-    public class ProjetoAlterarRequest : IRequest<ResultadoOperacao<ProjetoAlterarResponse>>
+    public class ProjetoIncluirRequest : IRequest<ResultadoOperacao<ProjetoIncluirResponse>>
     {
+
         public string NomeProjeto { get; set; }
         public string Descricao { get; set; }
         public DateTime DataInicio { get; set; }
@@ -15,41 +16,39 @@ namespace GestaoDeProjeto.Aplicacao.Negocio
 
     }
 
-    public class ProjetoAlterarResponse
+    public class ProjetoIncluirResponse
     {
         public int Id { get; set; }
     }
 
 
-
-    public class ProjetoAlterarHandler : IRequestHandler<ProjetoAlterarRequest, ResultadoOperacao<ProjetoAlterarResponse>>
+    public class ProjetoIncluirHandler : IRequestHandler<ProjetoIncluirRequest, ResultadoOperacao<ProjetoIncluirResponse>>
     {
         private readonly IProjetoRepositorio _iProjetoRepositorio;
         private readonly IMapper _mapper;
         private readonly IMediator _mediator;
 
-        public ProjetoAlterarHandler(IMediator mediator, IMapper mapper, IProjetoRepositorio repository)
+        public ProjetoIncluirHandler(IMediator mediator, IMapper mapper, IProjetoRepositorio repository)
         {
             _iProjetoRepositorio = repository;
             _mapper = mapper;
             _mediator = mediator;
         }
 
-        public Task<ResultadoOperacao<ProjetoAlterarResponse>> Handle(ProjetoAlterarRequest request, CancellationToken cancellationToken)
+        public Task<ResultadoOperacao<ProjetoIncluirResponse>> Handle(ProjetoIncluirRequest request, CancellationToken cancellationToken)
         {
 
             var entidade = _mapper.Map<Dominio.Entidade.Projeto>(request);
 
-            var entidadeBD = _iProjetoRepositorio.Alterar(entidade, true);
-            var dto = _mapper.Map<ProjetoAlterarResponse>(entidadeBD);
+            var entidadeBD = _iProjetoRepositorio.Inserir(entidade, true);
+            var dto = _mapper.Map<ProjetoIncluirResponse>(entidadeBD);
 
-            var respostas = new ProjetoAlterarResponse
+            var respostas = new ProjetoIncluirResponse
             {
                 Id = dto.Id
             };
-            Task<ResultadoOperacao<ProjetoAlterarResponse>> sucesso = ResultadoOperacao<ProjetoAlterarResponse>.RetornaSuccessoAsync(respostas, "Sucesso");
+            Task<ResultadoOperacao<ProjetoIncluirResponse>> sucesso = ResultadoOperacao<ProjetoIncluirResponse>.RetornaSuccessoAsync(respostas, "Sucesso");
             return sucesso;
         }
     }
-
 }
