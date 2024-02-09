@@ -16,7 +16,7 @@ namespace GestaoDeProjeto.Infra.Contexto
         }
 
         public DbSet<Projeto> Projeto { get; set; }
-        // public DbSet<Empresa> Empresas { get; set; }
+        public DbSet<Empresa> Empresa { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
