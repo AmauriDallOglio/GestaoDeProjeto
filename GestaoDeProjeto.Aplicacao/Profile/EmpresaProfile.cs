@@ -9,6 +9,9 @@ namespace GestaoDeProjeto.Aplicacao
         public EmpresaProfile() {
             CreateMap<Empresa, EmpresaIncluirRequest>().ReverseMap();
             CreateMap<Empresa, EmpresaIncluirResponse>().ReverseMap();
+
+            CreateMap<Empresa, EmpresaObterTodosRequest>().ReverseMap();
+            CreateMap<Empresa, EmpresaObterTodosResponse>().ReverseMap();
         }
     }
 }

@@ -12,6 +12,10 @@ namespace GestaoDeProjeto.Infra.Repositorio
             _contexto = dbContext;
         }
 
-
+        List<Empresa> IEmpresaRepositorio.BuscarTodos()
+        {
+            List<Empresa> lista = _contexto.Empresa.ToList();
+            return lista;
+        }
     }
 }

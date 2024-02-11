@@ -14,6 +14,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\GestaoDeProjeto.Aplicacao\GestaoDeProjeto.Aplicacao.csproj" />
+    <ProjectReference Include="..\GestaoDeProjeto.Globalizacao\GestaoDeProjeto.Globalizacao.csproj" />
     <ProjectReference Include="..\GestaoDeProjeto.Infra\GestaoDeProjeto.Infra.csproj" />
   </ItemGroup>
 
