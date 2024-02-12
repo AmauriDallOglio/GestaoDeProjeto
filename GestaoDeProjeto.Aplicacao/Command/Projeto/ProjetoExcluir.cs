@@ -41,7 +41,7 @@ namespace GestaoDeProjeto.Aplicacao.Command
             {
                 Id = dto.Id
             };
-            Task<ResultadoOperacao<ProjetoExcluirResponse>> sucesso = ResultadoOperacao<ProjetoExcluirResponse>.RetornaSuccessoAsync(respostas, "Sucesso");
+            Task<ResultadoOperacao<ProjetoExcluirResponse>> sucesso = ResultadoOperacao<ProjetoExcluirResponse>.RetornaSuccessoAsync(respostas, "Projeto", "Sucesso");
             return sucesso;
         }
     }

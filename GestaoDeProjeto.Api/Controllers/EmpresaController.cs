@@ -22,10 +22,27 @@ namespace GestaoDeProjeto.Api.Controllers
         }
 
         [HttpPost("Inserir"), ActionName("Inserir")]
-        public async Task<ResultadoOperacao<EmpresaIncluirResponse>> Inserir([FromBody] EmpresaIncluirRequest request)
+        public async Task<IActionResult> Inserir([FromBody] EmpresaIncluirRequest request)
         {
-            var response = await _mediator.Send(request);
-            return response;
+            if (ModelState.IsValid)
+            {
+                var response = await _mediator.Send(request);
+
+                if (response.Sucesso)
+                {
+                    return Ok(response);
+                }
+                else
+                {
+                    // Se houver erros no resultado da operação, retorne uma resposta BadRequest
+                    return BadRequest(new { Mensagem = response.Mensagem });
+                }
+            }
+            else
+            {
+                // Se o modelo não for válido, retorne as mensagens de erro de validação
+                return BadRequest(ModelState);
+            }
         }
 
 

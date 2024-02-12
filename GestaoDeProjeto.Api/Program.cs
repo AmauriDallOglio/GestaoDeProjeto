@@ -1,5 +1,6 @@
 using GestaoDeProjeto.Api.Configuracao;
 using GestaoDeProjeto.Aplicacao;
+using GestaoDeProjeto.Aplicacao.Validator.Configuracao;
 using GestaoDeProjeto.Infra.Repositorio.Configuracao;
 using MediatR;
 
@@ -16,6 +17,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+
+builder.Services.DependenciasDoValidator();
 builder.Services.DependenciasDoEntity();
 builder.Services.ConfigureAutoMapperProfile();
 builder.Services.AddHttpContextAccessor();

@@ -42,13 +42,15 @@ namespace GestaoDeProjeto.Aplicacao.Command
             //List<Projeto> lista = _iProjetoRepositorio.ObterTodos().ToList();
 
             List<Empresa> lista = _IEmpresaRepositorio.BuscarTodos();
-            var listaDto = _mapper.Map<List<EmpresaObterTodosResponse>>(lista);
+
+            List<EmpresaObterTodosResponse> listaResponse = _mapper.Map<List<EmpresaObterTodosResponse>>(lista);
+
             RetornoPaginadoGenerico<EmpresaObterTodosResponse> retornoPaginado = new RetornoPaginadoGenerico<EmpresaObterTodosResponse>
             {
-                Modelos = listaDto,
+                Modelos = listaResponse,
                 ItemPorPagina = 1,
                 Pagina = 10,
-                TotalRegistros = listaDto.Count()
+                TotalRegistros = listaResponse.Count()
             };
             return await Task.FromResult(retornoPaginado);
         }

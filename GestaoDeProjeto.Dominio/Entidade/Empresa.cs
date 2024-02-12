@@ -27,5 +27,11 @@ namespace GestaoDeProjeto.Dominio.Entidade
         
         public List<Squad> Squads { get; set; }
 
+        public Empresa DadosDoIncluir()
+        {
+            DataCadastro = DateTime.Now;
+            Inativo = false;
+            return this;
+        }
     }
 }
