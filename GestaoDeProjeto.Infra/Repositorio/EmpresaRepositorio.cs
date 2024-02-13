@@ -1,6 +1,7 @@
 ﻿using GestaoDeProjeto.Dominio.Entidade;
 using GestaoDeProjeto.Dominio.InterfaceRepositorio;
 using GestaoDeProjeto.Infra.Contexto;
+using GestaoDeProjeto.Infra.Util;
 
 namespace GestaoDeProjeto.Infra.Repositorio
 {

@@ -34,12 +34,13 @@ namespace GestaoDeProjeto.Aplicacao.Command
 
             var entidade = _mapper.Map<Dominio.Entidade.Projeto>(request);
 
-            var entidadeBD = _iProjetoRepositorio.Alterar(entidade, true);
-            var dto = _mapper.Map<ProjetoExcluirResponse>(entidadeBD);
+            var entidadeBD = _iProjetoRepositorio.ExcluirEmpresaEProjetos(entidade.Id);
+
+            //var dto = _mapper.Map<ProjetoExcluirResponse>(entidadeBD);
 
             var respostas = new ProjetoExcluirResponse
             {
-                Id = dto.Id
+                Id = entidade.Id
             };
             Task<ResultadoOperacao<ProjetoExcluirResponse>> sucesso = ResultadoOperacao<ProjetoExcluirResponse>.RetornaSuccessoAsync(respostas, "Projeto", "Sucesso");
             return sucesso;

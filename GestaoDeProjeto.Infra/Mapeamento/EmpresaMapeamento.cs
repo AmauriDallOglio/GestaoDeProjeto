@@ -26,6 +26,9 @@ namespace GestaoDeProjeto.Infra.Mapeamento
             builder.Property(e => e.Estado).HasColumnName("Estado").HasColumnType("CHAR(2)");
             builder.Property(e => e.Inativo).HasColumnName("Inativo").HasColumnType("BIT").HasDefaultValue(false).IsRequired();
 
+            //builder.HasMany(e => e.Projetos).WithOne(p => p.Empresa).HasForeignKey(p => p.Id_Empresa).OnDelete(DeleteBehavior.Cascade);
+
+
         }
     }
 }

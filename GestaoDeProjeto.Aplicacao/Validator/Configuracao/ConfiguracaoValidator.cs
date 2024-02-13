@@ -52,7 +52,7 @@ namespace GestaoDeProjeto.Aplicacao.Validator.Configuracao
             resultadoOperacao.NomeObjeto = ObterNomeObjeto(context);
 
 
-            var result = new BadRequestObjectResult(resultadoOperacao);
+            BadRequestObjectResult result = new BadRequestObjectResult(resultadoOperacao);
 
             return result;
         }
@@ -68,7 +68,7 @@ namespace GestaoDeProjeto.Aplicacao.Validator.Configuracao
             return nome;
         }
 
-        static string GetErrorMessage(ModelError error)
+        private static string GetErrorMessage(ModelError error)
         {
             return error.ErrorMessage;
         }

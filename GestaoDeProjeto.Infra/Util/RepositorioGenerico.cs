@@ -3,7 +3,7 @@ using GestaoDeProjeto.Infra.Contexto;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 
-namespace GestaoDeProjeto.Infra.Repositorio
+namespace GestaoDeProjeto.Infra.Util
 {
     public class RepositorioGenerico<TEntity> : IRepositorioGenerico<TEntity> where TEntity : class
     {
@@ -19,7 +19,7 @@ namespace GestaoDeProjeto.Infra.Repositorio
         public TEntity Inserir(TEntity entidade, bool finalizar)
         {
             _dbContext.Set<TEntity>().Add(entidade);
-            //   _dbContext.MetodoInserir();
+            _dbContext.MetodoInserir();
             if (finalizar)
             {
                 Comitar();

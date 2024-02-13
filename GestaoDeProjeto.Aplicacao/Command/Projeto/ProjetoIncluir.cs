@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using GestaoDeProjeto.Dominio.Entidade;
 using GestaoDeProjeto.Dominio.InterfaceRepositorio;
 using GestaoDeProjeto.Dominio.Util;
 using MediatR;
@@ -38,16 +39,14 @@ namespace GestaoDeProjeto.Aplicacao.Command
         public Task<ResultadoOperacao<ProjetoIncluirResponse>> Handle(ProjetoIncluirRequest request, CancellationToken cancellationToken)
         {
 
-            var entidade = _mapper.Map<Dominio.Entidade.Projeto>(request);
+            Projeto entidade = _mapper.Map<Projeto>(request);
 
-            var entidadeBD = _iProjetoRepositorio.Inserir(entidade, true);
-            var dto = _mapper.Map<ProjetoIncluirResponse>(entidadeBD);
+            entidade = _iProjetoRepositorio.Inserir(entidade, true);
 
-            var respostas = new ProjetoIncluirResponse
-            {
-                Id = dto.Id
-            };
-            Task<ResultadoOperacao<ProjetoIncluirResponse>> sucesso = ResultadoOperacao<ProjetoIncluirResponse>.RetornaSuccessoAsync(respostas, "Projeto", "Sucesso");
+            ProjetoIncluirResponse response = _mapper.Map<ProjetoIncluirResponse>(entidade);
+
+
+            Task<ResultadoOperacao<ProjetoIncluirResponse>> sucesso = ResultadoOperacao<ProjetoIncluirResponse>.RetornaSuccessoAsync(response, "Projeto", "Sucesso");
             return sucesso;
         }
     }

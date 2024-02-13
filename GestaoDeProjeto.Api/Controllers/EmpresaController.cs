@@ -47,7 +47,7 @@ namespace GestaoDeProjeto.Api.Controllers
 
 
         [HttpGet("ObterTodos"), ActionName("ObterTodos")]
-        public async Task<ActionResult<IEnumerable<EmpresaObterTodosResponse>>> ObterTodos([FromQuery] EmpresaObterTodosRequest request)
+        public async Task<IActionResult> ObterTodos([FromQuery] EmpresaObterTodosRequest request)
         {
             RetornoPaginadoGenerico<EmpresaObterTodosResponse> resultado = await _mediator.Send(request);
             var lista = resultado.Modelos.ToList();
