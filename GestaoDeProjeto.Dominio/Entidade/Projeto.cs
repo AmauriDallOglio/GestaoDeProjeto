@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
-using GestaoDeProjeto.Dominio.Util;
+﻿using GestaoDeProjeto.Dominio.Util;
 
 namespace GestaoDeProjeto.Dominio.Entidade
 {
@@ -11,18 +9,11 @@ namespace GestaoDeProjeto.Dominio.Entidade
         //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public int Id_Empresa { get; set; }
-        //public Empresa Empresa { get; set; }
-
+        public Empresa Empresa { get; set; }
         public string NomeProjeto { get; set; } = string.Empty;
-
         public string Descricao { get; set; } = string.Empty;
-
- 
         public DateTime DataInicio { get; set; }
-
         public DateTime? DataFim { get; set; }
-
-
         public short Situacao { get; set; }
     }
 

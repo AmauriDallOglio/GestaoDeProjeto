@@ -3,7 +3,6 @@ using GestaoDeProjeto.Dominio.Entidade;
 using GestaoDeProjeto.Dominio.InterfaceRepositorio;
 using GestaoDeProjeto.Dominio.Util;
 using MediatR;
-using System.ComponentModel.DataAnnotations;
 
 namespace GestaoDeProjeto.Aplicacao.Command
 {
@@ -46,13 +45,13 @@ namespace GestaoDeProjeto.Aplicacao.Command
             //List<Projeto> lista = _iProjetoRepositorio.ObterTodos().ToList();
 
             List<Projeto> lista = _iProjetoRepositorio.BuscarTodosPorDescricao(request.Descricao);
-            var listaDto = _mapper.Map<List<ProjetoObterTodosResponse>>(lista);
+            List<ProjetoObterTodosResponse> response = _mapper.Map<List<ProjetoObterTodosResponse>>(lista);
             RetornoPaginadoGenerico<ProjetoObterTodosResponse> retornoPaginado = new RetornoPaginadoGenerico<ProjetoObterTodosResponse>
             {
-                Modelos = listaDto,
+                Modelos = response,
                 ItemPorPagina = 1,
                 Pagina = 10,
-                TotalRegistros = listaDto.Count()
+                TotalRegistros = response.Count()
             };
             return await Task.FromResult(retornoPaginado);
         }

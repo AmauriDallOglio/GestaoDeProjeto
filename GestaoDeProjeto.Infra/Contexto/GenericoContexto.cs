@@ -1,5 +1,6 @@
 ﻿using GestaoDeProjeto.Dominio.Entidade;
 using GestaoDeProjeto.Dominio.Util;
+using GestaoDeProjeto.Infra.Mapeamento;
 using GestaoDeProjeto.Infra.Mapeamento.Configuracao;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
@@ -29,6 +30,8 @@ namespace GestaoDeProjeto.Infra.Contexto
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             ConfiguracaoMapeamento.Injetar(modelBuilder);
+     
+
             base.OnModelCreating(modelBuilder);
         }
 

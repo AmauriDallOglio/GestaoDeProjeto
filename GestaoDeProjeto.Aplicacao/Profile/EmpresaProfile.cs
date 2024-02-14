@@ -6,7 +6,8 @@ namespace GestaoDeProjeto.Aplicacao
 {
     public class EmpresaProfile : Profile
     {
-        public EmpresaProfile() {
+        public EmpresaProfile() 
+        {
             CreateMap<Empresa, EmpresaIncluirRequest>().ReverseMap();
             CreateMap<Empresa, EmpresaIncluirResponse>().ReverseMap();
 

@@ -2,6 +2,7 @@
 using GestaoDeProjeto.Dominio.InterfaceRepositorio;
 using GestaoDeProjeto.Infra.Contexto;
 using GestaoDeProjeto.Infra.Util;
+using Microsoft.EntityFrameworkCore;
 
 namespace GestaoDeProjeto.Infra.Repositorio
 {
@@ -15,7 +16,10 @@ namespace GestaoDeProjeto.Infra.Repositorio
 
         List<Empresa> IEmpresaRepositorio.BuscarTodos()
         {
-            List<Empresa> lista = _contexto.Empresa.ToList();
+            List<Empresa> lista = _contexto.Empresa.Include(e => e.Projetos).ToList();
+ 
+   
+
             return lista;
         }
     }

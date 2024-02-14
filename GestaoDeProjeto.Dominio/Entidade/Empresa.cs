@@ -24,10 +24,11 @@ namespace GestaoDeProjeto.Dominio.Entidade
         public string Estado { get; set; }
         public bool Inativo { get; set; }
 
-        
+
         //public List<Squad> Squads { get; set; }
 
-        //public List<Projeto> Projetos { get; set; }
+     
+        public virtual List<Projeto> Projetos { get; set; }
 
         public Empresa DadosDoIncluir()
         {
