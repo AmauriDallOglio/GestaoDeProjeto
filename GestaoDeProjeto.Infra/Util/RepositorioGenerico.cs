@@ -65,8 +65,13 @@ namespace GestaoDeProjeto.Infra.Util
                                                                 bool noTracking = false,
                                                                 int? take = null,
                                                                 int? skip = null,
-                                                                CancellationToken cancellationToken = default) =>
-                                                                    await ObterTodos(filter, orderBy, noTracking, take, skip).ToListAsync(cancellationToken).ConfigureAwait(false);
+                                                                CancellationToken cancellationToken = default)
+        
+        {
+            var consulta = await ObterTodos(filter, orderBy, noTracking, take, skip).ToListAsync(cancellationToken).ConfigureAwait(false);
+            return consulta;
+        }
+                                                                  
 
         public IQueryable<TEntity> ObterTodos(Expression<Func<TEntity, bool>> filter = null, Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null, bool noTracking = false, int? take = null, int? skip = null)
         {

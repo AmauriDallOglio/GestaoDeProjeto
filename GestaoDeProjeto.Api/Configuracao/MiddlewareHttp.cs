@@ -1,11 +1,8 @@
 ﻿using GestaoDeProjeto.Api.Util;
 using GestaoDeProjeto.Dominio.Util;
-using GestaoDeProjeto.Globalizacao;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
-using System.Globalization;
-using System.Linq.Expressions;
 using System.Text.Json;
 
 namespace GestaoDeProjeto.Api.Configuracao

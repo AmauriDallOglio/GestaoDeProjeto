@@ -3,6 +3,7 @@ using GestaoDeProjeto.Aplicacao;
 using GestaoDeProjeto.Aplicacao.Validator.Configuracao;
 using GestaoDeProjeto.Infra.Repositorio.Configuracao;
 using MediatR;
+using System.Text.Json;
 using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -18,10 +19,15 @@ builder.Services.CarregaConexaoComBancoDeDados();
 builder.Services.AddControllers()
         .AddJsonOptions(options =>
         {
+            options.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
             options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
-    
+
+            options.JsonSerializerOptions.WriteIndented = true; // Opcional: para formatação mais legível
+
         });
 
+
+ 
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

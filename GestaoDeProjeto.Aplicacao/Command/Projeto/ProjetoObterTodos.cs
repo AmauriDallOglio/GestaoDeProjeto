@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using GestaoDeProjeto.Aplicacao.Negocio;
 using GestaoDeProjeto.Dominio.Entidade;
 using GestaoDeProjeto.Dominio.InterfaceRepositorio;
 using GestaoDeProjeto.Dominio.Util;
@@ -37,12 +38,12 @@ namespace GestaoDeProjeto.Aplicacao.Command
         {
 
             //var filtro = new ProjetoListarTodosFiltro(request);
-            //var criterioWhere = filtro.CriterioWhere;
-            //var criterioOrderBy = filtro.CriterioOrderBy;
-            //var criterioInclude = filtro.Includes;
+            //var where = filtro.CriterioWhere;
+            //var orderby = filtro.CriterioOrderBy;
+            //var include = filtro.Includes;
+ 
 
-
-            //List<Projeto> lista = _iProjetoRepositorio.ObterTodos().ToList();
+            //List<Projeto> lista = await _iProjetoRepositorio.ObterTodos(filtro, orderby, false, null, null);
 
             List<Projeto> lista = _iProjetoRepositorio.BuscarTodosPorDescricao(request.Descricao);
             List<ProjetoObterTodosResponse> response = _mapper.Map<List<ProjetoObterTodosResponse>>(lista);
