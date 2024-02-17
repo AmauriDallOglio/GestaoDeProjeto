@@ -1,7 +1,10 @@
 ﻿using GestaoDeProjeto.Aplicacao.Command;
+using GestaoDeProjeto.Dominio.Entidade;
 using GestaoDeProjeto.Dominio.Util;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace GestaoDeProjeto.Api.Controllers
 {
@@ -10,9 +13,11 @@ namespace GestaoDeProjeto.Api.Controllers
     public class EmpresaController : ControllerBase
     {
         private readonly IMediator _mediator;
+
         public EmpresaController(IMediator mediator)
         {
             _mediator = mediator;
+ 
         }
 
         [HttpGet("Conexao"), ActionName("Conexao")]
@@ -47,11 +52,9 @@ namespace GestaoDeProjeto.Api.Controllers
 
 
         [HttpGet("ObterTodos"), ActionName("ObterTodos")]
-        [Produces("application/json")]
         public async Task<IActionResult> ObterTodos([FromQuery] EmpresaObterTodosRequest request)
         {
             RetornoPaginadoGenerico<EmpresaObterTodosResponse> resultado = await _mediator.Send(request);
-            var lista = resultado.Modelos.ToList();
             return Ok(resultado);
         }
 

@@ -3,8 +3,7 @@ using GestaoDeProjeto.Aplicacao;
 using GestaoDeProjeto.Aplicacao.Validator.Configuracao;
 using GestaoDeProjeto.Infra.Repositorio.Configuracao;
 using MediatR;
-using System.Text.Json;
-using System.Text.Json.Serialization;
+using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,21 +12,37 @@ var configuration = new ConfigurationBuilder()
     .AddJsonFile("appsettings.Development.json")
     .Build();
 
+
 builder.Services.CarregaConexaoComBancoDeDados();
 
-//builder.Services.AddControllers();
-builder.Services.AddControllers()
-        .AddJsonOptions(options =>
+
+builder.Services.AddControllers().AddNewtonsoftJson(opt =>
+    opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+
+
+
+
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new OpenApiInfo
+    {
+        Version = "v1",
+        Title = "Projeto.API",
+        Description = "API CRUD para gestão de projetos",
+        TermsOfService = new Uri("https://example.com"),
+        Contact = new OpenApiContact
         {
-            options.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
-            options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
-
-            options.JsonSerializerOptions.WriteIndented = true; // Opcional: para formatação mais legível
-
-        });
-
-
- 
+            Name = "Amauri Dall'Oglio",
+            Email = "amauri@hotmail.com",
+            Url = new Uri("https://github.com/amauridalloglio"),
+        },
+        License = new OpenApiLicense
+        {
+            Name = "Informações de licença",
+            Url = new Uri("https://example.com/"),
+        }
+    });
+});
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -49,9 +64,17 @@ builder.Services.AddMediatR(AppDomain.CurrentDomain.GetAssemblies()); //são resp
 var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseDeveloperExceptionPage();
 }
+
+app.UseRouting();
+app.UseSwagger();
+app.UseSwaggerUI(); //https://localhost:7006/swagger/index.html
+
+////https://localhost:7006/swagger/v1/swagger.json
+
+
+
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();

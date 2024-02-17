@@ -27,10 +27,7 @@ namespace GestaoDeProjeto.Infra.Mapeamento
             builder.Property(e => e.Inativo).HasColumnName("Inativo").HasColumnType("BIT").HasDefaultValue(false).IsRequired();
 
             // Relacionamento com a tabela Projeto
-            builder.HasMany(e => e.Projetos)
-                .WithOne(p => p.Empresa)
-                .HasForeignKey(p => p.Id_Empresa)
-                .OnDelete(DeleteBehavior.Restrict);
+            builder.HasMany(e => e.ListaProjetos).WithOne(p => p.Empresa).HasForeignKey(p => p.Id_Empresa).OnDelete(DeleteBehavior.Restrict);
 
         }
     }

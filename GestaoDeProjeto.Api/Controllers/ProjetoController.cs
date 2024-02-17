@@ -46,7 +46,6 @@ namespace GestaoDeProjeto.Api.Controllers
 
 
         [HttpGet("ObterTodos"), ActionName("ObterTodos")]
-        [Produces("application/json")]
         public async Task<ActionResult<IEnumerable<ProjetoObterTodosResponse>>> ObterTodos([FromQuery] ProjetoObterTodosRequest request)
         {
             RetornoPaginadoGenerico<ProjetoObterTodosResponse> resultado = await _mediator.Send(request);

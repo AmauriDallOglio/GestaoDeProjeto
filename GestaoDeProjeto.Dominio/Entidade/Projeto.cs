@@ -4,10 +4,6 @@ namespace GestaoDeProjeto.Dominio.Entidade
 {
     public class Projeto : AuditableEntity<int>, IEmpresaObrigatorio
     {
-
-        //[Key]
-        //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
         public int Id_Empresa { get; set; }
         public Empresa Empresa { get; set; } = new Empresa();
         public string NomeProjeto { get; set; } = string.Empty;

@@ -18,11 +18,9 @@
         public string Estado { get; set; } = string.Empty;
         public bool Inativo { get; set; }
 
-
         //public List<Squad> Squads { get; set; }
 
-     
-        public virtual List<Projeto> Projetos { get; set; } = new List<Projeto>();
+        public virtual List<Projeto> ListaProjetos { get; set; } = new List<Projeto>();
 
         public Empresa DadosDoIncluir()
         {
