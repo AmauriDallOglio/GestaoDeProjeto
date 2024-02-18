@@ -2,7 +2,7 @@
 using GestaoDeProjeto.Aplicacao.Util;
 using GestaoDeProjeto.Dominio.Entidade;
 
-namespace GestaoDeProjeto.Aplicacao.Negocio
+namespace GestaoDeProjeto.Aplicacao.Command
 {
     public class ProjetoListarTodosFiltro : FiltroGenerico<Projeto>
     {

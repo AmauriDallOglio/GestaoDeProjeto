@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using GestaoDeProjeto.Aplicacao.Negocio;
 using GestaoDeProjeto.Dominio.Entidade;
 using GestaoDeProjeto.Dominio.InterfaceRepositorio;
 using GestaoDeProjeto.Dominio.Util;

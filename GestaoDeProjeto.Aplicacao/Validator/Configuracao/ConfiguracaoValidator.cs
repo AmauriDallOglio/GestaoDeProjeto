@@ -1,4 +1,6 @@
-﻿using FluentValidation.AspNetCore;
+﻿using FluentValidation;
+using FluentValidation.AspNetCore;
+using GestaoDeProjeto.Aplicacao.Command;
 using GestaoDeProjeto.Dominio.Util;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
@@ -27,7 +29,7 @@ namespace GestaoDeProjeto.Aplicacao.Validator.Configuracao
 
         private static IServiceCollection AdicionaInterfaceValidador(this IServiceCollection services)
         {
-            //services.AddScoped<IValidator<TenantInserirRequest>, TenantInserirValidator>();
+            services.AddScoped<IValidator<ProjetoIncluirRequest>, ProjetoIncluirValidator>();
 
             return services;
         }

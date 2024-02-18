@@ -45,7 +45,6 @@ namespace GestaoDeProjeto.Aplicacao.Command
 
             ProjetoIncluirResponse response = _mapper.Map<ProjetoIncluirResponse>(entidade);
 
-
             Task<ResultadoOperacao<ProjetoIncluirResponse>> sucesso = ResultadoOperacao<ProjetoIncluirResponse>.RetornaSuccessoAsync(response, "Projeto", "Sucesso");
             return sucesso;
         }
