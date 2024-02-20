@@ -1,6 +1,6 @@
 ﻿using System.Linq.Expressions;
 
-namespace GestaoDeProjeto.Dominio.InterfaceRepositorio
+namespace GestaoDeProjeto.Dominio.Util
 {
     public interface IRepositorioGenerico<TEntity> where TEntity : class
     {

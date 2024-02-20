@@ -1,4 +1,5 @@
 ﻿using GestaoDeProjeto.Dominio.Entidade;
+using GestaoDeProjeto.Dominio.Util;
 
 namespace GestaoDeProjeto.Dominio.InterfaceRepositorio
 {

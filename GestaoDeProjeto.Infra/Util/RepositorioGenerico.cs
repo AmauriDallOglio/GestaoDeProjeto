@@ -1,4 +1,4 @@
-﻿using GestaoDeProjeto.Dominio.InterfaceRepositorio;
+﻿using GestaoDeProjeto.Dominio.Util;
 using GestaoDeProjeto.Infra.Contexto;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;

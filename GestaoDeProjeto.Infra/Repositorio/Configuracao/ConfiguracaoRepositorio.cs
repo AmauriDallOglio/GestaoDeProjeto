@@ -15,7 +15,9 @@ namespace GestaoDeProjeto.Infra.Repositorio.Configuracao
             services.AddTransient<IEmpresaRepositorio, EmpresaRepositorio>();
             services.AddTransient<IProjetoRepositorio, ProjetoRepositorio>();
             services.AddScoped<IProjetoRepositorio, ProjetoRepositorio>();
- 
+
+            services.AddTransient<ISquadRepositorio, SquadRepositorio>();
+
             return services;
         }
     }

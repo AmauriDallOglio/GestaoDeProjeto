@@ -1,6 +1,5 @@
 ﻿using GestaoDeProjeto.Dominio.Entidade;
 using GestaoDeProjeto.Dominio.Util;
-using GestaoDeProjeto.Infra.Mapeamento;
 using GestaoDeProjeto.Infra.Mapeamento.Configuracao;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
@@ -20,7 +19,7 @@ namespace GestaoDeProjeto.Infra.Contexto
 
         public DbSet<Projeto> Projeto { get; set; }
         public DbSet<Empresa> Empresa { get; set; }
-
+        public DbSet<Squad> Squad { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

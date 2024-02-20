@@ -3,8 +3,8 @@ using GestaoDeProjeto.Dominio.Util;
 
 namespace GestaoDeProjeto.Dominio.InterfaceRepositorio
 {
-    public interface IEmpresaRepositorio : IRepositorioGenerico<Empresa>
+    public interface ISquadRepositorio : IRepositorioGenerico<Squad>
     {
-        List<Empresa> BuscarTodos();
+
     }
 }
