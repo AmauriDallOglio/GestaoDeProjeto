@@ -8,12 +8,11 @@ namespace GestaoDeProjeto.Aplicacao.Command
 {
     public class SquadIncluirRequest : IRequest<ResultadoOperacao<SquadIncluirResponse>>
     {
-
-        public string NomeProjeto { get; set; }
-        public string Descricao { get; set; }
-        public DateTime DataInicio { get; set; }
-        public DateTime? DataFim { get; set; }
-        public short Status { get; set; }
+        public int Id_Empresa { get; set; }
+        public string Descricao { get; set; } = string.Empty;
+        //public byte[]? ArrayImagem { get; set; }
+        //public string? UrlImagem { get; set; } = string.Empty;
+        public bool Inativo { get; set; }
 
     }
 
@@ -29,9 +28,9 @@ namespace GestaoDeProjeto.Aplicacao.Command
         private readonly IMapper _mapper;
         private readonly IMediator _mediator;
 
-        public SquadIncluirHandler(IMediator mediator, IMapper mapper, ISquadRepositorio repository)
+        public SquadIncluirHandler(IMediator mediator, IMapper mapper, ISquadRepositorio iSquadRepositorio)
         {
-            _iSquadRepositorio = repository;
+            _iSquadRepositorio = iSquadRepositorio;
             _mapper = mapper;
             _mediator = mediator;
         }

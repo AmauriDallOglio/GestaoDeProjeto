@@ -16,7 +16,7 @@ namespace GestaoDeProjeto.Infra.Repositorio
 
         List<Empresa> IEmpresaRepositorio.BuscarTodos()
         {
-            List<Empresa> lista = _contexto.Empresa.Include(e => e.ListaProjetos).ToList();
+            List<Empresa> lista = _contexto.Empresa.Include(a => a.ListaProjetos).Include(a => a.ListaSquad).ToList();
  
    
 

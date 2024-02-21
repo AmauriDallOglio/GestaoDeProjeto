@@ -34,8 +34,8 @@ namespace GestaoDeProjeto.Infra.Contexto
             Id INT PRIMARY KEY IDENTITY(1,1),
             Id_Empresa INT NOT NULL, 
             Descricao VARCHAR(300) NOT NULL,
-            ArrayImagem VARBINARY(MAX),
-            UrlImagem VARCHAR(MAX),
+            ArrayImagem VARBINARY(MAX) null,
+            UrlImagem VARCHAR(MAX) null,
             Inativo BIT DEFAULT 0 NOT NULL
         );
 

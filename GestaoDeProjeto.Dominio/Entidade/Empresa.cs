@@ -22,6 +22,9 @@
 
         public virtual List<Projeto> ListaProjetos { get; set; } = new List<Projeto>();
 
+        public virtual List<Squad> ListaSquad { get; set; } = new List<Squad>();
+
+
         public Empresa DadosDoIncluir()
         {
             DataCadastro = DateTime.Now;
