@@ -62,20 +62,24 @@ namespace GestaoDeProjeto.Infra.Util
 
         public async Task<IEnumerable<TEntity>> ObterTodosAsync(Expression<Func<TEntity, bool>> filter = null,
                                                                 Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null,
+                                                                string includeProperties = "",
                                                                 bool noTracking = false,
                                                                 int? take = null,
                                                                 int? skip = null,
                                                                 CancellationToken cancellationToken = default)
         
         {
-            var consulta = await ObterTodos(filter, orderBy, noTracking, take, skip).ToListAsync(cancellationToken).ConfigureAwait(false);
+            var consulta = await ObterTodos(filter, orderBy, includeProperties, noTracking, take, skip).ToListAsync(cancellationToken).ConfigureAwait(false);
             return consulta;
         }
                                                                   
 
-        public IQueryable<TEntity> ObterTodos(Expression<Func<TEntity, bool>> filter = null, Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null, bool noTracking = false, int? take = null, int? skip = null)
+  
+
+
+        public IQueryable<TEntity> ObterTodos(Expression<Func<TEntity, bool>> filter = null, Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null, string includeProperties = "", bool noTracking = false, int? take = null, int? skip = null)
         {
-            IQueryable<TEntity> query = _dbSet;
+            IQueryable<TEntity> query = this._dbSet;
 
             if (noTracking)
                 query = query.AsNoTracking();
@@ -83,11 +87,15 @@ namespace GestaoDeProjeto.Infra.Util
             if (filter != null)
                 query = query.Where(filter);
 
+            foreach (var includeProperty in includeProperties.Split
+                (new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
+                query = query.Include(includeProperty);
+
             if (skip != null)
                 query = query.Skip(skip.Value);
 
             if (take != null)
-                query = query.Take(take.Value);
+                query.Take(take.Value);
 
             if (orderBy != null)
                 query = orderBy(query);
@@ -95,6 +103,7 @@ namespace GestaoDeProjeto.Infra.Util
             return query;
         }
 
+       
 
 
         //public Task Rollback()

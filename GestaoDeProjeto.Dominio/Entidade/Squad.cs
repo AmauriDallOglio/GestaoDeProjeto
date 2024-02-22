@@ -1,6 +1,8 @@
-﻿namespace GestaoDeProjeto.Dominio.Entidade
+﻿using GestaoDeProjeto.Dominio.Util;
+
+namespace GestaoDeProjeto.Dominio.Entidade
 {
-    public class Squad
+    public class Squad : AuditableEntity<int>, IEmpresaObrigatorio
     {
         public int Id { get; set; }
         public int Id_Empresa { get; set; }

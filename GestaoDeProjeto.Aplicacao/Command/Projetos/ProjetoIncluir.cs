@@ -4,7 +4,7 @@ using GestaoDeProjeto.Dominio.InterfaceRepositorio;
 using GestaoDeProjeto.Dominio.Util;
 using MediatR;
 
-namespace GestaoDeProjeto.Aplicacao.Command
+namespace GestaoDeProjeto.Aplicacao.Command.Projetos
 {
     public class ProjetoIncluirRequest : IRequest<ResultadoOperacao<ProjetoIncluirResponse>>
     {

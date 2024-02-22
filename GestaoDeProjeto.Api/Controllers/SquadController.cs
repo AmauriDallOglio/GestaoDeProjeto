@@ -1,5 +1,8 @@
 ﻿using GestaoDeProjeto.Aplicacao.Command;
+using GestaoDeProjeto.Aplicacao.Command.Projetos;
+using GestaoDeProjeto.Aplicacao.Command.Squads;
 using GestaoDeProjeto.Dominio.Util;
+using GestaoDeSquad.Aplicacao.Command.Squads;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -43,6 +46,18 @@ namespace GestaoDeProjeto.Api.Controllers
                 return BadRequest(ModelState);
             }
         }
+
+
+
+        [HttpGet("ObterTodos"), ActionName("ObterTodos")]
+        public async Task<ActionResult<IEnumerable<SquadObterTodosResponse>>> ObterTodos([FromQuery] SquadObterTodosRequest request)
+        {
+            RetornoPaginadoGenerico<SquadObterTodosResponse> resultado = await _mediator.Send(request);
+            var lista = resultado.Modelos.ToList();
+            return Ok(resultado);
+        }
+
+
 
 
     }

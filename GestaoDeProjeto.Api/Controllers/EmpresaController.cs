@@ -1,4 +1,5 @@
 ﻿using GestaoDeProjeto.Aplicacao.Command;
+using GestaoDeProjeto.Aplicacao.Command.Empresas;
 using GestaoDeProjeto.Dominio.Entidade;
 using GestaoDeProjeto.Dominio.Util;
 using MediatR;

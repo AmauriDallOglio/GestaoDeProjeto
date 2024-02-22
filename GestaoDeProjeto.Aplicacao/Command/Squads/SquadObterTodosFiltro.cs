@@ -1,12 +1,13 @@
-﻿using GestaoDeProjeto.Aplicacao.Command;
+﻿using GestaoDeProjeto.Aplicacao.Command.Projetos;
 using GestaoDeProjeto.Aplicacao.Util;
 using GestaoDeProjeto.Dominio.Entidade;
+using GestaoDeSquad.Aplicacao.Command.Squads;
 
-namespace GestaoDeProjeto.Aplicacao.Command
+namespace GestaoDeProjeto.Aplicacao.Command.Squads
 {
-    public class ProjetoListarTodosFiltro : FiltroGenerico<Projeto>
+    public class SquadObterTodosFiltro : FiltroGenerico<Squad>
     {
-        public ProjetoListarTodosFiltro(ProjetoObterTodosRequest filtro)
+        public SquadObterTodosFiltro(SquadObterTodosRequest filtro)
         {
             // Includes.Add(a => a.Tenant);
             if (!string.IsNullOrEmpty(filtro.Descricao))

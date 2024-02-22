@@ -5,7 +5,7 @@ using GestaoDeProjeto.Dominio.Util;
 using MediatR;
 using System.ComponentModel.DataAnnotations;
 
-namespace GestaoDeProjeto.Aplicacao.Command
+namespace GestaoDeProjeto.Aplicacao.Command.Empresas
 {
     public class EmpresaIncluirRequest : IRequest<ResultadoOperacao<EmpresaIncluirResponse>>
     {
