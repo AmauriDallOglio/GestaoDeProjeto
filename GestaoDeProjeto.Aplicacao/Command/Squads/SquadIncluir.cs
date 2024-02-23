@@ -40,7 +40,7 @@ namespace GestaoDeProjeto.Aplicacao.Command.Squads
 
             Squad entidade = _mapper.Map<Squad>(request);
 
-            entidade = _iSquadRepositorio.Inserir(entidade, true);
+            entidade = _iSquadRepositorio.Inserir(entidade, true, cancellationToken);
 
             SquadIncluirResponse response = _mapper.Map<SquadIncluirResponse>(entidade);
 

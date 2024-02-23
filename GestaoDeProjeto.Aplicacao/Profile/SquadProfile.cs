@@ -15,6 +15,9 @@ namespace GestaoDeProjeto.Aplicacao
 
             CreateMap<Squad, SquadObterTodosRequest>().ReverseMap();
             CreateMap<Squad, SquadObterTodosResponse>().ReverseMap();
+
+ 
+
         }
     }
 }

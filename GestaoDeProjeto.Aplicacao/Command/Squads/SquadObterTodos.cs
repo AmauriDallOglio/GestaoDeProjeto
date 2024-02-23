@@ -35,14 +35,29 @@ namespace GestaoDeSquad.Aplicacao.Command.Squads
 
         public async Task<RetornoPaginadoGenerico<SquadObterTodosResponse>> Handle(SquadObterTodosRequest request, CancellationToken cancellationToken)
         {
-
             var filtro = new SquadObterTodosFiltro(request);
             var where = filtro.CriterioWhere;
             var orderby = filtro.CriterioOrderBy;
-            var include = filtro.Includes;
+            var includeProperties = filtro.Includes;
+
+            // Aqui, você precisa aplicar o filtro na consulta
+            var lista = await _iSquadRepositorio.ObterTodosAsync(where, orderby, "", false, null, null, cancellationToken);
 
 
-           var lista = _iSquadRepositorio.ObterTodosAsync(null, null, "", false, null, null, cancellationToken);
+            //if (!string.IsNullOrEmpty(request.Descricao))
+            //{
+            //    CriterioWhere = p => p.Descricao.Contains(filtro.Descricao);
+            //}
+
+
+            //var lista = await _iSquadRepositorio.ObterTodosAsync(
+            //    //filter: x => x.Id == request.Id,
+            //    includeProperties: "",
+            //    noTracking: true,
+            //    cancellationToken: cancellationToken
+            //    ).ConfigureAwait(false);
+
+
 
             //List<Squad> lista = _iSquadRepositorio.ObterTodos();
             List<SquadObterTodosResponse> response = _mapper.Map<List<SquadObterTodosResponse>>(lista);

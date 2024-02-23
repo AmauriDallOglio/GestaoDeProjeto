@@ -16,7 +16,7 @@ namespace GestaoDeProjeto.Infra.Util
             _dbSet = _dbContext.Set<TEntity>();
         }
 
-        public TEntity Inserir(TEntity entidade, bool finalizar)
+        public TEntity Inserir(TEntity entidade, bool finalizar = true, CancellationToken cancellationToken = default)
         {
             _dbContext.Set<TEntity>().Add(entidade);
             _dbContext.MetodoInserir();
@@ -27,7 +27,7 @@ namespace GestaoDeProjeto.Infra.Util
             return entidade;
         }
 
-        public TEntity Alterar(TEntity entidade, bool finalizar)
+        public TEntity Alterar(TEntity entidade, bool finalizar = true, CancellationToken cancellationToken = default)
         {
             _dbContext.Entry(entidade).State = EntityState.Modified;
             _dbContext.Set<TEntity>().Update(entidade);
@@ -38,7 +38,7 @@ namespace GestaoDeProjeto.Infra.Util
             return entidade;
         }
 
-        public TEntity Deletar(TEntity entidade)
+        public TEntity Deletar(TEntity entidade, CancellationToken cancellationToken = default)
         {
             var reultado = _dbContext.Set<TEntity>().Remove(entidade);
             Comitar();
@@ -87,9 +87,15 @@ namespace GestaoDeProjeto.Infra.Util
             if (filter != null)
                 query = query.Where(filter);
 
-            foreach (var includeProperty in includeProperties.Split
-                (new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
-                query = query.Include(includeProperty);
+
+            if (includeProperties != null)
+            {
+                foreach (var includeProperty in includeProperties.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
+                {
+                    query = query.Include(includeProperty);
+                }
+            }
+
 
             if (skip != null)
                 query = query.Skip(skip.Value);
