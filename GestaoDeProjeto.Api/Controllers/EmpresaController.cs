@@ -1,5 +1,6 @@
 ﻿using GestaoDeProjeto.Aplicacao.Command;
 using GestaoDeProjeto.Aplicacao.Command.Empresas;
+using GestaoDeProjeto.Aplicacao.Command.Projetos;
 using GestaoDeProjeto.Dominio.Entidade;
 using GestaoDeProjeto.Dominio.Util;
 using MediatR;
@@ -51,6 +52,20 @@ namespace GestaoDeProjeto.Api.Controllers
             }
         }
 
+        [HttpPut("Alterar"), ActionName("Alterar")]
+        public async Task<ResultadoOperacao<EmpresaAlterarResponse>> Alterar([FromBody] EmpresaAlterarRequest request)
+        {
+            var response = await _mediator.Send(request);
+            return response;
+        }
+
+
+        [HttpDelete("Excluir"), ActionName("Excluir")]
+        public async Task<ResultadoOperacao<EmpresaExcluirResponse>> Excluir([FromBody] EmpresaExcluirRequest request)
+        {
+            var response = await _mediator.Send(request);
+            return response;
+        }
 
         [HttpGet("ObterTodos"), ActionName("ObterTodos")]
         public async Task<IActionResult> ObterTodos([FromQuery] EmpresaObterTodosRequest request)
