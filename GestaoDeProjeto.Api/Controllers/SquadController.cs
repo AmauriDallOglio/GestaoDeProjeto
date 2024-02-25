@@ -1,4 +1,5 @@
 ﻿using GestaoDeProjeto.Aplicacao.Command;
+using GestaoDeProjeto.Aplicacao.Command.Empresas;
 using GestaoDeProjeto.Aplicacao.Command.Projetos;
 using GestaoDeProjeto.Aplicacao.Command.Squads;
 using GestaoDeProjeto.Dominio.Util;
@@ -45,6 +46,13 @@ namespace GestaoDeProjeto.Api.Controllers
             {
                 return BadRequest(ModelState);
             }
+        }
+
+        [HttpPut("Alterar"), ActionName("Alterar")]
+        public async Task<ResultadoOperacao<ProjetoAlterarResponse>> Alterar([FromBody] ProjetoAlterarRequest request)
+        {
+            var response = await _mediator.Send(request);
+            return response;
         }
 
 
