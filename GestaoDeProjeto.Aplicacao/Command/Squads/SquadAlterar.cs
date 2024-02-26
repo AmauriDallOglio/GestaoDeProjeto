@@ -6,7 +6,7 @@ using MediatR;
 
 namespace GestaoDeProjeto.Aplicacao.Command.Squads
 {
-    internal class SquadAlterarRequest : IRequest<ResultadoOperacao<SquadAlterarResponse>>
+    public class SquadAlterarRequest : IRequest<ResultadoOperacao<SquadAlterarResponse>>
     {
  
         public string Descricao { get; set; } = string.Empty;

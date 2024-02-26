@@ -49,12 +49,19 @@ namespace GestaoDeProjeto.Api.Controllers
         }
 
         [HttpPut("Alterar"), ActionName("Alterar")]
-        public async Task<ResultadoOperacao<ProjetoAlterarResponse>> Alterar([FromBody] ProjetoAlterarRequest request)
+        public async Task<ResultadoOperacao<SquadAlterarResponse>> Alterar([FromBody] SquadAlterarRequest request)
         {
             var response = await _mediator.Send(request);
             return response;
         }
 
+
+        [HttpPut("Excluir"), ActionName("Excluir")]
+        public async Task<ResultadoOperacao<SquadExcluirResponse>> Excluir([FromBody] SquadExcluirRequest request)
+        {
+            var response = await _mediator.Send(request);
+            return response;
+        }
 
 
         [HttpGet("ObterTodos"), ActionName("ObterTodos")]
