@@ -20,6 +20,7 @@ namespace GestaoDeProjeto.Infra.Contexto
         public DbSet<Projeto> Projeto { get; set; }
         public DbSet<Empresa> Empresa { get; set; }
         public DbSet<Squad> Squad { get; set; }
+        public DbSet<Usuario> Usuario { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

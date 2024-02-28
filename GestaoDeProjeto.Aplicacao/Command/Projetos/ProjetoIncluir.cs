@@ -9,8 +9,8 @@ namespace GestaoDeProjeto.Aplicacao.Command.Projetos
     public class ProjetoIncluirRequest : IRequest<ResultadoOperacao<ProjetoIncluirResponse>>
     {
 
-        public string NomeProjeto { get; set; }
-        public string Descricao { get; set; }
+        public string NomeProjeto { get; set; } = string.Empty;
+        public string Descricao { get; set; } = string.Empty;
         public DateTime DataInicio { get; set; }
         public DateTime? DataFim { get; set; }
         public short Status { get; set; }

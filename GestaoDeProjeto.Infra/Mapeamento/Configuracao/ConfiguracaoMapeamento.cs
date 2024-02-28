@@ -9,6 +9,7 @@ namespace GestaoDeProjeto.Infra.Mapeamento.Configuracao
             builder.ApplyConfiguration(new EmpresaMapeamento());
             builder.ApplyConfiguration(new ProjetoMapeamento());
             builder.ApplyConfiguration(new SquadMapeamento());
+            builder.ApplyConfiguration(new UsuarioMapeamento());
         }
     }
 }
