@@ -8,7 +8,7 @@ namespace GestaoDeProjeto.Aplicacao.Command.Squads
 {
     public class SquadIncluirRequest : IRequest<ResultadoOperacao<SquadIncluirResponse>>
     {
-        public int Id_Empresa { get; set; }
+ 
         public string Descricao { get; set; } = string.Empty;
         //public byte[]? ArrayImagem { get; set; }
         //public string? UrlImagem { get; set; } = string.Empty;

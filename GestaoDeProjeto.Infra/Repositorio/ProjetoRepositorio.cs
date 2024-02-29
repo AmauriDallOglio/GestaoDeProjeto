@@ -2,7 +2,6 @@
 using GestaoDeProjeto.Dominio.InterfaceRepositorio;
 using GestaoDeProjeto.Infra.Contexto;
 using GestaoDeProjeto.Infra.Util;
-using Microsoft.EntityFrameworkCore;
 
 namespace GestaoDeProjeto.Infra.Repositorio
 {
