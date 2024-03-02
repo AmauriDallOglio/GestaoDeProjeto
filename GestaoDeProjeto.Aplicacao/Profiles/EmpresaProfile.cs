@@ -2,7 +2,7 @@
 using GestaoDeProjeto.Aplicacao.Command.Empresas;
 using GestaoDeProjeto.Dominio.Entidade;
 
-namespace GestaoDeProjeto.Aplicacao
+namespace GestaoDeProjeto.Aplicacao.Profiles
 {
     public class EmpresaProfile : Profile
     {

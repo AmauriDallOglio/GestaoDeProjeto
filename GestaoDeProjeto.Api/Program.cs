@@ -1,5 +1,5 @@
 using GestaoDeProjeto.Api.Configuracao;
-using GestaoDeProjeto.Aplicacao;
+using GestaoDeProjeto.Aplicacao.Profiles.Configuracao;
 using GestaoDeProjeto.Aplicacao.Validator.Configuracao;
 using GestaoDeProjeto.Infra.Repositorio.Configuracao;
 using MediatR;

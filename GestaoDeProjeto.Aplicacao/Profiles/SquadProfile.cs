@@ -4,7 +4,7 @@ using GestaoDeProjeto.Aplicacao.Command.Squads;
 using GestaoDeProjeto.Dominio.Entidade;
 using GestaoDeSquad.Aplicacao.Command.Squads;
 
-namespace GestaoDeProjeto.Aplicacao
+namespace GestaoDeProjeto.Aplicacao.Profiles
 {
     public class SquadProfile : Profile
     {

@@ -3,7 +3,7 @@ using GestaoDeProjeto.Aplicacao.Command;
 using GestaoDeProjeto.Aplicacao.Command.Projetos;
 using GestaoDeProjeto.Dominio.Entidade;
 
-namespace GestaoDeProjeto.Aplicacao
+namespace GestaoDeProjeto.Aplicacao.Profiles
 {
     public class ProjetoProfile : Profile
     {

@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace GestaoDeProjeto.Aplicacao
+namespace GestaoDeProjeto.Aplicacao.Profiles.Configuracao
 {
     public static class DependenciasProfile
     {
@@ -20,7 +20,7 @@ namespace GestaoDeProjeto.Aplicacao
             cfg.AddProfile<EmpresaProfile>();
             cfg.AddProfile<ProjetoProfile>();
             cfg.AddProfile<SquadProfile>();
- 
+            cfg.AddProfile<UsuarioProfile>();
 
         }
     }
