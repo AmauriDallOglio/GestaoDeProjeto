@@ -2,6 +2,7 @@
 using GestaoDeProjeto.Dominio.InterfaceRepositorio;
 using GestaoDeProjeto.Infra.Contexto;
 using GestaoDeProjeto.Infra.Util;
+using Microsoft.EntityFrameworkCore;
 
 namespace GestaoDeProjeto.Infra.Repositorio
 {
@@ -18,7 +19,7 @@ namespace GestaoDeProjeto.Infra.Repositorio
             var resultado = new List<Projeto>();
             if (string.IsNullOrEmpty(descricao))
             {
-                resultado = _contexto.Projeto.ToList();
+                resultado = _contexto.Projeto.Include(a => a.Empresa).ToList();
             }
             else
             {

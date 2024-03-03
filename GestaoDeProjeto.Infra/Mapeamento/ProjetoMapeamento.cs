@@ -20,6 +20,7 @@ namespace GestaoDeProjeto.Infra.Mapeamento
             builder.Property(p => p.Id_Empresa).HasColumnName("Id_Empresa").HasColumnType("INT").IsRequired(true);
             builder.HasOne(p => p.Empresa).WithMany(e => e.ListaProjetos).HasForeignKey(p => p.Id_Empresa).OnDelete(DeleteBehavior.Restrict);
 
+
             builder.Property(p => p.NomeProjeto).HasColumnName("NomeProjeto").HasColumnType("varchar").HasMaxLength(100).IsRequired(true);
             builder.Property(p => p.Descricao).HasColumnName("Descricao").HasColumnType("varchar(MAX)").IsRequired(true);
             builder.Property(p => p.DataInicio).HasColumnName("DataInicio").HasColumnType("DATE").IsRequired();

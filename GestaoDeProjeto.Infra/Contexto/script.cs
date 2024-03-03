@@ -50,6 +50,28 @@ namespace GestaoDeProjeto.Infra.Contexto
 
 
 
+
+        -- Tabela de Associação ProjetoSquad
+	    CREATE TABLE ProjetoSquad
+	    (
+		    Id INT PRIMARY KEY IDENTITY(1,1),
+		    Id_Empresa INT NOT NULL, 
+		    Id_Projeto INT NOT NULL, 
+            Id_Squad INT NOT NULL, 
+	        Inativo bit default 0 NOT NULL
+	    )
+	    GO
+	    ALTER TABLE ProjetoSquad ADD CONSTRAINT FK_ProjetoSquad_Tenant FOREIGN KEY (Id_Empresa) REFERENCES Empresa(Id)
+	    GO
+	    ALTER TABLE ProjetoSquad ADD CONSTRAINT FK_ProjetoSquad_Projeto FOREIGN KEY (Id_Projeto) REFERENCES Projeto(Id)
+	    GO
+	    ALTER TABLE ProjetoSquad ADD CONSTRAINT FK_ProjetoSquad_Squad FOREIGN KEY (Id_Squad) REFERENCES Squad(Id)
+	    GO
+	    CREATE UNIQUE INDEX IDX_ProjetoSquad_UQ  ON ProjetoSquad (Id_Empresa, Id_Projeto, Id_Squad)
+
+
+
+
         
  
          -- Tabela Squad
@@ -67,30 +89,7 @@ namespace GestaoDeProjeto.Infra.Contexto
 
 
 
-
-
-        
-  
-        CREATE TABLE Usuario (
-            Id INT PRIMARY KEY IDENTITY(1,1),
-            Id_Empresa INT NOT NULL, 
-            Nome VARCHAR(100) NOT NULL,
-            Cargo VARCHAR(50) NOT NULL,
-            Email VARCHAR(100) NOT NULL,
-            Telefone VARCHAR(15) NOT NULL,
-            Situacao tinyint NOT NULL
-        );
-        ALTER TABLE Usuario ADD CONSTRAINT FK_Usuario_Empresa FOREIGN KEY (Id_Empresa) REFERENCES Empresa(Id);
-        GO
-        CREATE UNIQUE INDEX IDX_Usuario_UQ ON Usuario(Id_Empresa, Id);
-        GO
-
-
-
-
-
-
-
+ 
 
 
 
