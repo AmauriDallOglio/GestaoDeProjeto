@@ -19,6 +19,7 @@ namespace GestaoDeProjeto.Aplicacao.Profiles.Configuracao
         {
             cfg.AddProfile<EmpresaProfile>();
             cfg.AddProfile<ProjetoProfile>();
+            cfg.AddProfile<ProjetoSquadProfile>();
             cfg.AddProfile<SquadProfile>();
             cfg.AddProfile<UsuarioProfile>();
 
