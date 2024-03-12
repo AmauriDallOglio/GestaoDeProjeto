@@ -15,9 +15,10 @@ namespace GestaoDeProjeto.Infra.Repositorio.Configuracao
         {
             services.AddScoped<IEmpresaRepositorio, EmpresaRepositorio>();
             services.AddScoped<IProjetoRepositorio, ProjetoRepositorio>();
+            services.AddScoped<IProjetoSquadRepositorio, ProjetoSquadRepositorio>();
             services.AddScoped<ISquadRepositorio, SquadRepositorio>();
             services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();
-            services.AddScoped<IProjetoSquadRepositorio, ProjetoSquadRepositorio>();
+   
 
             return services;
         }

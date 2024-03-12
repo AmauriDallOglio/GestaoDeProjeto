@@ -14,13 +14,17 @@ namespace GestaoDeProjeto.Infra.Contexto
         private int _IdEmpresa;
         public GenericoContexto(DbContextOptions options) : base(options)
         {
-            _IdEmpresa = 2;
+            _IdEmpresa = 1;
         }
 
         public DbSet<Projeto> Projeto { get; set; }
+        public DbSet<ProjetoSquad> ProjetoSquad { get; set; }
+
         public DbSet<Empresa> Empresa { get; set; }
         public DbSet<Squad> Squad { get; set; }
         public DbSet<Usuario> Usuario { get; set; }
+
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

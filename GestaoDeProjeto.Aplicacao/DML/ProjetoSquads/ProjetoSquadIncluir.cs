@@ -34,7 +34,6 @@ namespace GestaoDeProjeto.Aplicacao.DML.ProjetoSquads
 
         public Task<ResultadoOperacao<ProjetoSquadIncluirResponse>> Handle(ProjetoSquadIncluirRequest request, CancellationToken cancellationToken)
         {
-
             ProjetoSquad entidade = _mapper.Map<ProjetoSquad>(request);
 
             entidade = _iProjetoSquadRepositorio.Inserir(entidade, true);
