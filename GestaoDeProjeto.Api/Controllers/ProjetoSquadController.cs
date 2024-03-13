@@ -36,5 +36,14 @@ namespace GestaoDeProjeto.Api.Controllers
             ResultadoOperacao<ProjetoSquadAlterarResponse> response = await _mediator.Send(request);
             return response;
         }
+
+
+        [HttpDelete("Excluir"), ActionName("Excluir")]
+        public async Task<ResultadoOperacao<ProjetoSquadExcluirResponse>> Excluir([FromBody] ProjetoSquadExcluirRequest request)
+        {
+            ResultadoOperacao<ProjetoSquadExcluirResponse> response = await _mediator.Send(request);
+            return response;
+        }
+
     }
 }
