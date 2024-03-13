@@ -40,7 +40,7 @@ namespace GestaoDeProjeto.Aplicacao.DML.ProjetoSquads
 
             ProjetoSquadIncluirResponse response = _mapper.Map<ProjetoSquadIncluirResponse>(entidade);
 
-            Task<ResultadoOperacao<ProjetoSquadIncluirResponse>> sucesso = ResultadoOperacao<ProjetoSquadIncluirResponse>.RetornaSuccessoAsync(response, "Projeto", "Sucesso");
+            Task<ResultadoOperacao<ProjetoSquadIncluirResponse>> sucesso = ResultadoOperacao<ProjetoSquadIncluirResponse>.RetornaSuccessoAsync(response, "ProjetoSquad", "Sucesso");
             return sucesso;
         }
     }

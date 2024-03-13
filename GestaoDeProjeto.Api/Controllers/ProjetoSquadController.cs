@@ -30,5 +30,11 @@ namespace GestaoDeProjeto.Api.Controllers
         }
 
 
+        [HttpPut("Alterar"), ActionName("Alterar")]
+        public async Task<ResultadoOperacao<ProjetoSquadAlterarResponse>> Alterar([FromBody] ProjetoSquadAlterarRequest request)
+        {
+            ResultadoOperacao<ProjetoSquadAlterarResponse> response = await _mediator.Send(request);
+            return response;
+        }
     }
 }

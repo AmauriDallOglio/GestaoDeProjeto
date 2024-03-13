@@ -17,10 +17,9 @@ namespace GestaoDeProjeto.Infra.Contexto
             _IdEmpresa = 1;
         }
 
+        public DbSet<Empresa> Empresa { get; set; }
         public DbSet<Projeto> Projeto { get; set; }
         public DbSet<ProjetoSquad> ProjetoSquad { get; set; }
-
-        public DbSet<Empresa> Empresa { get; set; }
         public DbSet<Squad> Squad { get; set; }
         public DbSet<Usuario> Usuario { get; set; }
 

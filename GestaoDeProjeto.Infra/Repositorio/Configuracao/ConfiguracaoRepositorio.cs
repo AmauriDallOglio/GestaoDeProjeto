@@ -1,5 +1,4 @@
-﻿using GestaoDeProjeto.Dominio.Entidade;
-using GestaoDeProjeto.Dominio.InterfaceRepositorio;
+﻿using GestaoDeProjeto.Dominio.InterfaceRepositorio;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace GestaoDeProjeto.Infra.Repositorio.Configuracao

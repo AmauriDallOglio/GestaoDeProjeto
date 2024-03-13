@@ -10,6 +10,9 @@ namespace GestaoDeProjeto.Aplicacao.Profiles
         {
             CreateMap<ProjetoSquad, ProjetoSquadIncluirRequest>().ReverseMap();
             CreateMap<ProjetoSquad, ProjetoSquadIncluirResponse>().ReverseMap();
+
+            CreateMap<ProjetoSquad, ProjetoSquadAlterarRequest>().ReverseMap();
+            CreateMap<ProjetoSquad, ProjetoSquadAlterarResponse>().ReverseMap();
         }
     }
 }
