@@ -35,7 +35,7 @@ namespace GestaoDeProjeto.Aplicacao.Command.Projetos
 
             Projeto entidade = _mapper.Map<Projeto>(request);
 
-            _iProjetoRepositorio.ExcluirEmpresaEProjetos(entidade.Id);
+            _iProjetoRepositorio.ExcluirEmpresaEProjetosAsync(entidade.Id);
 
             ProjetoExcluirResponse response = _mapper.Map<ProjetoExcluirResponse>(entidade);
  

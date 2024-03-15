@@ -44,7 +44,7 @@ namespace GestaoDeProjeto.Aplicacao.Command.Projetos
 
             //List<Projeto> lista = await _iProjetoRepositorio.ObterTodos(filtro, orderby, false, null, null);
 
-            List<Projeto> lista = _iProjetoRepositorio.BuscarTodosPorDescricao(request.Descricao);
+            List<Projeto> lista = await _iProjetoRepositorio.BuscarTodosPorDescricaoAsync(request.Descricao);
             List<ProjetoObterTodosResponse> response = _mapper.Map<List<ProjetoObterTodosResponse>>(lista);
             RetornoPaginadoGenerico<ProjetoObterTodosResponse> retornoPaginado = new RetornoPaginadoGenerico<ProjetoObterTodosResponse>
             {

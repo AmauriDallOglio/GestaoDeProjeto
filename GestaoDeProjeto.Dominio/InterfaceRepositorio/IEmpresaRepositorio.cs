@@ -5,6 +5,6 @@ namespace GestaoDeProjeto.Dominio.InterfaceRepositorio
 {
     public interface IEmpresaRepositorio : IRepositorioGenerico<Empresa>
     {
-        List<Empresa> BuscarTodos();
+        Task<List<Empresa>> BuscarTodosAsync();
     }
 }
