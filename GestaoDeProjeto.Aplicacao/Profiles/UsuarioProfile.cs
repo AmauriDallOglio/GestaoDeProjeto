@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using GestaoDeProjeto.Aplicacao.Command.Usuarios;
+using GestaoDeProjeto.Aplicacao.DML.Usuarios;
 using GestaoDeProjeto.Dominio.Entidade;
 
 namespace GestaoDeProjeto.Aplicacao.Profiles
@@ -11,7 +11,8 @@ namespace GestaoDeProjeto.Aplicacao.Profiles
             CreateMap<Usuario, UsuarioIncluirRequest>().ReverseMap();
             CreateMap<Usuario, UsuarioIncluirResponse>().ReverseMap();
 
- 
+            CreateMap<Usuario, UsuarioAlterarRequest>().ReverseMap();
+            CreateMap<Usuario, UsuarioAlterarResponse>().ReverseMap();
 
 
         }

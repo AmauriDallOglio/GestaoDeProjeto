@@ -4,7 +4,7 @@ using GestaoDeProjeto.Dominio.InterfaceRepositorio;
 using GestaoDeProjeto.Dominio.Util;
 using MediatR;
 
-namespace GestaoDeProjeto.Aplicacao.Command.Projetos
+namespace GestaoDeProjeto.Aplicacao.DML.Projetos
 {
     public class ProjetoObterTodosRequest : IRequest<RetornoPaginadoGenerico<ProjetoObterTodosResponse>>
     {

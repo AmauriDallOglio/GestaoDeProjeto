@@ -1,16 +1,10 @@
 ﻿using AutoMapper;
-using GestaoDeProjeto.Aplicacao.Command.Projetos;
 using GestaoDeProjeto.Dominio.Entidade;
 using GestaoDeProjeto.Dominio.InterfaceRepositorio;
 using GestaoDeProjeto.Dominio.Util;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace GestaoDeProjeto.Aplicacao.Command.Empresas
+namespace GestaoDeProjeto.Aplicacao.DML.Empresas
 {
     public class EmpresaExcluirRequest : IRequest<ResultadoOperacao<EmpresaExcluirResponse>>
     {

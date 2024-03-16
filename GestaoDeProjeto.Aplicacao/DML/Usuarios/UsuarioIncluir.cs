@@ -4,7 +4,7 @@ using GestaoDeProjeto.Dominio.InterfaceRepositorio;
 using GestaoDeProjeto.Dominio.Util;
 using MediatR;
 
-namespace GestaoDeProjeto.Aplicacao.Command.Usuarios
+namespace GestaoDeProjeto.Aplicacao.DML.Usuarios
 {
     public class UsuarioIncluirRequest : IRequest<ResultadoOperacao<UsuarioIncluirResponse>>
     {

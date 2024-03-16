@@ -1,7 +1,7 @@
 ﻿using GestaoDeProjeto.Aplicacao.Util;
 using GestaoDeProjeto.Dominio.Entidade;
 
-namespace GestaoDeProjeto.Aplicacao.Command.Projetos
+namespace GestaoDeProjeto.Aplicacao.DML.Projetos
 {
     public class ProjetoObterTodosFiltro : FiltroGenerico<Projeto>
     {

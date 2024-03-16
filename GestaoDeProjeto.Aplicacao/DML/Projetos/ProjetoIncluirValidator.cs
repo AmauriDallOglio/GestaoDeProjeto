@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace GestaoDeProjeto.Aplicacao.Command.Projetos
+namespace GestaoDeProjeto.Aplicacao.DML.Projetos
 {
     public class ProjetoIncluirValidator : AbstractValidator<ProjetoIncluirRequest>
     {

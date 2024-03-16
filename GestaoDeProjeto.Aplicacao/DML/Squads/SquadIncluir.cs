@@ -4,7 +4,7 @@ using GestaoDeProjeto.Dominio.InterfaceRepositorio;
 using GestaoDeProjeto.Dominio.Util;
 using MediatR;
 
-namespace GestaoDeProjeto.Aplicacao.Command.Squads
+namespace GestaoDeProjeto.Aplicacao.DML.Squads
 {
     public class SquadIncluirRequest : IRequest<ResultadoOperacao<SquadIncluirResponse>>
     {

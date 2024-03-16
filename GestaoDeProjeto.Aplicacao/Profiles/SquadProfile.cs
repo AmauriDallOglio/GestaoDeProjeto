@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using GestaoDeProjeto.Aplicacao.Command;
 using GestaoDeProjeto.Aplicacao.Command.Squads;
 using GestaoDeProjeto.Dominio.Entidade;
 using GestaoDeSquad.Aplicacao.Command.Squads;

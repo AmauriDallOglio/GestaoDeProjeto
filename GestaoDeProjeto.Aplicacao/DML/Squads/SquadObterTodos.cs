@@ -1,12 +1,10 @@
 ﻿using AutoMapper;
-using GestaoDeProjeto.Aplicacao.Command;
-using GestaoDeProjeto.Aplicacao.Command.Squads;
 using GestaoDeProjeto.Dominio.Entidade;
 using GestaoDeProjeto.Dominio.InterfaceRepositorio;
 using GestaoDeProjeto.Dominio.Util;
 using MediatR;
 
-namespace GestaoDeSquad.Aplicacao.Command.Squads
+namespace GestaoDeSquad.Aplicacao.DML.Squads
 {
     public class SquadObterTodosRequest : IRequest<RetornoPaginadoGenerico<SquadObterTodosResponse>>
     {

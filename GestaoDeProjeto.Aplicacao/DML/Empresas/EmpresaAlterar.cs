@@ -11,7 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GestaoDeProjeto.Aplicacao.Command.Empresas
+namespace GestaoDeProjeto.Aplicacao.DML.Empresas
 {
     public class EmpresaAlterarRequest : IRequest<ResultadoOperacao<EmpresaAlterarResponse>>
     {

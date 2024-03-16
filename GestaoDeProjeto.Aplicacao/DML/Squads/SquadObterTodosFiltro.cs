@@ -1,9 +1,8 @@
-﻿using GestaoDeProjeto.Aplicacao.Command.Projetos;
-using GestaoDeProjeto.Aplicacao.Util;
+﻿using GestaoDeProjeto.Aplicacao.Util;
 using GestaoDeProjeto.Dominio.Entidade;
-using GestaoDeSquad.Aplicacao.Command.Squads;
+using GestaoDeSquad.Aplicacao.DML.Squads;
 
-namespace GestaoDeProjeto.Aplicacao.Command.Squads
+namespace GestaoDeProjeto.Aplicacao.DML.Squads
 {
     public class SquadObterTodosFiltro : FiltroGenerico<Squad>
     {
