@@ -81,7 +81,7 @@ namespace GestaoDeProjeto.Infra.Contexto
         {
             if (entity is IEmpresaObrigatorio)
             {
-                var temTenant = entity as IEmpresaObrigatorio;
+                IEmpresaObrigatorio temTenant = entity as IEmpresaObrigatorio;
                 temTenant.Id_Empresa = _IdEmpresa;
             }
 

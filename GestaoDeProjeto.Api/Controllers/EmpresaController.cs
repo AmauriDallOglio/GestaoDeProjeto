@@ -1,12 +1,7 @@
-﻿using GestaoDeProjeto.Aplicacao.Command;
-using GestaoDeProjeto.Aplicacao.Command.Empresas;
-using GestaoDeProjeto.Aplicacao.Command.Projetos;
-using GestaoDeProjeto.Dominio.Entidade;
+﻿using GestaoDeProjeto.Aplicacao.DML.Empresas;
 using GestaoDeProjeto.Dominio.Util;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using System.Text.Json;
-using System.Text.Json.Serialization;
 
 namespace GestaoDeProjeto.Api.Controllers
 {

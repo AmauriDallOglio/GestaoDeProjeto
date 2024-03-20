@@ -41,7 +41,7 @@ namespace GestaoDeProjeto.Aplicacao.DML.Empresas
 
             //List<Projeto> lista = _iProjetoRepositorio.ObterTodos().ToList();
 
-            List<Empresa> lista = _IEmpresaRepositorio.BuscarTodos();
+            List<Empresa> lista = await _IEmpresaRepositorio.BuscarTodosAsync();
 
             List<EmpresaObterTodosResponse> listaResponse = _mapper.Map<List<EmpresaObterTodosResponse>>(lista);
 

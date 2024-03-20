@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using GestaoDeProjeto.Aplicacao.Command.Projetos;
+using GestaoDeProjeto.Aplicacao.DML.Projetos;
 using GestaoDeProjeto.Dominio.Entidade;
 
 namespace GestaoDeProjeto.Aplicacao.Profiles

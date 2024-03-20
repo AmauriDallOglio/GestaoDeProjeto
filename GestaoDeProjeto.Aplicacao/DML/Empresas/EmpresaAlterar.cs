@@ -1,15 +1,9 @@
 ﻿using AutoMapper;
-using GestaoDeProjeto.Aplicacao.Command.Projetos;
 using GestaoDeProjeto.Dominio.Entidade;
 using GestaoDeProjeto.Dominio.InterfaceRepositorio;
 using GestaoDeProjeto.Dominio.Util;
 using MediatR;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GestaoDeProjeto.Aplicacao.DML.Empresas
 {
@@ -27,7 +21,7 @@ namespace GestaoDeProjeto.Aplicacao.DML.Empresas
 
         [Required(ErrorMessage = "O CNPJ é obrigatório.")]
         [RegularExpression(@"^\d{14}$", ErrorMessage = "O CNPJ deve ter 14 dígitos numéricos.")]
-        public string Cnpj { get; set; }
+        public string Cnpj { get; set; } = String.Empty;
 
 
         [Required(ErrorMessage = "O PessoaContato é obrigatório.")]

@@ -1,6 +1,5 @@
 ﻿using GestaoDeProjeto.Aplicacao.Util;
 using GestaoDeProjeto.Dominio.Entidade;
-using GestaoDeSquad.Aplicacao.DML.Squads;
 
 namespace GestaoDeProjeto.Aplicacao.DML.Squads
 {

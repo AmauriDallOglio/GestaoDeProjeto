@@ -8,8 +8,8 @@ namespace GestaoDeProjeto.Dominio.Entidade
         public Empresa Empresa { get; set; } = new Empresa();
         public string NomeProjeto { get; set; } = string.Empty;
         public string Descricao { get; set; } = string.Empty;
-        public DateTime DataInicio { get; set; }
-        public DateTime? DataFim { get; set; }
+        public DateTime DataHoraInicio { get; set; }
+        public DateTime? DataHoraFim { get; set; }
         public short Situacao { get; set; }
     }
 

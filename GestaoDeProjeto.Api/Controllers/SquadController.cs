@@ -1,9 +1,5 @@
-﻿using GestaoDeProjeto.Aplicacao.Command;
-using GestaoDeProjeto.Aplicacao.Command.Empresas;
-using GestaoDeProjeto.Aplicacao.Command.Projetos;
-using GestaoDeProjeto.Aplicacao.Command.Squads;
+﻿using GestaoDeProjeto.Aplicacao.DML.Squads;
 using GestaoDeProjeto.Dominio.Util;
-using GestaoDeSquad.Aplicacao.Command.Squads;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 

@@ -37,8 +37,8 @@ namespace GestaoDeProjeto.Infra.Contexto
             Id_Empresa INT NOT NULL, 
             NomeProjeto VARCHAR(100) NOT NULL,
             Descricao VARCHAR(MAX) NOT NULL,
-            DataInicio DATE NOT NULL,
-            DataFim DATE NULL,
+            DataHoraInicio datetime NOT NULL,
+            DataHoraFim datetime NULL,
             Situacao tinyint NOT NULL
         );
 
@@ -46,7 +46,6 @@ namespace GestaoDeProjeto.Infra.Contexto
         GO
         CREATE UNIQUE INDEX IDX_Projeto_UQ ON Projeto(Id_Empresa, Id);
         GO
-
 
 
 

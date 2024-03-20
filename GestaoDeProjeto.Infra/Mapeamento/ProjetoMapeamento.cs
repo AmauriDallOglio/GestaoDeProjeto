@@ -23,8 +23,8 @@ namespace GestaoDeProjeto.Infra.Mapeamento
 
             builder.Property(p => p.NomeProjeto).HasColumnName("NomeProjeto").HasColumnType("varchar").HasMaxLength(100).IsRequired(true);
             builder.Property(p => p.Descricao).HasColumnName("Descricao").HasColumnType("varchar(MAX)").IsRequired(true);
-            builder.Property(p => p.DataInicio).HasColumnName("DataInicio").HasColumnType("DATE").IsRequired();
-            builder.Property(p => p.DataFim).HasColumnName("DataFim").HasColumnType("DATE");
+            builder.Property(p => p.DataHoraInicio).HasColumnName("DataHoraInicio").HasColumnType("datetime").IsRequired(true);
+            builder.Property(p => p.DataHoraFim).HasColumnName("DataHoraFim").HasColumnType("datetime").IsRequired(false);
             builder.Property(p => p.Situacao).HasColumnName("Situacao").HasColumnType("TINYINT").IsRequired();
  
 

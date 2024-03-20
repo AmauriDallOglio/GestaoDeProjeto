@@ -1,5 +1,4 @@
-﻿using GestaoDeProjeto.Aplicacao.Command;
-using GestaoDeProjeto.Aplicacao.Command.Projetos;
+﻿using GestaoDeProjeto.Aplicacao.DML.Projetos;
 using GestaoDeProjeto.Dominio.Util;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;

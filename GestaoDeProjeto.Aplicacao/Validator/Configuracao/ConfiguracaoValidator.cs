@@ -1,7 +1,6 @@
 ﻿using FluentValidation;
 using FluentValidation.AspNetCore;
-using GestaoDeProjeto.Aplicacao.Command;
-using GestaoDeProjeto.Aplicacao.Command.Projetos;
+using GestaoDeProjeto.Aplicacao.DML.Projetos;
 using GestaoDeProjeto.Dominio.Util;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
