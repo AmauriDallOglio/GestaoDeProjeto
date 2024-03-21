@@ -11,8 +11,8 @@ namespace GestaoDeProjeto.Aplicacao.DML.Projetos
 
         public string NomeProjeto { get; set; } = string.Empty;
         public string Descricao { get; set; } = string.Empty;
-        public DateTime DataInicio { get; set; }
-        public DateTime? DataFim { get; set; }
+        public DateTime DataHoraInicio { get; set; }
+        public DateTime? DataHoraFim { get; set; }
         public short Status { get; set; }
 
     }
@@ -40,7 +40,7 @@ namespace GestaoDeProjeto.Aplicacao.DML.Projetos
         {
 
             Projeto entidade = _mapper.Map<Projeto>(request);
-
+            entidade.Inserir();
             entidade = _iProjetoRepositorio.Inserir(entidade, true);
 
             ProjetoIncluirResponse response = _mapper.Map<ProjetoIncluirResponse>(entidade);

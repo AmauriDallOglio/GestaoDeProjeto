@@ -20,9 +20,9 @@
 
         //public List<Squad> Squads { get; set; }
 
-        public virtual List<Projeto> ListaProjetos { get; set; } = new List<Projeto>();
+        public virtual List<Projeto>? ListaProjetos { get; set; }
 
-        public virtual List<Squad> ListaSquad { get; set; } = new List<Squad>();
+        public virtual List<Squad>? ListaSquad { get; set; }
 
 
         public Empresa DadosDoIncluir()

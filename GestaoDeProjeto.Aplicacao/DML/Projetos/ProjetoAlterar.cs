@@ -8,10 +8,11 @@ namespace GestaoDeProjeto.Aplicacao.DML.Projetos
 {
     public class ProjetoAlterarRequest : IRequest<ResultadoOperacao<ProjetoAlterarResponse>>
     {
-        public string NomeProjeto { get; set; }
-        public string Descricao { get; set; }
-        public DateTime DataInicio { get; set; }
-        public DateTime? DataFim { get; set; }
+        public int Id { get; set; }
+        public string NomeProjeto { get; set; } = string.Empty;
+        public string Descricao { get; set; } = string.Empty;
+        public DateTime DataHoraInicio { get; set; }
+        public DateTime? DataHoraFim { get; set; }
         public short Status { get; set; }
 
     }

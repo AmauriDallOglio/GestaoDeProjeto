@@ -1,4 +1,5 @@
 ﻿using GestaoDeProjeto.Dominio.Util;
+using System.Text.Json.Serialization;
 
 namespace GestaoDeProjeto.Dominio.Entidade
 {
@@ -6,11 +7,12 @@ namespace GestaoDeProjeto.Dominio.Entidade
     {
         public int Id { get; set; }
         public int Id_Empresa { get; set; }
-        public Empresa Empresa { get; set; } = new Empresa();
+        [JsonIgnore]
+        public Empresa Empresa { get; set; }
         public int Id_Projeto { get; set; }
-        public Projeto Projeto { get; set; } = new Projeto();
+        public Projeto Projeto { get; set; }
         public int Id_Squad { get; set; }
-        public Squad Squad { get; set; } = new Squad();
+        public Squad Squad { get; set; }
         public bool Inativo { get; set; }
 
     }

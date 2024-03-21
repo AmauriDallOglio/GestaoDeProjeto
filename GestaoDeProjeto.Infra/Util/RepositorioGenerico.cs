@@ -30,6 +30,7 @@ namespace GestaoDeProjeto.Infra.Util
         public TEntity Alterar(TEntity entidade, bool finalizar = true, CancellationToken cancellationToken = default)
         {
             _dbContext.Entry(entidade).State = EntityState.Modified;
+            _dbContext.MetodoAlterar();
             _dbContext.Set<TEntity>().Update(entidade);
             if (finalizar)
             {

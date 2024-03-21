@@ -1,4 +1,5 @@
 ﻿using GestaoDeProjeto.Dominio.Util;
+using System.Text.Json.Serialization;
 
 namespace GestaoDeProjeto.Dominio.Entidade
 {
@@ -6,6 +7,7 @@ namespace GestaoDeProjeto.Dominio.Entidade
     {
         public int Id { get; set; }
         public int Id_Empresa { get; set; }
+        [JsonIgnore]
         public Empresa Empresa { get; set; }
         public string Descricao { get; set; } = string.Empty;
         //public byte[]? ArrayImagem { get; set; }
