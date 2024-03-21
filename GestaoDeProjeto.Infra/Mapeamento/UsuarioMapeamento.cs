@@ -20,7 +20,7 @@ namespace GestaoDeProjeto.Infra.Mapeamento
             builder.Property(u => u.Cargo).HasMaxLength(50).HasColumnName("Cargo").HasColumnType("VARCHAR").IsRequired(true);
             builder.Property(u => u.Email).HasMaxLength(100).HasColumnName("Email").HasColumnType("VARCHAR").IsRequired(true);
             builder.Property(u => u.Telefone).HasMaxLength(15).HasColumnName("Telefone").HasColumnType("VARCHAR").IsRequired(true);
-            builder.Property(u => u.Situacao).IsRequired();
+            builder.Property(u => u.Situacao).IsRequired(true);
 
 
         }

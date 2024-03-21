@@ -9,17 +9,12 @@ namespace GestaoDeProjeto.Aplicacao.DML.ProjetoSquads
     public class ProjetoSquadExcluirRequest  : IRequest<ResultadoOperacao<ProjetoSquadExcluirResponse>>
     {
         public int Id { get; set; }
-
- 
     }
-
 
     public class ProjetoSquadExcluirResponse
     {
         public int Id { get; set; }
     }
-
-
 
 
     public class ProjetoSquadExcluirHandler : IRequestHandler<ProjetoSquadExcluirRequest, ResultadoOperacao<ProjetoSquadExcluirResponse>>

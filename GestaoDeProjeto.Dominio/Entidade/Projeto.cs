@@ -5,7 +5,7 @@ namespace GestaoDeProjeto.Dominio.Entidade
 {
     public class Projeto : AuditableEntity<int>, IEmpresaObrigatorio
     {
-        public int Id { get; set; }
+        //public int Id { get; set; }
         public int Id_Empresa { get; set; }
         [JsonIgnore]
         public Empresa Empresa { get; set; }

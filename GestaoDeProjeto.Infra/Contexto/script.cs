@@ -89,7 +89,19 @@ namespace GestaoDeProjeto.Infra.Contexto
 
 
  
-
+        CREATE TABLE Usuario (
+		    Id INT PRIMARY KEY IDENTITY(1,1),
+		    Id_Empresa INT NOT NULL,
+		    Nome VARCHAR(300) NOT NULL,
+		    Cargo VARCHAR(50) NOT NULL,
+		    Email VARCHAR(100) NOT NULL,
+		    Telefone VARCHAR(15) NOT NULL,
+		    Situacao TINYINT NOT NULL,
+	    );
+        ALTER TABLE Usuario ADD CONSTRAINT FK_Usuario_Empresa FOREIGN KEY (Id_Empresa) REFERENCES Empresa(Id);
+        GO
+        CREATE UNIQUE INDEX IDX_Usuario_UQ ON Usuario(Id_Empresa, Id);
+        GO
 
 
 

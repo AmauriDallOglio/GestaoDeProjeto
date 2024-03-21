@@ -14,7 +14,8 @@ namespace GestaoDeProjeto.Aplicacao.Profiles
             CreateMap<Usuario, UsuarioAlterarRequest>().ReverseMap();
             CreateMap<Usuario, UsuarioAlterarResponse>().ReverseMap();
 
-
+            CreateMap<Usuario, UsuarioExcluirRequest>().ReverseMap();
+            CreateMap<Usuario, UsuarioExcluirResponse>().ReverseMap();
         }
     }
 }

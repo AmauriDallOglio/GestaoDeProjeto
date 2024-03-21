@@ -1,8 +1,10 @@
-﻿namespace GestaoDeProjeto.Dominio.Entidade
+﻿using GestaoDeProjeto.Dominio.Util;
+
+namespace GestaoDeProjeto.Dominio.Entidade
 {
-    public class Empresa
+    public class Empresa : AuditableEntity<int>
     {
-        public int Id { get; set; }
+        //public int Id { get; set; }
         public string RazaoSocial { get; set; } = string.Empty;
         public string NomeFantasia { get; set; } = string.Empty;
         public DateTime DataCadastro { get; set; }

@@ -43,5 +43,21 @@ namespace GestaoDeProjeto.Api.Controllers
                 return BadRequest(ModelState);
             }
         }
+
+        [HttpPut("Alterar"), ActionName("Alterar")]
+        public async Task<ResultadoOperacao<UsuarioAlterarResponse>> Alterar([FromBody] UsuarioAlterarRequest request)
+        {
+            var response = await _mediator.Send(request);
+            return response;
+        }
+
+
+        [HttpDelete("Excluir"), ActionName("Excluir")]
+        public async Task<ResultadoOperacao<UsuarioExcluirResponse>> Excluir([FromBody] UsuarioExcluirRequest request)
+        {
+            var response = await _mediator.Send(request);
+            return response;
+        }
+
     }
 }
