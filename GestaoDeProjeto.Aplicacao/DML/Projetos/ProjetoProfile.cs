@@ -1,8 +1,7 @@
 ﻿using AutoMapper;
-using GestaoDeProjeto.Aplicacao.DML.Projetos;
 using GestaoDeProjeto.Dominio.Entidade;
 
-namespace GestaoDeProjeto.Aplicacao.Profiles
+namespace GestaoDeProjeto.Aplicacao.DML.Projetos
 {
     public class ProjetoProfile : Profile
     {

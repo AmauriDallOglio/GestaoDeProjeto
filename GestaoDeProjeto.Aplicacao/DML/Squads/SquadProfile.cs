@@ -1,8 +1,7 @@
 ﻿using AutoMapper;
-using GestaoDeProjeto.Aplicacao.DML.Squads;
 using GestaoDeProjeto.Dominio.Entidade;
 
-namespace GestaoDeProjeto.Aplicacao.Profiles
+namespace GestaoDeProjeto.Aplicacao.DML.Squads
 {
     public class SquadProfile : Profile
     {
@@ -14,7 +13,7 @@ namespace GestaoDeProjeto.Aplicacao.Profiles
             CreateMap<Squad, SquadObterTodosRequest>().ReverseMap();
             CreateMap<Squad, SquadObterTodosResponse>().ReverseMap();
 
- 
+
 
         }
     }

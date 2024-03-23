@@ -1,12 +1,11 @@
 ﻿using AutoMapper;
-using GestaoDeProjeto.Aplicacao.DML.Empresas;
 using GestaoDeProjeto.Dominio.Entidade;
 
-namespace GestaoDeProjeto.Aplicacao.Profiles
+namespace GestaoDeProjeto.Aplicacao.DML.Empresas
 {
     public class EmpresaProfile : Profile
     {
-        public EmpresaProfile() 
+        public EmpresaProfile()
         {
             CreateMap<Empresa, EmpresaIncluirRequest>().ReverseMap();
             CreateMap<Empresa, EmpresaIncluirResponse>().ReverseMap();

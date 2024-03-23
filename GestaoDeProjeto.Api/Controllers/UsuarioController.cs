@@ -1,4 +1,5 @@
 ﻿using GestaoDeProjeto.Aplicacao.DML.Usuarios;
+using GestaoDeProjeto.Aplicacao.DML.Usuarios;
 using GestaoDeProjeto.Dominio.Util;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -58,6 +59,17 @@ namespace GestaoDeProjeto.Api.Controllers
             var response = await _mediator.Send(request);
             return response;
         }
+
+
+        [HttpGet("ObterTodos"), ActionName("ObterTodos")]
+        public async Task<ActionResult<IEnumerable<UsuarioObterTodosResponse>>> ObterTodos([FromQuery] UsuarioObterTodosRequest request)
+        {
+            RetornoPaginadoGenerico<UsuarioObterTodosResponse> resultado = await _mediator.Send(request);
+            var lista = resultado.Modelos.ToList();
+            return Ok(resultado);
+        }
+
+
 
     }
 }

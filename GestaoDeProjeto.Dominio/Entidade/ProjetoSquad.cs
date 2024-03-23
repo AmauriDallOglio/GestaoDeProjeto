@@ -1,5 +1,6 @@
 ﻿using GestaoDeProjeto.Dominio.Util;
-using System.Text.Json.Serialization;
+using Newtonsoft.Json;
+
 
 namespace GestaoDeProjeto.Dominio.Entidade
 {

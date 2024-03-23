@@ -3,6 +3,7 @@ using GestaoDeProjeto.Dominio.Entidade;
 using GestaoDeProjeto.Dominio.InterfaceRepositorio;
 using GestaoDeProjeto.Dominio.Util;
 using MediatR;
+using Newtonsoft.Json;
 
 namespace GestaoDeProjeto.Aplicacao.DML.Projetos
 {
@@ -15,9 +16,15 @@ namespace GestaoDeProjeto.Aplicacao.DML.Projetos
         public short Status { get; set; }
     }
 
-    public class ProjetoObterTodosResponse : Projeto
+    public class ProjetoObterTodosResponse  
     {
-
+        public int Id { get; set; }
+        public int Id_Empresa { get; set; }
+        public string NomeProjeto { get; set; } = string.Empty;
+        public string Descricao { get; set; } = string.Empty;
+        public DateTime DataHoraInicio { get; set; }
+        public DateTime? DataHoraFim { get; set; }
+        public short Situacao { get; set; }
     }
 
     public class ProjetoObterTodosHandler : IRequestHandler<ProjetoObterTodosRequest, RetornoPaginadoGenerico<ProjetoObterTodosResponse>>

@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace GestaoDeProjeto.Aplicacao.Validator.Configuracao
+namespace GestaoDeProjeto.Aplicacao.Configuracao
 {
     public static class ConfiguracaoValidator
     {
@@ -22,7 +22,7 @@ namespace GestaoDeProjeto.Aplicacao.Validator.Configuracao
                 options.JsonSerializerOptions.PropertyNamingPolicy = null;
             });
 
- 
+
             services.AdicionaInterfaceValidador();
         }
 
@@ -80,5 +80,5 @@ namespace GestaoDeProjeto.Aplicacao.Validator.Configuracao
             public List<string> Descricao { get; set; } = new List<string>();
         }
     }
- 
+
 }

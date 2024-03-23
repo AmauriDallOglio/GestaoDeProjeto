@@ -1,6 +1,5 @@
 using GestaoDeProjeto.Api.Configuracao;
-using GestaoDeProjeto.Aplicacao.Profiles.Configuracao;
-using GestaoDeProjeto.Aplicacao.Validator.Configuracao;
+using GestaoDeProjeto.Aplicacao.Configuracao;
 using GestaoDeProjeto.Infra.Repositorio.Configuracao;
 using MediatR;
 using Microsoft.OpenApi.Models;

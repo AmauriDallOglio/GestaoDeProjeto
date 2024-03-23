@@ -14,9 +14,14 @@ namespace GestaoDeProjeto.Aplicacao.DML.Squads
         public short? Inativo { get; set; }
     }
 
-    public class SquadObterTodosResponse : Squad
+    public class SquadObterTodosResponse  
     {
-
+        public int Id { get; set; }
+        public int Id_Empresa { get; set; }
+  
+        public string Descricao { get; set; } = string.Empty;
+ 
+        public bool Inativo { get; set; }
     }
     public class SquadObterTodosHandler : IRequestHandler<SquadObterTodosRequest, RetornoPaginadoGenerico<SquadObterTodosResponse>>
     {

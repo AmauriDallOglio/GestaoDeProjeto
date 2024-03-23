@@ -1,7 +1,12 @@
 ﻿using AutoMapper;
+using GestaoDeProjeto.Aplicacao.DML.Empresas;
+using GestaoDeProjeto.Aplicacao.DML.Projetos;
+using GestaoDeProjeto.Aplicacao.DML.ProjetoSquads;
+using GestaoDeProjeto.Aplicacao.DML.Squads;
+using GestaoDeProjeto.Aplicacao.DML.Usuarios;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace GestaoDeProjeto.Aplicacao.Profiles.Configuracao
+namespace GestaoDeProjeto.Aplicacao.Configuracao
 {
     public static class DependenciasProfile
     {
