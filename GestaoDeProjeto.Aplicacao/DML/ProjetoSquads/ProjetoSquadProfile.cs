@@ -18,6 +18,8 @@ namespace GestaoDeProjeto.Aplicacao.DML.ProjetoSquads
 
 
 
+            CreateMap<ProjetoSquad, ProjetoSquadObterTodosRequest>().ReverseMap();
+            CreateMap<ProjetoSquad, ProjetoSquadObterTodosResponse>().ReverseMap();
 
         }
     }

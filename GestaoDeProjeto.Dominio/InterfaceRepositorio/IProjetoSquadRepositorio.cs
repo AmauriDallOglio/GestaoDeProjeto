@@ -5,5 +5,6 @@ namespace GestaoDeProjeto.Dominio.InterfaceRepositorio
 {
     public interface IProjetoSquadRepositorio : IRepositorioGenerico<ProjetoSquad>
     {
+        Task<List<ProjetoSquad>> BuscarTodosAsync(string descricao);
     }
 }
