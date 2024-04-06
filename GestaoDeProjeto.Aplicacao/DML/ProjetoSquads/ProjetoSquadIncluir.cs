@@ -32,16 +32,16 @@ namespace GestaoDeProjeto.Aplicacao.DML.ProjetoSquads
             _mediator = mediator;
         }
 
-        public Task<ResultadoOperacao<ProjetoSquadIncluirResponse>> Handle(ProjetoSquadIncluirRequest request, CancellationToken cancellationToken)
+        public async Task<ResultadoOperacao<ProjetoSquadIncluirResponse>> Handle(ProjetoSquadIncluirRequest request, CancellationToken cancellationToken)
         {
             ProjetoSquad entidade = _mapper.Map<ProjetoSquad>(request);
 
-            entidade = _iProjetoSquadRepositorio.Inserir(entidade, true);
+            entidade = await _iProjetoSquadRepositorio.InserirAsync(entidade, true, cancellationToken);
 
             ProjetoSquadIncluirResponse response = _mapper.Map<ProjetoSquadIncluirResponse>(entidade);
 
             Task<ResultadoOperacao<ProjetoSquadIncluirResponse>> sucesso = ResultadoOperacao<ProjetoSquadIncluirResponse>.RetornaSuccessoAsync(response, "ProjetoSquad", "Sucesso");
-            return sucesso;
+            return sucesso.Result;
         }
     }
 }

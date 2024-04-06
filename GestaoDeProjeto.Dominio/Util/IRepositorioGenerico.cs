@@ -4,10 +4,10 @@ namespace GestaoDeProjeto.Dominio.Util
 {
     public interface IRepositorioGenerico<TEntity> where TEntity : class
     {
-        TEntity Inserir(TEntity entidade, bool finalizar, CancellationToken cancellationToken = default);
-        TEntity Alterar(TEntity entidade, bool finalizar, CancellationToken cancellationToken = default);
-        TEntity Deletar(TEntity entidade, CancellationToken cancellationToken = default);
-        TEntity ObterPorId(object id);
+        Task<TEntity> InserirAsync(TEntity entidade, bool finalizar, CancellationToken cancellationToken);
+        Task<TEntity> AlterarAsync(TEntity entidade, bool finalizar, CancellationToken cancellationToken);
+        Task<TEntity> DeletarAsync(TEntity entidade, bool finalizar, CancellationToken cancellationToken);
+        Task<TEntity> ObterPorIdAsync(object id);
 
         // IList<TEntity> ObterTodosPorDescricao(string descricao);
 
@@ -30,6 +30,6 @@ namespace GestaoDeProjeto.Dominio.Util
 
 
         
-        void Comitar();
+        Task<int> ComitarAsync();
     }
 }

@@ -29,17 +29,17 @@ namespace GestaoDeProjeto.Aplicacao.DML.Usuarios
             _mediator = mediator;
         }
 
-        public Task<ResultadoOperacao<UsuarioExcluirResponse>> Handle(UsuarioExcluirRequest request, CancellationToken cancellationToken)
+        public async Task<ResultadoOperacao<UsuarioExcluirResponse>> Handle(UsuarioExcluirRequest request, CancellationToken cancellationToken)
         {
 
             Usuario entidade = _mapper.Map<Usuario>(request);
 
-            _iUsuarioRepositorio.Deletar(entidade);
+            _iUsuarioRepositorio.DeletarAsync(entidade, true, cancellationToken);
 
             UsuarioExcluirResponse response = _mapper.Map<UsuarioExcluirResponse>(entidade);
 
             Task<ResultadoOperacao<UsuarioExcluirResponse>> sucesso = ResultadoOperacao<UsuarioExcluirResponse>.RetornaSuccessoAsync(response, "Usuario", "Sucesso");
-            return sucesso;
+            return await sucesso;
         }
     }
 

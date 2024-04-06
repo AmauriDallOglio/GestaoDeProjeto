@@ -3,7 +3,7 @@ using GestaoDeProjeto.Infra.Contexto;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 
-namespace GestaoDeProjeto.Infra.Util
+namespace GestaoDeProjeto.Infra.Repositorio
 {
     public class RepositorioGenerico<TEntity> : IRepositorioGenerico<TEntity> where TEntity : class
     {
@@ -16,50 +16,55 @@ namespace GestaoDeProjeto.Infra.Util
             _dbSet = _dbContext.Set<TEntity>();
         }
 
-        public TEntity Inserir(TEntity entidade, bool finalizar = true, CancellationToken cancellationToken = default)
+        public async Task<TEntity> InserirAsync(TEntity entidade, bool finalizar, CancellationToken cancellationToken)
         {
-            _dbContext.Set<TEntity>().Add(entidade);
+            await _dbContext.Set<TEntity>().AddAsync(entidade);
             _dbContext.MetodoInserir();
             if (finalizar)
             {
-                Comitar();
+                await ComitarAsync();
             }
             return entidade;
         }
 
-        public TEntity Alterar(TEntity entidade, bool finalizar = true, CancellationToken cancellationToken = default)
+        public async Task<TEntity> AlterarAsync(TEntity entidade, bool finalizar, CancellationToken cancellationToken)
         {
             _dbContext.Entry(entidade).State = EntityState.Modified;
             _dbContext.MetodoAlterar();
             _dbContext.Set<TEntity>().Update(entidade);
             if (finalizar)
             {
-                Comitar();
+                await ComitarAsync();
             }
             return entidade;
         }
 
-        public TEntity Deletar(TEntity entidade, CancellationToken cancellationToken = default)
+        public async Task<TEntity> DeletarAsync(TEntity entidade, bool finalizar, CancellationToken cancellationToken)
         {
             var reultado = _dbContext.Set<TEntity>().Remove(entidade);
-            Comitar();
+            if (finalizar)
+            {
+                await ComitarAsync();
+            }
             return entidade;
         }
 
 
 
-        public TEntity ObterPorId(object id)
+        public async Task<TEntity> ObterPorIdAsync(object id)
         {
-            return _dbContext.Set<TEntity>().Find(id);
+            return await _dbContext.Set<TEntity>().FindAsync(id);
         }
 
 
 
-        public void Comitar()
+        public async Task<int> ComitarAsync()
         {
-            var resultadoCommit = _dbContext.SaveChanges();
-
+            int resultado = await _dbContext.SaveChangesAsync();
+            return resultado;
         }
+ 
+
 
         public async Task<IEnumerable<TEntity>> ObterTodosAsync(Expression<Func<TEntity, bool>> filter = null,
                                                                 Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null,
@@ -68,19 +73,19 @@ namespace GestaoDeProjeto.Infra.Util
                                                                 int? take = null,
                                                                 int? skip = null,
                                                                 CancellationToken cancellationToken = default)
-        
+
         {
             var consulta = await ObterTodos(filter, orderBy, includeProperties, noTracking, take, skip).ToListAsync(cancellationToken).ConfigureAwait(false);
             return consulta;
         }
-                                                                  
 
-  
+
+
 
 
         public IQueryable<TEntity> ObterTodos(Expression<Func<TEntity, bool>> filter = null, Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null, string includeProperties = "", bool noTracking = false, int? take = null, int? skip = null)
         {
-            IQueryable<TEntity> query = this._dbSet;
+            IQueryable<TEntity> query = _dbSet;
 
             if (noTracking)
                 query = query.AsNoTracking();
@@ -110,7 +115,8 @@ namespace GestaoDeProjeto.Infra.Util
             return query;
         }
 
-       
+
+
 
 
         //public Task Rollback()

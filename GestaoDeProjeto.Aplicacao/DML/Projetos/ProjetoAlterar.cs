@@ -37,17 +37,17 @@ namespace GestaoDeProjeto.Aplicacao.DML.Projetos
             _mediator = mediator;
         }
 
-        public Task<ResultadoOperacao<ProjetoAlterarResponse>> Handle(ProjetoAlterarRequest request, CancellationToken cancellationToken)
+        public async Task<ResultadoOperacao<ProjetoAlterarResponse>> Handle(ProjetoAlterarRequest request, CancellationToken cancellationToken)
         {
 
             Projeto entidade = _mapper.Map<Projeto>(request);
 
-            Projeto entidadeBD = _iProjetoRepositorio.Alterar(entidade, true);
+            Projeto entidadeBD = await _iProjetoRepositorio.AlterarAsync(entidade, true, cancellationToken);
 
             ProjetoAlterarResponse response = _mapper.Map<ProjetoAlterarResponse>(entidadeBD);
  
             Task<ResultadoOperacao<ProjetoAlterarResponse>> sucesso = ResultadoOperacao<ProjetoAlterarResponse>.RetornaSuccessoAsync(response, "Projeto", "Sucesso");
-            return sucesso;
+            return sucesso.Result;
         }
     }
 

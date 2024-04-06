@@ -34,17 +34,17 @@ namespace GestaoDeProjeto.Aplicacao.DML.ProjetoSquads
             _mediator = mediator;
         }
 
-        public Task<ResultadoOperacao<ProjetoSquadAlterarResponse>> Handle(ProjetoSquadAlterarRequest request, CancellationToken cancellationToken)
+        public async Task<ResultadoOperacao<ProjetoSquadAlterarResponse>> Handle(ProjetoSquadAlterarRequest request, CancellationToken cancellationToken)
         {
 
             ProjetoSquad entidade = _mapper.Map<ProjetoSquad>(request);
 
-            ProjetoSquad entidadeBD = _iProjetoSquadRepositorio.Alterar(entidade, true);
+            ProjetoSquad entidadeBD = await _iProjetoSquadRepositorio.AlterarAsync(entidade, true, cancellationToken);
 
             ProjetoSquadAlterarResponse response = _mapper.Map<ProjetoSquadAlterarResponse>(entidadeBD);
 
             Task<ResultadoOperacao<ProjetoSquadAlterarResponse>> sucesso = ResultadoOperacao<ProjetoSquadAlterarResponse>.RetornaSuccessoAsync(response, "ProjetoSquad", "Sucesso");
-            return sucesso;
+            return sucesso.Result;
         }
     }
 }

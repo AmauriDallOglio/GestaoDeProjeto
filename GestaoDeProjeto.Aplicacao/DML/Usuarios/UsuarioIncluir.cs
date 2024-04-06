@@ -34,18 +34,18 @@ namespace GestaoDeProjeto.Aplicacao.DML.Usuarios
             _mediator = mediator;
         }
 
-        public Task<ResultadoOperacao<UsuarioIncluirResponse>> Handle(UsuarioIncluirRequest request, CancellationToken cancellationToken)
+        public async Task<ResultadoOperacao<UsuarioIncluirResponse>> Handle(UsuarioIncluirRequest request, CancellationToken cancellationToken)
         {
 
             Usuario entidade = _mapper.Map<Usuario>(request);
 
-            entidade = _iUsuarioRepositorio.Inserir(entidade, true, cancellationToken);
+            entidade = await _iUsuarioRepositorio.InserirAsync(entidade, true, cancellationToken);
 
             UsuarioIncluirResponse response = _mapper.Map<UsuarioIncluirResponse>(entidade);
 
             Task<ResultadoOperacao<UsuarioIncluirResponse>> sucesso = ResultadoOperacao<UsuarioIncluirResponse>.RetornaSuccessoAsync(response, "Usuario", "Sucesso");
 
-            return sucesso;
+            return await sucesso;
         }
     }
 

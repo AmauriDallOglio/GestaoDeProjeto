@@ -87,7 +87,7 @@ namespace GestaoDeProjeto.Aplicacao.DML.Empresas
 
             entidade.DadosDoIncluir();
 
-            entidade = _iEmpresaRepositorio.Inserir(entidade, true);
+            entidade = await _iEmpresaRepositorio.InserirAsync(entidade, true, cancellationToken);
 
             EmpresaIncluirResponse response = _mapper.Map<EmpresaIncluirResponse>(entidade);
 

@@ -30,17 +30,17 @@ namespace GestaoDeProjeto.Aplicacao.DML.Empresas
             _mediator = mediator;
         }
 
-        public Task<ResultadoOperacao<EmpresaExcluirResponse>> Handle(EmpresaExcluirRequest request, CancellationToken cancellationToken)
+        public async Task<ResultadoOperacao<EmpresaExcluirResponse>> Handle(EmpresaExcluirRequest request, CancellationToken cancellationToken)
         {
 
             Empresa entidade = _mapper.Map<Empresa>(request);
 
-            _iEmpresaRepositorio.Deletar(entidade);
+            await _iEmpresaRepositorio.DeletarAsync(entidade, true, cancellationToken );
 
             EmpresaExcluirResponse response = _mapper.Map<EmpresaExcluirResponse>(entidade);
 
             Task<ResultadoOperacao<EmpresaExcluirResponse>> sucesso = ResultadoOperacao<EmpresaExcluirResponse>.RetornaSuccessoAsync(response, "Empresa", "Sucesso");
-            return sucesso;
+            return sucesso.Result;
         }
     }
 

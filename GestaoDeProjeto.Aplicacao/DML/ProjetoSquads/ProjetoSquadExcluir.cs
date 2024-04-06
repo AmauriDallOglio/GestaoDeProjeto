@@ -30,18 +30,18 @@ namespace GestaoDeProjeto.Aplicacao.DML.ProjetoSquads
             _mediator = mediator;
         }
 
-        public Task<ResultadoOperacao<ProjetoSquadExcluirResponse>> Handle(ProjetoSquadExcluirRequest request, CancellationToken cancellationToken)
+        public async Task<ResultadoOperacao<ProjetoSquadExcluirResponse>> Handle(ProjetoSquadExcluirRequest request, CancellationToken cancellationToken)
         {
 
 
             ProjetoSquad entidade = _mapper.Map<ProjetoSquad>(request);
 
-            _iProjetoSquadRepositorio.Deletar(entidade, cancellationToken);
+            await _iProjetoSquadRepositorio.DeletarAsync(entidade, true, cancellationToken);
 
             ProjetoSquadExcluirResponse response = _mapper.Map<ProjetoSquadExcluirResponse>(entidade);
 
             Task<ResultadoOperacao<ProjetoSquadExcluirResponse>> sucesso = ResultadoOperacao<ProjetoSquadExcluirResponse>.RetornaSuccessoAsync(response, "ProjetoSquad", "Sucesso");
-            return sucesso;
+            return await sucesso;
         }
     }
 
