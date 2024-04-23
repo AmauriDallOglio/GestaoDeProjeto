@@ -15,5 +15,10 @@ namespace GestaoDeProjeto.Dominio.Entidade
         //public string? UrlImagem { get; set; } = string.Empty;
         public bool Inativo { get; set; }
 
+        public Squad Incluir()
+        {
+            this.Inativo = false;
+            return this;
+        }
     }
 }

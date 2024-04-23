@@ -32,7 +32,7 @@ builder.Services.AddSwaggerGen(c =>
         Contact = new OpenApiContact
         {
             Name = "Amauri Dall'Oglio",
-            Email = "amauri@hotmail.com",
+            Email = "amauridalloglio@gmail.com",
             Url = new Uri("https://github.com/amauridalloglio"),
         },
         License = new OpenApiLicense

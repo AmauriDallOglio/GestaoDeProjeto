@@ -9,7 +9,7 @@ namespace GestaoDeProjeto.Aplicacao.DML.Empresas
 {
     public class EmpresaIncluirRequest : IRequest<ResultadoOperacao<EmpresaIncluirResponse>>
     {
-        public int Id { get; set; }
+        //public int Id { get; set; }
 
         [Required(ErrorMessage = "A Razão Social é obrigatória.")]
         public string RazaoSocial { get; set; } = string.Empty;

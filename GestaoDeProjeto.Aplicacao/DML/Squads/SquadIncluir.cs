@@ -3,16 +3,17 @@ using GestaoDeProjeto.Dominio.Entidade;
 using GestaoDeProjeto.Dominio.InterfaceRepositorio;
 using GestaoDeProjeto.Dominio.Util;
 using MediatR;
+using System.ComponentModel.DataAnnotations;
 
 namespace GestaoDeProjeto.Aplicacao.DML.Squads
 {
     public class SquadIncluirRequest : IRequest<ResultadoOperacao<SquadIncluirResponse>>
     {
- 
+        [Required(ErrorMessage = "Descrição é obrigatório.")]
         public string Descricao { get; set; } = string.Empty;
         //public byte[]? ArrayImagem { get; set; }
         //public string? UrlImagem { get; set; } = string.Empty;
-        public bool Inativo { get; set; }
+ 
 
     }
 
@@ -39,6 +40,8 @@ namespace GestaoDeProjeto.Aplicacao.DML.Squads
         {
 
             Squad entidade = _mapper.Map<Squad>(request);
+
+            entidade.Incluir();
 
             entidade = await _iSquadRepositorio.InserirAsync(entidade, true, cancellationToken);
 
