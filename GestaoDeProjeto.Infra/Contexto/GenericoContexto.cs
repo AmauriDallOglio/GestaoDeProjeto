@@ -21,6 +21,7 @@ namespace GestaoDeProjeto.Infra.Contexto
         public DbSet<Projeto> Projeto { get; set; }
         public DbSet<ProjetoSquad> ProjetoSquad { get; set; }
         public DbSet<Squad> Squad { get; set; }
+        public DbSet<SquadUsuario> SquadUsuario { get; set; }
         public DbSet<Usuario> Usuario { get; set; }
 
 

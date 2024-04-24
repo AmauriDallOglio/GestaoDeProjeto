@@ -3,6 +3,7 @@ using GestaoDeProjeto.Aplicacao.DML.Empresas;
 using GestaoDeProjeto.Aplicacao.DML.Projetos;
 using GestaoDeProjeto.Aplicacao.DML.ProjetoSquads;
 using GestaoDeProjeto.Aplicacao.DML.Squads;
+using GestaoDeProjeto.Aplicacao.DML.SquadUsuarios;
 using GestaoDeProjeto.Aplicacao.DML.Usuarios;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -26,8 +27,8 @@ namespace GestaoDeProjeto.Aplicacao.Configuracao
             cfg.AddProfile<ProjetoProfile>();
             cfg.AddProfile<ProjetoSquadProfile>();
             cfg.AddProfile<SquadProfile>();
+            cfg.AddProfile<SquadUsuarioProfile>();
             cfg.AddProfile<UsuarioProfile>();
-
         }
     }
 }
