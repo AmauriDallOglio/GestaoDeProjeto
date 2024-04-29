@@ -1,5 +1,6 @@
 ﻿using GestaoDeProjeto.Dominio.Util;
 using Newtonsoft.Json;
+using System.ComponentModel.DataAnnotations.Schema;
 
 
 namespace GestaoDeProjeto.Dominio.Entidade
@@ -15,6 +16,26 @@ namespace GestaoDeProjeto.Dominio.Entidade
         public int Id_Squad { get; set; }
         public Squad Squad { get; set; }
         public bool Inativo { get; set; }
+
+        [NotMapped]
+        public string NomeProjeto
+        {
+            get
+            {
+                return Projeto != null ? Projeto.Descricao : string.Empty;
+            }
+            init { }
+        }
+
+        [NotMapped]
+        public string NomeSquad
+        {
+            get
+            {
+                return Squad != null ? Squad.Descricao : string.Empty;
+            }
+            init { }
+        }
 
     }
 }

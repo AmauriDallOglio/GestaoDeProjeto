@@ -3,6 +3,7 @@ using GestaoDeProjeto.Dominio.Entidade;
 using GestaoDeProjeto.Dominio.InterfaceRepositorio;
 using GestaoDeProjeto.Dominio.Util;
 using MediatR;
+using System.Security.Cryptography;
 
 namespace GestaoDeProjeto.Aplicacao.DML.ProjetoSquads
 {
@@ -20,6 +21,10 @@ namespace GestaoDeProjeto.Aplicacao.DML.ProjetoSquads
         public int Id_Squad { get; set; }
       
         public bool Inativo { get; set; }
+
+        public string NomeProjeto { get; set; } = string.Empty;
+
+        public string NomeSquad { get; set; } = string.Empty;
 
     }
 
@@ -42,12 +47,12 @@ namespace GestaoDeProjeto.Aplicacao.DML.ProjetoSquads
             //var filtro = new ProjetoListarTodosFiltro(request);
             //var where = filtro.CriterioWhere;
             //var orderby = filtro.CriterioOrderBy;
-            //var include = filtro.Includes;
+            var includeProperties = "Projeto,Squad";
 
 
             //List<Projeto> lista = await _iProjetoRepositorio.ObterTodos(filtro, orderby, false, null, null);
 
-            IEnumerable<ProjetoSquad> lista = await _iProjetoSquadRepositorio.ObterTodosAsync();
+            IEnumerable<ProjetoSquad> lista = await _iProjetoSquadRepositorio.ObterTodosAsync(null,null,includeProperties,false,null,null,cancellationToken);
             List<ProjetoSquadObterTodosResponse> response = _mapper.Map<List<ProjetoSquadObterTodosResponse>>(lista);
             RetornoPaginadoGenerico<ProjetoSquadObterTodosResponse> retornoPaginado = new RetornoPaginadoGenerico<ProjetoSquadObterTodosResponse>
             {
