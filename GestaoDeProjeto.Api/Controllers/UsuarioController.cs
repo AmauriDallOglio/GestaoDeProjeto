@@ -1,5 +1,4 @@
 ﻿using GestaoDeProjeto.Aplicacao.DML.Usuarios;
-using GestaoDeProjeto.Aplicacao.DML.Usuarios;
 using GestaoDeProjeto.Dominio.Util;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;

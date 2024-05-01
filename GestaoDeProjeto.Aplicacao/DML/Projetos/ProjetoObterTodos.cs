@@ -3,7 +3,6 @@ using GestaoDeProjeto.Dominio.Entidade;
 using GestaoDeProjeto.Dominio.InterfaceRepositorio;
 using GestaoDeProjeto.Dominio.Util;
 using MediatR;
-using Newtonsoft.Json;
 
 namespace GestaoDeProjeto.Aplicacao.DML.Projetos
 {

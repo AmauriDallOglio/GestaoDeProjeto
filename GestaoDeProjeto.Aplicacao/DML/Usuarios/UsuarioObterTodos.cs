@@ -13,7 +13,7 @@ namespace GestaoDeProjeto.Aplicacao.DML.Usuarios
         public short? Inativo { get; set; }
     }
 
-    public class UsuarioObterTodosResponse : Usuario
+    public class UsuarioObterTodosResponse
     {
         public int Id { get; set; }
         public int Id_Empresa { get; set; }

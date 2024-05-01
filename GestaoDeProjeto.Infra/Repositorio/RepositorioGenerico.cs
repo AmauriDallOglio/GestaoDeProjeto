@@ -112,6 +112,9 @@ namespace GestaoDeProjeto.Infra.Repositorio
             if (orderBy != null)
                 query = orderBy(query);
 
+
+            var sql = query.ToQueryString();
+
             return query;
         }
 

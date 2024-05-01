@@ -17,5 +17,12 @@ namespace GestaoDeProjeto.Dominio.Util
             AguardandoRecursos = 5,
             Atrasado = 6
         }
+
+        public enum Situacao
+        {
+            Ativo = 0,
+            Inativo = 1
+        }
+
     }
 }

@@ -12,14 +12,11 @@ namespace GestaoDeProjeto.Aplicacao.DML.ProjetoSquads
  
         public bool Inativo { get; set; }
     }
-
     
     public class ProjetoSquadAlterarResponse
     {
         public int Id { get; set; }
     }
-
-
 
     public class ProjetoSquadAlterarHandler : IRequestHandler<ProjetoSquadAlterarRequest, ResultadoOperacao<ProjetoSquadAlterarResponse>>
     {

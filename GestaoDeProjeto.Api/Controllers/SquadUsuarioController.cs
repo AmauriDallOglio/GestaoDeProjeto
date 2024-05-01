@@ -1,5 +1,4 @@
-﻿using GestaoDeProjeto.Aplicacao.DML.Squads;
-using GestaoDeProjeto.Aplicacao.DML.SquadUsuarios;
+﻿using GestaoDeProjeto.Aplicacao.DML.SquadUsuarios;
 using GestaoDeProjeto.Dominio.Util;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -43,6 +42,14 @@ namespace GestaoDeProjeto.Api.Controllers
             {
                 return BadRequest(ModelState);
             }
+        }
+
+
+        [HttpDelete("Excluir"), ActionName("Excluir")]
+        public async Task<ResultadoOperacao<SquadUsuarioExcluirResponse>> Excluir([FromBody] SquadUsuarioExcluirRequest request)
+        {
+            ResultadoOperacao<SquadUsuarioExcluirResponse> response = await _mediator.Send(request);
+            return response;
         }
     }
 }

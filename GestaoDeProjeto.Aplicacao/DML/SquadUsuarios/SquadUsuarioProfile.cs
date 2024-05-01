@@ -16,6 +16,9 @@ namespace GestaoDeProjeto.Aplicacao.DML.SquadUsuarios
             CreateMap<SquadUsuario, SquadUsuarioIncluirRequest>().ReverseMap();
             CreateMap<SquadUsuario, SquadUsuarioIncluirResponse>().ReverseMap();
 
+            CreateMap<SquadUsuario, SquadUsuarioExcluirRequest>().ReverseMap();
+            CreateMap<SquadUsuario, SquadUsuarioExcluirResponse>().ReverseMap();
+
         }
     }
 }
