@@ -129,6 +129,24 @@ namespace GestaoDeProjeto.Infra.Contexto
 
 
 
+        CREATE TABLE Tarefa (
+            Id INT PRIMARY KEY IDENTITY(1,1),
+            Id_Empresa INT NOT NULL,
+            Id_Projeto INT NOT NULL,
+            Descricao VARCHAR(255) NOT NULL,
+            DataInicio DATETIME NOT NULL,
+            DataFim datetime NULL,
+            Situacao TINYINT NOT NULL
+        );
+        ALTER TABLE Tarefa ADD CONSTRAINT FK_Tarefa_Empresa FOREIGN KEY (Id_Empresa) REFERENCES Empresa(Id);
+        GO
+        ALTER TABLE Tarefa ADD CONSTRAINT FK_Tarefa_Projeto FOREIGN KEY (Id_Projeto) REFERENCES Projeto(Id);
+        GO
+        CREATE UNIQUE INDEX IDX_Usuario_UQ ON Usuario(Id_Empresa, Id_Projeto, Id);
+        GO
+
+
+
         Tarefas:
         A tabela Tarefas tem uma chave primária TarefaID.
         Relacionamentos:

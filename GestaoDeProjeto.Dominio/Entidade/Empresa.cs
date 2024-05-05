@@ -20,7 +20,7 @@ namespace GestaoDeProjeto.Dominio.Entidade
         public string Estado { get; set; } = string.Empty;
         public bool Inativo { get; set; }
 
-        //public List<Squad> Squads { get; set; }
+
 
         public virtual List<Projeto>? ListaProjetos { get; set; }
 
