@@ -17,7 +17,8 @@ namespace GestaoDeProjeto.Infra.Repositorio
         {
             List<Empresa> lista = await _contexto.Empresa
                                   .Include(a => a.ListaProjetos)
-                                  .Include(a => a.ListaSquad).ToListAsync();
+                                  .Include(a => a.ListaSquads)
+                                  .Include(a => a.ListaUsuarios).ToListAsync();
  
    
 

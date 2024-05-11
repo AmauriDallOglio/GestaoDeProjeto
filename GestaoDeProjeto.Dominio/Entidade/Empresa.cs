@@ -22,7 +22,7 @@ namespace GestaoDeProjeto.Dominio.Entidade
 
 
         public virtual List<Projeto>? ListaProjetos { get; set; }
-        public virtual List<Squad>? ListaSquad { get; set; }
+        public virtual List<Squad>? ListaSquads { get; set; }
         public virtual List<Usuario>? ListaUsuarios { get; set; }
 
 

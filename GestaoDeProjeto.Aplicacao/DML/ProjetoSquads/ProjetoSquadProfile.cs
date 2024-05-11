@@ -16,8 +16,6 @@ namespace GestaoDeProjeto.Aplicacao.DML.ProjetoSquads
             CreateMap<ProjetoSquad, ProjetoSquadExcluirRequest>().ReverseMap();
             CreateMap<ProjetoSquad, ProjetoSquadExcluirResponse>().ReverseMap();
 
-
-
             CreateMap<ProjetoSquad, ProjetoSquadObterTodosRequest>().ReverseMap();
             CreateMap<ProjetoSquad, ProjetoSquadObterTodosResponse>().ReverseMap();
 

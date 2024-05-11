@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using GestaoDeProjeto.Aplicacao.DML.Empresas;
 using GestaoDeProjeto.Dominio.Entidade;
 
 namespace GestaoDeProjeto.Aplicacao.DML.Usuarios
@@ -17,8 +16,9 @@ namespace GestaoDeProjeto.Aplicacao.DML.Usuarios
             CreateMap<Usuario, UsuarioExcluirRequest>().ReverseMap();
             CreateMap<Usuario, UsuarioExcluirResponse>().ReverseMap();
 
-            CreateMap<Empresa, UsuarioObterTodosRequest>().ReverseMap();
-            CreateMap<Empresa, UsuarioObterTodosResponse>().ReverseMap();
+            CreateMap<Usuario, UsuarioObterTodosRequest>().ReverseMap();
+            CreateMap<Usuario, UsuarioObterTodosResponse>().ReverseMap();
+ 
         }
     }
 }

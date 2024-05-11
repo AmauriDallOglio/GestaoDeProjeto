@@ -10,9 +10,14 @@ namespace GestaoDeProjeto.Aplicacao.DML.Squads
             CreateMap<Squad, SquadIncluirRequest>().ReverseMap();
             CreateMap<Squad, SquadIncluirResponse>().ReverseMap();
 
+            CreateMap<Squad, SquadAlterarRequest>().ReverseMap();
+            CreateMap<Squad, SquadAlterarResponse>().ReverseMap();
+
+            CreateMap<Squad, SquadExcluirRequest>().ReverseMap();
+            CreateMap<Squad, SquadExcluirResponse>().ReverseMap();
+
             CreateMap<Squad, SquadObterTodosRequest>().ReverseMap();
             CreateMap<Squad, SquadObterTodosResponse>().ReverseMap();
-
 
 
         }

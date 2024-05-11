@@ -16,8 +16,10 @@ namespace GestaoDeProjeto.Dominio.Entidade
         public string Telefone { get; set; } = string.Empty;
         public byte Situacao { get; set; }
 
- 
-
+        public void Incluir()
+        {
+            Situacao = 0;
+        }
     }
 
 }

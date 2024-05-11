@@ -13,10 +13,8 @@ namespace GestaoDeProjeto.Aplicacao.DML.Empresas
             CreateMap<Empresa, EmpresaAlterarRequest>().ReverseMap();
             CreateMap<Empresa, EmpresaAlterarResponse>().ReverseMap();
 
-
             CreateMap<Empresa, EmpresaExcluirRequest>().ReverseMap();
             CreateMap<Empresa, EmpresaExcluirResponse>().ReverseMap();
-
 
             CreateMap<Empresa, EmpresaObterTodosRequest>().ReverseMap();
             CreateMap<Empresa, EmpresaObterTodosResponse>().ReverseMap();

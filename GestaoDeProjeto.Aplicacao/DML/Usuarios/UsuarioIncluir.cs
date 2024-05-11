@@ -38,6 +38,7 @@ namespace GestaoDeProjeto.Aplicacao.DML.Usuarios
         {
 
             Usuario entidade = _mapper.Map<Usuario>(request);
+            entidade.Incluir();
 
             entidade = await _iUsuarioRepositorio.InserirAsync(entidade, true, cancellationToken);
 

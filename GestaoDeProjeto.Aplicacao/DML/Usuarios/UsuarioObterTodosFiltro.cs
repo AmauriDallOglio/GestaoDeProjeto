@@ -7,7 +7,7 @@ namespace GestaoDeProjeto.Aplicacao.DML.Usuarios
     {
         public UsuarioObterTodosFiltro(UsuarioObterTodosRequest filtro)
         {
-            // Includes.Add(a => a.Tenant);
+            Includes.Add(a => a.Empresa);
             if (!string.IsNullOrEmpty(filtro.Nome))
             {
                 CriterioWhere = p => p.Nome.Contains(filtro.Nome);
@@ -18,7 +18,7 @@ namespace GestaoDeProjeto.Aplicacao.DML.Usuarios
             //    CriterioWhere = p => p.Inativo == (filtro.Inativo == StatusInatividade.Inativo);
             //}
 
-            CriterioOrderBy = q => q.OrderByDescending(p => p.Id);
+            CriterioOrderBy = q => q.OrderByDescending(p => p.Nome);
         }
     }
 }
