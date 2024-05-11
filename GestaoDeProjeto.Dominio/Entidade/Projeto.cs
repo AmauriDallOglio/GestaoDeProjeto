@@ -20,5 +20,7 @@ namespace GestaoDeProjeto.Dominio.Entidade
             DataHoraInicio = DateTime.Now;
             Situacao = 0;
         }
+
+
     }
 }

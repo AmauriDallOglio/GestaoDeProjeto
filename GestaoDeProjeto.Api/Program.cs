@@ -19,29 +19,7 @@ builder.Services.AddControllers().AddNewtonsoftJson(opt =>
     opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 
 
-
-
-builder.Services.AddSwaggerGen(c =>
-{
-    c.SwaggerDoc("v1", new OpenApiInfo
-    {
-        Version = "v1",
-        Title = "Projeto.API",
-        Description = "API CRUD para gestão de projetos",
-        TermsOfService = new Uri("https://example.com"),
-        Contact = new OpenApiContact
-        {
-            Name = "Amauri Dall'Oglio",
-            Email = "amauridalloglio@gmail.com",
-            Url = new Uri("https://github.com/amauridalloglio"),
-        },
-        License = new OpenApiLicense
-        {
-            Name = "Informações de licença",
-            Url = new Uri("https://example.com/"),
-        }
-    });
-});
+builder.Services.InformacaoCabecalhoApi();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -68,9 +46,9 @@ if (app.Environment.IsDevelopment())
 
 app.UseRouting();
 app.UseSwagger();
-app.UseSwaggerUI(); //https://localhost:7006/swagger/index.html
+app.UseSwaggerUI(); 
 
-////https://localhost:7006/swagger/v1/swagger.json
+ 
 
 
 

@@ -17,6 +17,7 @@ namespace GestaoDeProjeto.Aplicacao.DML.Usuarios
             //{
             //    CriterioWhere = p => p.Inativo == (filtro.Inativo == StatusInatividade.Inativo);
             //}
+
             CriterioOrderBy = q => q.OrderByDescending(p => p.Id);
         }
     }

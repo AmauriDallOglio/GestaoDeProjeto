@@ -21,10 +21,9 @@ namespace GestaoDeProjeto.Dominio.Entidade
         public bool Inativo { get; set; }
 
 
-
         public virtual List<Projeto>? ListaProjetos { get; set; }
-
         public virtual List<Squad>? ListaSquad { get; set; }
+        public virtual List<Usuario>? ListaUsuarios { get; set; }
 
 
         public Empresa DadosDoIncluir()

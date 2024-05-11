@@ -13,7 +13,7 @@ namespace GestaoDeProjeto.Infra.Mapeamento
             builder.Property(s => s.Id).HasColumnName("Id").HasColumnType("INT").UseIdentityColumn().IsRequired();
 
             builder.Property(u => u.Id_Empresa).HasColumnName("Id_Empresa").HasColumnType("INT").IsRequired(true);
-            builder.HasOne(u => u.Empresa).WithMany().HasForeignKey(u => u.Id_Empresa);
+            builder.HasOne(u => u.Empresa).WithMany(e => e.ListaUsuarios).HasForeignKey(u => u.Id_Empresa);
 
 
             builder.Property(u => u.Nome).HasMaxLength(300).HasColumnName("Nome").HasColumnType("VARCHAR").IsRequired(true);

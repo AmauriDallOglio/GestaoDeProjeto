@@ -22,7 +22,7 @@ namespace GestaoDeProjeto.Infra.Repositorio
             _dbContext.MetodoInserir();
             if (finalizar)
             {
-                await ComitarAsync();
+                await ComitarAsync(cancellationToken);
             }
             return entidade;
         }
@@ -34,7 +34,7 @@ namespace GestaoDeProjeto.Infra.Repositorio
             _dbContext.Set<TEntity>().Update(entidade);
             if (finalizar)
             {
-                await ComitarAsync();
+                await ComitarAsync(cancellationToken);
             }
             return entidade;
         }
@@ -44,23 +44,23 @@ namespace GestaoDeProjeto.Infra.Repositorio
             var reultado = _dbContext.Set<TEntity>().Remove(entidade);
             if (finalizar)
             {
-                await ComitarAsync();
+                await ComitarAsync(cancellationToken);
             }
             return entidade;
         }
 
 
 
-        public async Task<TEntity> ObterPorIdAsync(object id)
+        public async Task<TEntity> ObterPorIdAsync(object id, CancellationToken cancellationToken)
         {
-            return await _dbContext.Set<TEntity>().FindAsync(id);
+            return await _dbContext.Set<TEntity>().FindAsync(id, cancellationToken);
         }
 
 
 
-        public async Task<int> ComitarAsync()
+        public async Task<int> ComitarAsync(CancellationToken cancellationToken)
         {
-            int resultado = await _dbContext.SaveChangesAsync();
+            int resultado = await _dbContext.SaveChangesAsync(cancellationToken);
             return resultado;
         }
  

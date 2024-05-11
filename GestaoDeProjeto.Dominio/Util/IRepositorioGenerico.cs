@@ -7,7 +7,7 @@ namespace GestaoDeProjeto.Dominio.Util
         Task<TEntity> InserirAsync(TEntity entidade, bool finalizar, CancellationToken cancellationToken);
         Task<TEntity> AlterarAsync(TEntity entidade, bool finalizar, CancellationToken cancellationToken);
         Task<TEntity> DeletarAsync(TEntity entidade, bool finalizar, CancellationToken cancellationToken);
-        Task<TEntity> ObterPorIdAsync(object id);
+        Task<TEntity> ObterPorIdAsync(object id, CancellationToken cancellationToken);
 
         // IList<TEntity> ObterTodosPorDescricao(string descricao);
 
@@ -30,6 +30,6 @@ namespace GestaoDeProjeto.Dominio.Util
 
 
         
-        Task<int> ComitarAsync();
+        Task<int> ComitarAsync(CancellationToken cancellationToken);
     }
 }
