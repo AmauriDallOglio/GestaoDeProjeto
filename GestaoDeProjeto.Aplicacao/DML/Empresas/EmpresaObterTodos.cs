@@ -8,12 +8,16 @@ namespace GestaoDeProjeto.Aplicacao.DML.Empresas
 {
     public class EmpresaObterTodosRequest : IRequest<RetornoPaginadoGenerico<EmpresaObterTodosResponse>>
     {
-        
+        public string NomeFantasia { get; set; } = string.Empty;
+        public bool Situacao { get; set; }
+
     }
 
     public class EmpresaObterTodosResponse : Empresa
     {
-
+        public int QuantidadeSquad { get; set; }
+        public int QuantidadeUsuario { get; set; }
+        public int QuantidadeProjeto { get; set; }
     }
 
 
@@ -33,24 +37,34 @@ namespace GestaoDeProjeto.Aplicacao.DML.Empresas
         public async Task<RetornoPaginadoGenerico<EmpresaObterTodosResponse>> Handle(EmpresaObterTodosRequest request, CancellationToken cancellationToken)
         {
 
-            //var filtro = new ProjetoListarTodosFiltro(request);
-            //var criterioWhere = filtro.CriterioWhere;
-            //var criterioOrderBy = filtro.CriterioOrderBy;
-            //var criterioInclude = filtro.Includes;
+            var filtro = new EmpresaObterTodosFiltro(request);
+            var criterioWhere = filtro.CriterioWhere;
+            var criterioOrderBy = filtro.CriterioOrderBy;
+            var criterioInclude = filtro.Includes;
 
 
-            //List<Projeto> lista = _iProjetoRepositorio.ObterTodos().ToList();
-
+ 
             List<Empresa> lista = await _IEmpresaRepositorio.BuscarTodosAsync();
 
             List<EmpresaObterTodosResponse> listaResponse = _mapper.Map<List<EmpresaObterTodosResponse>>(lista);
 
+            List<EmpresaObterTodosResponse> response = new List<EmpresaObterTodosResponse>();
+            foreach (var item in listaResponse)
+            {
+                item.QuantidadeProjeto = item.ListaProjetos != null ? item.ListaProjetos.Count : 0;
+                item.QuantidadeSquad = item.ListaSquads != null ? item.ListaSquads.Count : 0;
+                item.QuantidadeUsuario = item.ListaUsuarios != null ? item.ListaUsuarios.Count : 0;
+
+                response.Add(item);
+            
+            }
+
             RetornoPaginadoGenerico<EmpresaObterTodosResponse> retornoPaginado = new RetornoPaginadoGenerico<EmpresaObterTodosResponse>
             {
-                Modelos = listaResponse,
+                Modelos = response,
                 ItemPorPagina = 1,
                 Pagina = 10,
-                TotalRegistros = listaResponse.Count()
+                TotalRegistros = response.Count()
             };
             return await Task.FromResult(retornoPaginado);
         }
