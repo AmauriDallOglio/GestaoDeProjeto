@@ -12,6 +12,7 @@ namespace GestaoDeProjeto.Infra.Mapeamento.Configuracao
             builder.ApplyConfiguration(new SquadMapeamento());
             builder.ApplyConfiguration(new SquadUsuarioMapeamento());
             builder.ApplyConfiguration(new UsuarioMapeamento());
+            builder.ApplyConfiguration(new TarefaMapeamento());
         }
     }
 }

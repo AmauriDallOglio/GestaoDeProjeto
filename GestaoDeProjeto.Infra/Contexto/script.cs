@@ -129,21 +129,37 @@ namespace GestaoDeProjeto.Infra.Contexto
 
 
 
+        
+
         CREATE TABLE Tarefa (
             Id INT PRIMARY KEY IDENTITY(1,1),
             Id_Empresa INT NOT NULL,
             Id_Projeto INT NOT NULL,
             Descricao VARCHAR(255) NOT NULL,
-            DataInicio DATETIME NOT NULL,
-            DataFim datetime NULL,
-            Situacao TINYINT NOT NULL
+			Objetivo VARCHAR(5000) NOT NULL,
+			Resultado VARCHAR(5000) NOT NULL,
+		    Fase TINYINT NOT NULL,
+			Ordem TINYINT NOT NULL,
+			HorasEstimada int not null,
+            DataInicialEstimado DATETIME NOT NULL,
+            DataFinalEstimado datetime NULL,
+            DataInicialRealizado DATETIME NOT NULL,
+            DataFinalRealizado datetime NULL,
+			Sprint VARCHAR(50) NULL,
+		    Situacao TINYINT NOT NULL
         );
         ALTER TABLE Tarefa ADD CONSTRAINT FK_Tarefa_Empresa FOREIGN KEY (Id_Empresa) REFERENCES Empresa(Id);
         GO
         ALTER TABLE Tarefa ADD CONSTRAINT FK_Tarefa_Projeto FOREIGN KEY (Id_Projeto) REFERENCES Projeto(Id);
         GO
-        CREATE UNIQUE INDEX IDX_Usuario_UQ ON Usuario(Id_Empresa, Id_Projeto, Id);
+        CREATE UNIQUE INDEX IDX_Tarefa_UQ ON Tarefa(Id_Empresa, Id_Projeto, Id);
         GO
+
+
+
+         
+
+
 
 
 

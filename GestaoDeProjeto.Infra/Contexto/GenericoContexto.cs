@@ -23,7 +23,7 @@ namespace GestaoDeProjeto.Infra.Contexto
         public DbSet<Squad> Squad { get; set; }
         public DbSet<SquadUsuario> SquadUsuario { get; set; }
         public DbSet<Usuario> Usuario { get; set; }
-
+        public DbSet<Tarefa> Tarefa { get; set; }
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
