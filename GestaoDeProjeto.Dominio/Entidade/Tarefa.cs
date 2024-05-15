@@ -1,6 +1,7 @@
 ﻿using GestaoDeProjeto.Dominio.Util;
 using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations;
+using static GestaoDeProjeto.Dominio.Util.Enums;
 
 namespace GestaoDeProjeto.Dominio.Entidade
 {
@@ -51,34 +52,12 @@ namespace GestaoDeProjeto.Dominio.Entidade
         public string Sprint { get; set; }
 
         [Required(ErrorMessage = "A situação da tarefa é obrigatória.")]
-        public byte Situacao { get; set; }
+        public SituacaoProjeto Situacao { get; set; }
 
 
         public void Incluir(int HorasEstimada)
         {
-            TimeSpan horarioInicioTurno = TimeSpan.FromHours(8);
-            TimeSpan horarioFinalTurno = TimeSpan.FromHours(18);
-
-
-
-            //switch (HorasEstimada)
-            //{
-            //    case 5:
-            //        Console.Write("Warning: not acceptable value! ");
-            //        break;
-            //    case 10:
-            //        Console.Write("Warning: not acceptable value! ");
-            //        break;
-
-            //}
-
-            // Data de início da tarefa
             DateTime dataInicio = DateTime.Now;
-            // Data de término da tarefa
-            DateTime dataFim = DateTime.Now.AddHours(HorasEstimada);
-
-            // Número de dias úteis entre a data de início e a data de término
-            int diasUteis = CalcularDiasUteis(dataInicio, dataFim);
 
             // Horas estimadas para a tarefa
             int horasEstimadas = HorasEstimada;
@@ -92,28 +71,28 @@ namespace GestaoDeProjeto.Dominio.Entidade
             // Calcular a data final estimada
             DateTime dataFinalEstimada = CalcularDataFinalEstimada(dataInicio, diasDeTrabalhoNecessarios);
 
-            // Exibir o resultado
-            Console.WriteLine("Data de início: " + dataInicio.ToString("dd/MM/yyyy"));
-            Console.WriteLine("Data de término: " + dataFim.ToString("dd/MM/yyyy"));
-            Console.WriteLine("Horas estimadas: " + horasEstimadas);
-            Console.WriteLine("Horas de trabalho por dia: " + horasDiarias);
-            Console.WriteLine("Número de dias úteis: " + diasUteis);
-            Console.WriteLine("Número de dias de trabalho necessários: " + diasDeTrabalhoNecessarios);
-            Console.WriteLine("Data final estimada: " + dataFinalEstimada.ToString("dd/MM/yyyy"));
+            //// Exibir o resultado
+            //Console.WriteLine("Data de início: " + dataInicio.ToString("dd/MM/yyyy"));
+            //Console.WriteLine("Horas estimadas: " + horasEstimadas);
+            //Console.WriteLine("Horas de trabalho por dia: " + horasDiarias);
+            //Console.WriteLine("Número de dias de trabalho necessários: " + diasDeTrabalhoNecessarios);
+            //Console.WriteLine("Data final estimada: " + dataFinalEstimada.ToString("dd/MM/yyyy"));
 
 
             if (HorasEstimada > 0)
             {
-
-                Objetivo = ($"Data de início: {dataInicio.ToString("dd/MM/yyyy")}, Data de término: {dataFim.ToString("dd/MM/yyyy")}, Horas estimadas: {horasEstimadas}, Horas de trabalho por dia: {horasDiarias}, Número de dias úteis: {diasUteis}, Número de dias de trabalho necessários: {diasDeTrabalhoNecessarios}, Data final estimada: {dataFinalEstimada.ToString("dd/MM/yyyy")}");
-                DataInicialEstimado = DateTime.Now;
-                DataFinalEstimado = DateTime.Now.AddHours(HorasEstimada);
+                Objetivo = ($"Horas estimadas: {horasEstimadas}, " +
+                            $"Horas de trabalho por dia: {horasDiarias}, " +
+                            $"Número de dias de trabalho necessários: {diasDeTrabalhoNecessarios}, " +
+                            $"Data de início estimado: {dataInicio.ToString("dd/MM/yyyy")}, " +
+                            $"Data final estimado: {dataFinalEstimada.ToString("dd/MM/yyyy")}");
+                DataInicialEstimado = dataInicio;
+                DataFinalEstimado = dataFinalEstimada;
             }
-            Situacao = 0;
+            Situacao = SituacaoProjeto.Planejado;
             return;
         }
 
-        // Método para calcular o número de dias úteis entre duas datas
         public static int CalcularDiasUteis(DateTime dataInicio, DateTime dataFim)
         {
             int diasUteis = 0;
@@ -127,7 +106,6 @@ namespace GestaoDeProjeto.Dominio.Entidade
             return diasUteis;
         }
 
-        // Método para calcular a data final estimada
         public static DateTime CalcularDataFinalEstimada(DateTime dataInicio, int diasDeTrabalhoNecessarios)
         {
             DateTime dataFinalEstimada = dataInicio;
@@ -136,7 +114,8 @@ namespace GestaoDeProjeto.Dominio.Entidade
                 do
                 {
                     dataFinalEstimada = dataFinalEstimada.AddDays(1);
-                } while (dataFinalEstimada.DayOfWeek == DayOfWeek.Saturday || dataFinalEstimada.DayOfWeek == DayOfWeek.Sunday);
+                }
+                while (dataFinalEstimada.DayOfWeek == DayOfWeek.Saturday || dataFinalEstimada.DayOfWeek == DayOfWeek.Sunday);
             }
             return dataFinalEstimada;
         }

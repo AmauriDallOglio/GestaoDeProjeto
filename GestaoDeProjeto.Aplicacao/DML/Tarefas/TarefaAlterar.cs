@@ -7,11 +7,11 @@ using System.ComponentModel.DataAnnotations;
 
 namespace GestaoDeProjeto.Aplicacao.DML.Tarefas
 {
-    public class TarefaIncluirRequest : IRequest<ResultadoOperacao<TarefaIncluirResponse>>
+    public class TarefaAlterarRequest : IRequest<ResultadoOperacao<TarefaAlterarResponse>>
     {
         [Required(ErrorMessage = "Id projeto da tarefa é obrigatória.")]
         public int Id_Projeto { get; set; }
-   
+
         [Required(ErrorMessage = "A descrição da tarefa é obrigatória.")]
         [StringLength(255)]
         public string Descricao { get; set; } = string.Empty;
@@ -46,38 +46,42 @@ namespace GestaoDeProjeto.Aplicacao.DML.Tarefas
         [StringLength(50)]
         public string Sprint { get; set; } = string.Empty;
 
-    }
+        [Required(ErrorMessage = "Situação da tarefa é obrigatória.")]
+        public short Situacao { get; set; }
 
-    public class TarefaIncluirResponse : Tarefa
+}
+
+    public class TarefaAlterarResponse : Tarefa
     {
 
 
     }
 
-    public class TarefaIncluirHandler : IRequestHandler<TarefaIncluirRequest, ResultadoOperacao<TarefaIncluirResponse>>
+    public class TarefaAlterarHandler : IRequestHandler<TarefaAlterarRequest, ResultadoOperacao<TarefaAlterarResponse>>
     {
         private readonly ITarefaRepositorio _iTarefaRepositorio;
         private readonly IMapper _mapper;
         private readonly IMediator _mediator;
 
-        public TarefaIncluirHandler(IMediator mediator, IMapper mapper, ITarefaRepositorio repository)
+        public TarefaAlterarHandler(IMediator mediator, IMapper mapper, ITarefaRepositorio repository)
         {
             _iTarefaRepositorio = repository;
             _mapper = mapper;
             _mediator = mediator;
         }
 
-        public async Task<ResultadoOperacao<TarefaIncluirResponse>> Handle(TarefaIncluirRequest request, CancellationToken cancellationToken)
+        public async Task<ResultadoOperacao<TarefaAlterarResponse>> Handle(TarefaAlterarRequest request, CancellationToken cancellationToken)
         {
             Tarefa entidade = _mapper.Map<Tarefa>(request);
-            entidade.Incluir(request.HorasEstimada);
+            //entidade.Alterar(request.HorasEstimada);
 
             entidade = await _iTarefaRepositorio.InserirAsync(entidade, true, cancellationToken);
 
-            TarefaIncluirResponse response = _mapper.Map<TarefaIncluirResponse>(entidade);
+            TarefaAlterarResponse response = _mapper.Map<TarefaAlterarResponse>(entidade);
 
-            Task<ResultadoOperacao<TarefaIncluirResponse>> sucesso = ResultadoOperacao<TarefaIncluirResponse>.RetornaSuccessoAsync(response, "Tarefa", "Sucesso");
+            Task<ResultadoOperacao<TarefaAlterarResponse>> sucesso = ResultadoOperacao<TarefaAlterarResponse>.RetornaSuccessoAsync(response, "Tarefa", "Sucesso");
             return sucesso.Result;
         }
     }
+
 }

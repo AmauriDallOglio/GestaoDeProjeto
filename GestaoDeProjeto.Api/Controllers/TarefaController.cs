@@ -25,7 +25,14 @@ namespace GestaoDeTarefa.Api.Controllers
         [HttpPost("Inserir"), ActionName("Inserir")]
         public async Task<ResultadoOperacao<TarefaIncluirResponse>> Inserir([FromBody] TarefaIncluirRequest request)
         {
-            var response = await _mediator.Send(request);
+            ResultadoOperacao<TarefaIncluirResponse> response = await _mediator.Send(request);
+            return response;
+        }
+
+        [HttpPut("Alterar"), ActionName("Alterar")]
+        public async Task<ResultadoOperacao<TarefaAlterarResponse>> Alterar([FromBody] TarefaAlterarRequest request)
+        {
+            ResultadoOperacao<TarefaAlterarResponse> response = await _mediator.Send(request);
             return response;
         }
 
