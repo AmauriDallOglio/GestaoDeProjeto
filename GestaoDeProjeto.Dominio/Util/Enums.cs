@@ -29,12 +29,11 @@
             EmAndamentoBaixaPrioridade = 7,
             EmAndamentoMediaPrioridade = 8,
             EmAndamentoAltaPrioridade = 9,
-            EmExecucao = 10,
-            EmTeste = 11,
-            PendenteAprovacao = 12,
-            PendenteRecursos = 13,
-            AguardandoFeedbackCliente = 14,
-            AguardandoAprovacaoInterna = 15
+            EmTeste = 10,
+            PendenteAprovacao = 11,
+            PendenteRecursos = 12,
+            AguardandoFeedbackCliente = 13,
+            AguardandoAprovacaoInterna = 14
         }
 
     }

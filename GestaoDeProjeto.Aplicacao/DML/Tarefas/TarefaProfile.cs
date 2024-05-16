@@ -12,6 +12,11 @@ namespace GestaoDeProjeto.Aplicacao.DML.Tarefas
 
             CreateMap<Tarefa, TarefaAlterarRequest>().ReverseMap();
             CreateMap<Tarefa, TarefaAlterarResponse>().ReverseMap();
+
+
+            CreateMap<Tarefa, TarefaObterTodosRequest>().ReverseMap();
+            CreateMap<Tarefa, TarefaObterTodosResponse>().ReverseMap();
+
         }
     }
 }

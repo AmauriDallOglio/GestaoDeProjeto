@@ -20,7 +20,7 @@ namespace GestaoDeProjeto.Aplicacao.DML.Tarefas
         [StringLength(5000)]
         public string Objetivo { get; set; } = string.Empty;
 
-        [Required(ErrorMessage = "O resultado da tarefa é obrigatório.")]
+        //[Required(ErrorMessage = "O resultado da tarefa é obrigatório.")]
         [StringLength(5000)]
         public string Resultado { get; set; } = string.Empty;
 

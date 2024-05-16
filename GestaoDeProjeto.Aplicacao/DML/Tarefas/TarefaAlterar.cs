@@ -73,7 +73,7 @@ namespace GestaoDeProjeto.Aplicacao.DML.Tarefas
         public async Task<ResultadoOperacao<TarefaAlterarResponse>> Handle(TarefaAlterarRequest request, CancellationToken cancellationToken)
         {
             Tarefa entidade = _mapper.Map<Tarefa>(request);
-            //entidade.Alterar(request.HorasEstimada);
+            entidade.Alterar(request.HorasEstimada, request.Situacao);
 
             entidade = await _iTarefaRepositorio.InserirAsync(entidade, true, cancellationToken);
 

@@ -55,18 +55,20 @@ namespace GestaoDeProjeto.Dominio.Entidade
         public SituacaoProjeto Situacao { get; set; }
 
 
-        public void Incluir(int HorasEstimada)
+ 
+
+
+        public void Incluir(int horasEstimada)
         {
             DateTime dataInicio = DateTime.Now;
 
-            // Horas estimadas para a tarefa
-            int horasEstimadas = HorasEstimada;
+          
 
             // Horas de trabalho por dia
             int horasDiarias = 7;
 
             // Calcular o número de dias de trabalho necessário
-            int diasDeTrabalhoNecessarios = (int)Math.Ceiling((double)horasEstimadas / horasDiarias);
+            int diasDeTrabalhoNecessarios = (int)Math.Ceiling((double)horasEstimada / horasDiarias);
 
             // Calcular a data final estimada
             DateTime dataFinalEstimada = CalcularDataFinalEstimada(dataInicio, diasDeTrabalhoNecessarios);
@@ -81,7 +83,7 @@ namespace GestaoDeProjeto.Dominio.Entidade
 
             if (HorasEstimada > 0)
             {
-                Objetivo = ($"Horas estimadas: {horasEstimadas}, " +
+                Resultado = ($"Horas estimadas: {horasEstimada}, " +
                             $"Horas de trabalho por dia: {horasDiarias}, " +
                             $"Número de dias de trabalho necessários: {diasDeTrabalhoNecessarios}, " +
                             $"Data de início estimado: {dataInicio.ToString("dd/MM/yyyy")}, " +
@@ -90,6 +92,37 @@ namespace GestaoDeProjeto.Dominio.Entidade
                 DataFinalEstimado = dataFinalEstimada;
             }
             Situacao = SituacaoProjeto.Planejado;
+            return;
+        }
+
+
+        public void Alterar(int horasEstimada, short situacao)
+        {
+            DateTime dataInicio = DateTime.Now;
+            // Horas de trabalho por dia
+            int horasDiarias = 7;
+
+            // Calcular o número de dias de trabalho necessário
+            int diasDeTrabalhoNecessarios = (int)Math.Ceiling((double)horasEstimada / horasDiarias);
+
+            // Calcular a data final estimada
+            DateTime dataFinalEstimada = CalcularDataFinalEstimada(dataInicio, diasDeTrabalhoNecessarios);
+
+            if (HorasEstimada > 0)
+            {
+                Resultado = ($"Horas estimadas: {horasEstimada}, " +
+                            $"Horas de trabalho por dia: {horasDiarias}, " +
+                            $"Número de dias de trabalho necessários: {diasDeTrabalhoNecessarios}, " +
+                            $"Data de início estimado: {dataInicio.ToString("dd/MM/yyyy")}, " +
+                            $"Data final estimado: {dataFinalEstimada.ToString("dd/MM/yyyy")}");
+                DataInicialEstimado = dataInicio;
+                DataFinalEstimado = dataFinalEstimada;
+            }
+            Situacao = (SituacaoProjeto)situacao;
+            if (DataFinalEstimado < DateTime.Now)
+            {
+                Situacao = SituacaoProjeto.Atrasado;
+            }
             return;
         }
 

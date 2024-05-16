@@ -36,5 +36,14 @@ namespace GestaoDeTarefa.Api.Controllers
             return response;
         }
 
+
+        [HttpGet("ObterTodos"), ActionName("ObterTodos")]
+        public async Task<ActionResult<IEnumerable<TarefaObterTodosResponse>>> ObterTodos([FromQuery] TarefaObterTodosRequest request)
+        {
+            RetornoPaginadoGenerico<TarefaObterTodosResponse> resultado = await _mediator.Send(request);
+            var lista = resultado.Modelos.ToList();
+            return Ok(resultado);
+        }
+
     }
 }
