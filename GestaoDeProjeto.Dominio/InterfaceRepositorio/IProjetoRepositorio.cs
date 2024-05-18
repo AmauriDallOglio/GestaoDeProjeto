@@ -5,8 +5,8 @@ namespace GestaoDeProjeto.Dominio.InterfaceRepositorio
 {
     public interface IProjetoRepositorio : IRepositorioGenerico<Projeto>
     {
-        Task<List<Projeto>> BuscarTodosPorDescricaoAsync(string descricao);
+        Task<List<Projeto>> BuscarTodosPorDescricaoAsync(string descricao, CancellationToken cancellationToken);
 
-        Task ExcluirEmpresaEProjetosAsync(int idProjeto);
+        Task ExcluirAsync(int idProjeto, CancellationToken cancellationToken);
     }
 }

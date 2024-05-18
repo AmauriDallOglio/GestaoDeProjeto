@@ -14,7 +14,7 @@ namespace GestaoDeProjeto.Aplicacao.DML.Projetos
                 CriterioWhere = p => p.Descricao.Contains(filtro.Descricao);
             }
 
-            if (filtro.Status == (short)Enums.Situacao.Inativo)
+            if (filtro.Situacao == (short)Enums.Situacao.Inativo)
             {
                 CriterioWhere = p => p.Situacao == (short)Enums.Situacao.Inativo;
             }

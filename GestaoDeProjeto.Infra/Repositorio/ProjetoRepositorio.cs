@@ -13,34 +13,28 @@ namespace GestaoDeProjeto.Infra.Repositorio
             _contexto = dbContext;
         }
 
-        public async Task<List<Projeto>> BuscarTodosPorDescricaoAsync(string descricao)
+        public async Task<List<Projeto>> BuscarTodosPorDescricaoAsync(string descricao, CancellationToken cancellationToken)
         {
             var resultado = new List<Projeto>();
             if (string.IsNullOrEmpty(descricao))
             {
-                resultado = await _contexto.Projeto.Include(a => a.Empresa).ToListAsync();
+                resultado = await _contexto.Projeto.Include(a => a.Empresa).ToListAsync(cancellationToken);
             }
             else
             {
-                resultado = await _contexto.Projeto.Where(b => b.Descricao.Contains(descricao)).ToListAsync();
+                resultado = await _contexto.Projeto.Where(b => b.Descricao.Contains(descricao)).ToListAsync(cancellationToken);
             }
             return resultado;
         }
 
 
-        public async Task ExcluirEmpresaEProjetosAsync(int idProjeto)
+        public async Task ExcluirAsync(int idProjeto, CancellationToken cancellationToken)
         {
-            //var aaa = _contexto.Projeto.ToList();
-            //Projeto aassss = aaa.Where(a => a.Id == idProjeto).FirstOrDefault();
-            //Projeto aaaa = aaa.Where(a => a.Id == 1).FirstOrDefault();
-            var projeto = await _contexto.Projeto.Where(a => a.Id == idProjeto).FirstOrDefaultAsync();
-            // .Include(e => e.Empresa) // Certifique-se de incluir os projetos para excluir em cascata
-
-
+            var projeto = await _contexto.Projeto.Where(a => a.Id == idProjeto).FirstOrDefaultAsync(cancellationToken);
             if (projeto != null)
             {
                 _contexto.Projeto.Remove(projeto);
-                await _contexto.SaveChangesAsync();
+                await _contexto.SaveChangesAsync(cancellationToken);
             }
         }
     }

@@ -12,7 +12,7 @@ namespace GestaoDeProjeto.Aplicacao.DML.Projetos
         public string Descricao { get; set; } = string.Empty;
         public DateTime DataInicio { get; set; }
         public DateTime? DataFim { get; set; }
-        public short Status { get; set; }
+        public short Situacao { get; set; }
     }
 
     public class ProjetoObterTodosResponse  
@@ -24,6 +24,7 @@ namespace GestaoDeProjeto.Aplicacao.DML.Projetos
         public DateTime DataHoraInicio { get; set; }
         public DateTime? DataHoraFim { get; set; }
         public short Situacao { get; set; }
+ 
     }
 
     public class ProjetoObterTodosHandler : IRequestHandler<ProjetoObterTodosRequest, RetornoPaginadoGenerico<ProjetoObterTodosResponse>>
@@ -50,7 +51,7 @@ namespace GestaoDeProjeto.Aplicacao.DML.Projetos
 
             //List<Projeto> lista = await _iProjetoRepositorio.ObterTodos(filtro, orderby, false, null, null);
 
-            List<Projeto> lista = await _iProjetoRepositorio.BuscarTodosPorDescricaoAsync(request.Descricao);
+            List<Projeto> lista = await _iProjetoRepositorio.BuscarTodosPorDescricaoAsync(request.Descricao, cancellationToken);
             List<ProjetoObterTodosResponse> response = _mapper.Map<List<ProjetoObterTodosResponse>>(lista);
             RetornoPaginadoGenerico<ProjetoObterTodosResponse> retornoPaginado = new RetornoPaginadoGenerico<ProjetoObterTodosResponse>
             {
