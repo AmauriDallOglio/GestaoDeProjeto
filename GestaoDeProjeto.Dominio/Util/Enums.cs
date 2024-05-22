@@ -22,18 +22,19 @@
         {
             Planejado = 1,
             EmAndamento = 2,
-            Concluido = 3,
-            Atrasado = 4,
-            EmRevisao = 5,
-            EmEspera = 6,
-            EmAndamentoBaixaPrioridade = 7,
-            EmAndamentoMediaPrioridade = 8,
-            EmAndamentoAltaPrioridade = 9,
-            EmTeste = 10,
-            PendenteAprovacao = 11,
-            PendenteRecursos = 12,
-            AguardandoFeedbackCliente = 13,
-            AguardandoAprovacaoInterna = 14
+            Atrasado = 3,
+            EmRevisao = 4,
+            EmEspera = 5,
+            EmAndamentoBaixaPrioridade = 6,
+            EmAndamentoMediaPrioridade = 7,
+            EmAndamentoAltaPrioridade = 8,
+            EmTeste = 9,
+            PendenteAprovacao = 10,
+            PendenteRecursos = 11,
+            AguardandoFeedbackCliente = 12,
+            AguardandoAprovacaoInterna = 13,
+            Cancelado = 14,
+            Concluido = 15
         }
 
     }

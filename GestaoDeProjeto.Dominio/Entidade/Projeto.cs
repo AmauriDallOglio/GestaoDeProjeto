@@ -17,8 +17,7 @@ namespace GestaoDeProjeto.Dominio.Entidade
 
         public void Inserir()
         {
-            DataHoraInicio = DateTime.Now;
-            Situacao = 0;
+       
         }
 
 

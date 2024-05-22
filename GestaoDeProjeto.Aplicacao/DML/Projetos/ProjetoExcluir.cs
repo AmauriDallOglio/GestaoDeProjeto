@@ -35,7 +35,7 @@ namespace GestaoDeProjeto.Aplicacao.DML.Projetos
 
             Projeto entidade = _mapper.Map<Projeto>(request);
 
-            _iProjetoRepositorio.DeletarAsync(entidade, true, cancellationToken);
+            var resultado = _iProjetoRepositorio.DeletarAsync(entidade, true, cancellationToken);
 
             ProjetoExcluirResponse response = _mapper.Map<ProjetoExcluirResponse>(entidade);
  
