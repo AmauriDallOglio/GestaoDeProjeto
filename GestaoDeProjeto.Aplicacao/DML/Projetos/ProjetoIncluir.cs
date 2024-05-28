@@ -9,17 +9,11 @@ namespace GestaoDeProjeto.Aplicacao.DML.Projetos
 {
     public class ProjetoIncluirRequest : IRequest<ResultadoOperacao<ProjetoIncluirResponse>>
     {
-        [Required(ErrorMessage = "O nome do projeto é obrigatório.")]
         public string NomeProjeto { get; set; } = string.Empty;
-
-        [Required(ErrorMessage = "Descrição é obrigatório.")]
         public string Descricao { get; set; } = string.Empty;
         public DateTime DataHoraInicio { get; set; }
         public DateTime? DataHoraFim { get; set; }
-
-        [Required(ErrorMessage = "Situacao é obrigatório.")]
         public short Situacao { get; set; }
-
     }
 
     public class ProjetoIncluirResponse

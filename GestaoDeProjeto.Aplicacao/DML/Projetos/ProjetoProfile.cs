@@ -19,6 +19,8 @@ namespace GestaoDeProjeto.Aplicacao.DML.Projetos
             CreateMap<Projeto, ProjetoObterTodosRequest>().ReverseMap();
             CreateMap<Projeto, ProjetoObterTodosResponse>().ReverseMap();
 
+            CreateMap<Projeto, ProjetoComboRequest>().ReverseMap();
+            CreateMap<Projeto, ProjetoComboResponse>().ReverseMap();
 
         }
     }

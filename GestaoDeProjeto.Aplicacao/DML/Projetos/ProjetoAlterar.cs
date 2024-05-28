@@ -3,24 +3,17 @@ using GestaoDeProjeto.Dominio.Entidade;
 using GestaoDeProjeto.Dominio.InterfaceRepositorio;
 using GestaoDeProjeto.Dominio.Util;
 using MediatR;
-using System.ComponentModel.DataAnnotations;
 
 namespace GestaoDeProjeto.Aplicacao.DML.Projetos
 {
     public class ProjetoAlterarRequest : IRequest<ResultadoOperacao<ProjetoAlterarResponse>>
     {
         public int Id { get; set; }
-        [Required(ErrorMessage = "O nome do projeto é obrigatório.")]
         public string NomeProjeto { get; set; } = string.Empty;
-
-        [Required(ErrorMessage = "Descrição é obrigatório.")]
         public string Descricao { get; set; } = string.Empty;
         public DateTime DataHoraInicio { get; set; }
         public DateTime? DataHoraFim { get; set; }
-
-        [Required(ErrorMessage = "Status é obrigatório.")]
-        public short Status { get; set; }
-
+        public short Situacao { get; set; }
     }
 
     public class ProjetoAlterarResponse

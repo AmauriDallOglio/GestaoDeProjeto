@@ -49,12 +49,20 @@ namespace GestaoDeProjeto.Api.Controllers
         public async Task<ActionResult<IEnumerable<ProjetoObterTodosResponse>>> ObterTodos([FromQuery] ProjetoObterTodosRequest request)
         {
             RetornoPaginadoGenerico<ProjetoObterTodosResponse> resultado = await _mediator.Send(request);
-            var lista = resultado.Modelos.ToList();
             return Ok(resultado);
         }
 
 
- 
+
+        [HttpGet("ObterCombo"), ActionName("ObterCombo")]
+        public async Task<ActionResult<ProjetoComboResponse>> ObterCombo([FromQuery] ProjetoComboRequest request)
+        {
+            List<ProjetoComboResponse> resultado = await _mediator.Send(request);
+      
+            return Ok(resultado);
+        }
+
+
 
 
     }
