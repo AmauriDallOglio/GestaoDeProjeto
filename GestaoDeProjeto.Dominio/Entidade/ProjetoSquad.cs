@@ -21,7 +21,7 @@ namespace GestaoDeProjeto.Dominio.Entidade
         {
             get
             {
-                return Projeto != null ? Projeto.Descricao : string.Empty;
+                return Projeto != null ? Projeto.NomeProjeto : string.Empty;
             }
             init { }
         }

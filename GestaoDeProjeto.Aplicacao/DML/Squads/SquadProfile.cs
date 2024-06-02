@@ -19,7 +19,8 @@ namespace GestaoDeProjeto.Aplicacao.DML.Squads
             CreateMap<Squad, SquadObterTodosRequest>().ReverseMap();
             CreateMap<Squad, SquadObterTodosResponse>().ReverseMap();
 
-
+            CreateMap<Squad, SquadComboRequest>().ReverseMap();
+            CreateMap<Squad, SquadComboResponse>().ReverseMap();
         }
     }
 }

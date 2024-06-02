@@ -71,5 +71,15 @@ namespace GestaoDeProjeto.Api.Controllers
 
 
 
+        [HttpGet("ObterCombo"), ActionName("ObterCombo")]
+        public async Task<ActionResult<SquadComboResponse>> ObterCombo([FromQuery] SquadComboRequest request)
+        {
+            List<SquadComboResponse> resultado = await _mediator.Send(request);
+
+            return Ok(resultado);
+        }
+
+
+
     }
 }
