@@ -8,7 +8,7 @@ namespace GestaoDeProjeto.Aplicacao.DML.Squads
 {
     public class SquadAlterarRequest : IRequest<ResultadoOperacao<SquadAlterarResponse>>
     {
- 
+        public int Id { get; set; }
         public string Descricao { get; set; } = string.Empty;
  
         public bool Inativo { get; set; }

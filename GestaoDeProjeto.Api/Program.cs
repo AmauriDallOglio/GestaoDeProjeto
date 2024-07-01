@@ -2,7 +2,6 @@ using GestaoDeProjeto.Api.Configuracao;
 using GestaoDeProjeto.Aplicacao.Configuracao;
 using GestaoDeProjeto.Infra.Repositorio.Configuracao;
 using MediatR;
-using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
