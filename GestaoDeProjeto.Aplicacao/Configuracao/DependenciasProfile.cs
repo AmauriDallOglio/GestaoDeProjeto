@@ -1,11 +1,5 @@
 ﻿using AutoMapper;
-using GestaoDeProjeto.Aplicacao.DML.Empresas;
-using GestaoDeProjeto.Aplicacao.DML.Projetos;
-using GestaoDeProjeto.Aplicacao.DML.ProjetoSquads;
-using GestaoDeProjeto.Aplicacao.DML.Squads;
-using GestaoDeProjeto.Aplicacao.DML.SquadUsuarios;
-using GestaoDeProjeto.Aplicacao.DML.Tarefas;
-using GestaoDeProjeto.Aplicacao.DML.Usuarios;
+using GestaoDeProjeto.Aplicacao.Profiles;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace GestaoDeProjeto.Aplicacao.Configuracao

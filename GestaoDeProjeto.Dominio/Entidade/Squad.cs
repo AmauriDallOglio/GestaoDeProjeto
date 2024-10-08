@@ -8,7 +8,7 @@ namespace GestaoDeProjeto.Dominio.Entidade
     {
         public int Id_Empresa { get; set; }
         [JsonIgnore]
-        public Empresa Empresa { get; set; }
+        public Empresa Empresa { get; set; } = new Empresa();
         public string Descricao { get; set; } = string.Empty;
         //public byte[]? ArrayImagem { get; set; }
         //public string? UrlImagem { get; set; } = string.Empty;

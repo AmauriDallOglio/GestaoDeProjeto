@@ -1,7 +1,8 @@
 ﻿using AutoMapper;
+using GestaoDeProjeto.Aplicacao.DML.SquadUsuarios;
 using GestaoDeProjeto.Dominio.Entidade;
 
-namespace GestaoDeProjeto.Aplicacao.DML.SquadUsuarios
+namespace GestaoDeProjeto.Aplicacao.Profiles
 {
     public class SquadUsuarioProfile : Profile
     {

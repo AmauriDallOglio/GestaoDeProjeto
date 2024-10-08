@@ -1,7 +1,8 @@
 ﻿using AutoMapper;
+using GestaoDeProjeto.Aplicacao.DML.Tarefas;
 using GestaoDeProjeto.Dominio.Entidade;
 
-namespace GestaoDeProjeto.Aplicacao.DML.Tarefas
+namespace GestaoDeProjeto.Aplicacao.Profiles
 {
     public class TarefaProfile : Profile
     {

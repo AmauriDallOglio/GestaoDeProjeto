@@ -1,4 +1,5 @@
 ﻿using GestaoDeProjeto.Aplicacao.DML.Empresas;
+using GestaoDeProjeto.Dominio.Entidade;
 using GestaoDeProjeto.Dominio.Util;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -68,6 +69,8 @@ namespace GestaoDeProjeto.Api.Controllers
             RetornoPaginadoGenerico<EmpresaObterTodosResponse> resultado = await _mediator.Send(request);
             return Ok(resultado);
         }
+
+
 
     }
 }

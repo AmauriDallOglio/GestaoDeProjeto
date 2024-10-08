@@ -7,13 +7,13 @@ namespace GestaoDeProjeto.Dominio.Entidade
     {
         public int Id_Empresa { get; set; }
         [JsonIgnore]
-        public Empresa Empresa { get; set; }
+        public Empresa Empresa { get; set; } = new Empresa();
 
         public int Id_Squad { get; set; }
-        public Squad Squad { get; set; }
+        public Squad Squad { get; set; } = new Squad();
 
         public int Id_Usuario { get; set; }
-        public Usuario Usuario { get; set; }
+        public Usuario Usuario { get; set; } = new Usuario();
  
         public bool Inativo { get; set; }
 

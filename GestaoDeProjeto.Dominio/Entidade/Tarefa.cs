@@ -9,11 +9,11 @@ namespace GestaoDeProjeto.Dominio.Entidade
     {
         [Required]
         public int Id_Empresa { get; set; }
-        public Empresa Empresa { get; set; }
+        public Empresa Empresa { get; set; } = new Empresa();
 
         [Required]
         public int Id_Projeto { get; set; }
-        public Projeto Projeto { get; set; }
+        public Projeto Projeto { get; set; } = new Projeto();
 
 
 

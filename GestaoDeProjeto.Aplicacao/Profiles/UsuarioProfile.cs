@@ -1,7 +1,8 @@
 ﻿using AutoMapper;
+using GestaoDeProjeto.Aplicacao.DML.Usuarios;
 using GestaoDeProjeto.Dominio.Entidade;
 
-namespace GestaoDeProjeto.Aplicacao.DML.Usuarios
+namespace GestaoDeProjeto.Aplicacao.Profiles
 {
     public class UsuarioProfile : Profile
     {
@@ -18,7 +19,7 @@ namespace GestaoDeProjeto.Aplicacao.DML.Usuarios
 
             CreateMap<Usuario, UsuarioObterTodosRequest>().ReverseMap();
             CreateMap<Usuario, UsuarioObterTodosResponse>().ReverseMap();
- 
+
         }
     }
 }

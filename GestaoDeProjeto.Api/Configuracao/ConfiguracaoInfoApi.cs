@@ -1,4 +1,5 @@
 ﻿using Microsoft.OpenApi.Models;
+using Swashbuckle.AspNetCore.SwaggerUI;
 
 namespace GestaoDeProjeto.Api.Configuracao
 {
@@ -26,6 +27,19 @@ namespace GestaoDeProjeto.Api.Configuracao
                         Url = new Uri("https://example.com/"),
                     }
                 });
+            });
+        }
+
+        internal static void ConfiguracaoSwagger(this IApplicationBuilder app)
+        {
+            app.UseSwaggerUI(options =>
+            {
+                options.SwaggerEndpoint("/swagger/v1/swagger.json", typeof(Program).Assembly.GetName().Name);
+
+                // Adiciona o botão "Authorize" ao Swagger UI
+                options.DocExpansion(DocExpansion.List);
+                options.RoutePrefix = "swagger";
+                options.DisplayRequestDuration();
             });
         }
     }
