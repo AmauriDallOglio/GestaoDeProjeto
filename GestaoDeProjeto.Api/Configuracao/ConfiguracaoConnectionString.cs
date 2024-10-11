@@ -7,11 +7,10 @@ namespace GestaoDeProjeto.Api.Configuracao
     {
         public static void CarregaConexaoComBancoDeDados(this IServiceCollection services, IConfigurationRoot configuration)
         {
-            //var connectionString = configuration["ConnectionStrings:ConexaoPadrao"];
-            //services.AddDbContext<GestaoDeProjetoContexto>(options => options.UseSqlServer(connectionString));
-
-            string connectionString = "Server=SERVER;Database=GestaoDeProjeto;Trusted_Connection=True;Encrypt=False";
+            var connectionString = configuration["ConnectionStrings:Gravacao"];
             services.AddDbContext<GestaoDeProjetoContexto>(options => options.UseSqlServer(connectionString));
+
+ 
         }
 
     }
