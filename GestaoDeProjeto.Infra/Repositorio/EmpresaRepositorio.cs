@@ -15,12 +15,12 @@ namespace GestaoDeProjeto.Infra.Repositorio
 
         public async Task<List<Empresa>> BuscarTodosAsync()
         {
-            List<Empresa> lista = await _contexto.Empresa
-                                  .Include(a => a.ListaProjetos)
-                                  .Include(a => a.ListaSquads)
-                                  .Include(a => a.ListaUsuarios).ToListAsync();
- 
-   
+            List<Empresa> lista = await _contexto.Empresa.ToListAsync();
+            //.Include(a => a.ListaProjetos)
+            //.Include(a => a.ListaSquads)
+            /*  .Include(a => a.ListaUsuarios)*/
+
+
 
             return lista;
         }

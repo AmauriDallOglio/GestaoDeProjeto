@@ -45,8 +45,8 @@ namespace GestaoDeProjeto.Aplicacao.DML.Usuarios
             var orderby = filtro.CriterioOrderBy;
             var includeProperties = filtro.Includes;
 
-  
-            var lista = await _iUsuarioRepositorio.ObterTodosAsync(where, orderby, "", false, null, null, cancellationToken);
+
+            List<Usuario> lista = await _iUsuarioRepositorio.ObterTodosUsuarios(); //.ObterTodosAsync(where, orderby, "", false, null, null, cancellationToken);
  
             List<UsuarioObterTodosResponse> response = _mapper.Map<List<UsuarioObterTodosResponse>>(lista);
             RetornoPaginadoGenerico<UsuarioObterTodosResponse> retornoPaginado = new RetornoPaginadoGenerico<UsuarioObterTodosResponse>

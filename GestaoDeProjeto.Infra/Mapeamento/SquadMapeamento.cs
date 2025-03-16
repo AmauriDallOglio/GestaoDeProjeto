@@ -18,8 +18,8 @@ namespace GestaoDeProjeto.Infra.Mapeamento
             builder.HasKey(s => s.Id);
             builder.Property(s => s.Id).HasColumnName("Id").HasColumnType("INT").UseIdentityColumn().IsRequired();
             builder.Property(s => s.Id_Empresa).HasColumnName("Id_Empresa").HasColumnType("INT").IsRequired(true);
-            //builder.HasOne(u => u.Empresa).WithMany().HasForeignKey(u => u.Id_Empresa).OnDelete(DeleteBehavior.Restrict);
-            builder.HasOne(u => u.Empresa).WithMany(a => a.ListaSquads).HasForeignKey(u => u.Id_Empresa).OnDelete(DeleteBehavior.Restrict);
+            ////builder.HasOne(u => u.Empresa).WithMany().HasForeignKey(u => u.Id_Empresa).OnDelete(DeleteBehavior.Restrict);
+            //builder.HasOne(u => u.Empresa).WithMany(a => a.ListaSquads).HasForeignKey(u => u.Id_Empresa).OnDelete(DeleteBehavior.Restrict);
             builder.Property(s => s.Descricao).HasColumnName("Descricao").HasColumnType("VARCHAR").HasMaxLength(300).IsRequired();
             //builder.Property(s => s.ArrayImagem).HasColumnName("ArrayImagem").HasColumnType("VARBINARY(MAX)").IsRequired(false);
             //builder.Property(s => s.UrlImagem).HasColumnName("UrlImagem").HasColumnType("VARCHAR(MAX)").IsRequired(false);

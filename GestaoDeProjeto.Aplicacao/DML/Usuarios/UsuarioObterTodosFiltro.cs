@@ -7,7 +7,7 @@ namespace GestaoDeProjeto.Aplicacao.DML.Usuarios
     {
         public UsuarioObterTodosFiltro(UsuarioObterTodosRequest filtro)
         {
-            Includes.Add(a => a.Empresa);
+           // Includes.Add(a => a.Empresa);
             if (!string.IsNullOrEmpty(filtro.Nome))
             {
                 CriterioWhere = p => p.Nome.Contains(filtro.Nome);
